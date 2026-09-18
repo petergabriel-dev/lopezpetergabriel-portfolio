@@ -1,5 +1,10 @@
 import type { Project } from "./types";
 
+export const projectsContent = {
+  eyebrow: "projects.tsx",
+  heading: "Selected builds",
+} as const;
+
 export const projects: readonly Project[] = [
   {
     context: "Sieitz Innovations",

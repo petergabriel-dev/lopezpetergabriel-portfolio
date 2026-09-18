@@ -1,10 +1,10 @@
 import { EditorShell } from "@/components/EditorShell";
 import { EditorTabBar, type EditorTab } from "@/components/EditorTabBar";
 import { AboutPanel } from "@/components/panels/AboutPanel";
+import { ProjectsPanel } from "@/components/panels/ProjectsPanel";
+import { aboutContent } from "@/content/about";
 import { contactContent, contactLinks } from "@/content/contact";
 import { experience } from "@/content/experience";
-import { projects } from "@/content/projects";
-import { aboutContent } from "@/content/about";
 
 const tabs: readonly EditorTab[] = [
   { id: "about", label: "about.md" },
@@ -18,16 +18,7 @@ export default function Home() {
     <EditorShell availabilityLabel={aboutContent.availability}>
       <EditorTabBar tabs={tabs}>
         <AboutPanel />
-        <div>
-          <p>projects.tsx</p>
-          <h2>Selected builds</h2>
-          {projects.map((project) => (
-            <article key={project.title}>
-              <h3>{project.title}</h3>
-              <p>{project.copy}</p>
-            </article>
-          ))}
-        </div>
+        <ProjectsPanel />
         <div>
           <p>experience.json</p>
           <h2>Experience</h2>

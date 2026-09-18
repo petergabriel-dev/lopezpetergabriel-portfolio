@@ -1,0 +1,58 @@
+.card {
+  display: flex;
+  min-inline-size: 0;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border: var(--border-width-hairline) solid var(--color-border-default);
+  border-radius: var(--radius-card);
+  background: var(--color-surface-raised);
+  transition: border-color var(--motion-duration-fast) var(--motion-ease-standard), transform var(--motion-duration-fast) var(--motion-ease-standard);
+}
+
+.card:hover,
+.card:focus-within {
+  border-color: var(--color-link);
+  transform: translateY(calc(-1 * var(--space-1)));
+}
+
+.context {
+  margin: 0;
+  color: var(--color-content-secondary);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-label);
+}
+
+.title {
+  margin: 0;
+  color: var(--color-content-primary);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-heading);
+}
+
+.copy,
+.note {
+  margin: 0;
+  color: var(--color-content-secondary);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.note {
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-body-small);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transform: none;
+    transition-duration: var(--motion-duration-reduced);
+  }
+}
