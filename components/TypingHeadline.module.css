@@ -1,0 +1,35 @@
+.headline {
+  max-inline-size: var(--measure-body);
+  margin: 0;
+  color: var(--color-content-primary);
+  font-size: var(--font-size-display);
+  line-height: var(--line-height-heading);
+  overflow-wrap: anywhere;
+}
+
+.cursor,
+.cursorSettled {
+  display: inline-block;
+  inline-size: var(--size-cursor-width);
+  block-size: var(--size-cursor-block);
+  margin-inline-start: var(--space-2);
+  background: var(--color-link);
+  content: "";
+  vertical-align: var(--size-cursor-offset);
+}
+
+.cursorSettled {
+  animation: blink calc(var(--motion-duration-panel) * 5) steps(2, start) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursorSettled {
+    animation: none;
+  }
+}

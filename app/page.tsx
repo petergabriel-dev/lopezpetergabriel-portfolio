@@ -1,9 +1,10 @@
-import { aboutContent } from "@/content/about";
+import { EditorShell } from "@/components/EditorShell";
+import { EditorTabBar, type EditorTab } from "@/components/EditorTabBar";
+import { AboutPanel } from "@/components/panels/AboutPanel";
 import { contactContent, contactLinks } from "@/content/contact";
 import { experience } from "@/content/experience";
 import { projects } from "@/content/projects";
-import { EditorShell } from "@/components/EditorShell";
-import { EditorTabBar, type EditorTab } from "@/components/EditorTabBar";
+import { aboutContent } from "@/content/about";
 
 const tabs: readonly EditorTab[] = [
   { id: "about", label: "about.md" },
@@ -16,13 +17,7 @@ export default function Home() {
   return (
     <EditorShell availabilityLabel={aboutContent.availability}>
       <EditorTabBar tabs={tabs}>
-        <div>
-          <p>{aboutContent.eyebrow}</p>
-          <h1>{aboutContent.headline}</h1>
-          {aboutContent.paragraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
+        <AboutPanel />
         <div>
           <p>projects.tsx</p>
           <h2>Selected builds</h2>
