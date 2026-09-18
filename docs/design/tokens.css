@@ -1,0 +1,178 @@
+/* Portfolio editor design tokens. */
+
+:root {
+  color-scheme: light;
+
+  /* @primitive */
+  --primitive-color-white: #ffffff;
+  --primitive-color-gray-50: #f6f8fa;
+  --primitive-color-gray-100: #eaeef2;
+  --primitive-color-gray-300: #d0d7de;
+  --primitive-color-gray-500: #57606a;
+  --primitive-color-gray-900: #24292f;
+  --primitive-color-blue-600: #0969da;
+  --primitive-color-green-600: #1a7f37;
+  --primitive-color-purple-600: #8250df;
+  --primitive-color-orange-700: #bc4c00;
+
+  --primitive-color-dark-page: #0d1117;
+  --primitive-color-dark-panel: #161b22;
+  --primitive-color-dark-raised: #21262d;
+  --primitive-color-dark-border: #30363d;
+  --primitive-color-dark-text: #f0f6fc;
+  --primitive-color-dark-secondary: #8b949e;
+  --primitive-color-dark-link: #58a6ff;
+  --primitive-color-dark-positive: #3fb950;
+  --primitive-color-dark-purple: #bc8cff;
+  --primitive-color-dark-orange: #d29922;
+
+  --primitive-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --primitive-font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --primitive-size-1: 0.25rem;
+  --primitive-size-2: 0.5rem;
+  --primitive-size-3: 0.75rem;
+  --primitive-size-4: 1rem;
+  --primitive-size-5: 1.25rem;
+  --primitive-size-6: 1.5rem;
+  --primitive-size-8: 2rem;
+  --primitive-size-10: 2.5rem;
+  --primitive-size-12: 3rem;
+  --primitive-size-16: 4rem;
+
+  --primitive-font-size-xs: 0.6875rem;
+  --primitive-font-size-sm: 0.8125rem;
+  --primitive-font-size-md: 1rem;
+  --primitive-font-size-lg: 1.25rem;
+  --primitive-font-size-xl: clamp(1.5rem, 4vw, 2.25rem);
+  --primitive-font-size-2xl: clamp(2rem, 6vw, 3.5rem);
+  --primitive-tracking-label: 0.04em;
+  --primitive-cursor-width: 0.08em;
+  --primitive-cursor-offset: -0.1em;
+  --primitive-cursor-block: 1em;
+
+  --primitive-leading-tight: 1.2;
+  --primitive-leading-normal: 1.5;
+  --primitive-leading-loose: 1.75;
+
+  --primitive-radius-sm: 0.25rem;
+  --primitive-radius-md: 0.5rem;
+  --primitive-radius-lg: 0.75rem;
+  --primitive-radius-pill: 999rem;
+
+  --primitive-border-hairline: 0.0625rem;
+  --primitive-focus-width: 0.125rem;
+  --primitive-focus-offset: 0.125rem;
+
+  --primitive-duration-fast: 120ms;
+  --primitive-duration-panel: 180ms;
+  --primitive-duration-typing: 48ms;
+  --primitive-duration-reduced: 0.001ms;
+  --primitive-min-page-block-size: 100vh;
+  --primitive-min-shell-block-size: 40rem;
+  --primitive-fluid-panel-block-space: 6vw;
+  --primitive-fluid-panel-inline-space: 7vw;
+  --primitive-measure-body: 46rem;
+  --primitive-control-height: 2.5rem;
+  --primitive-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* @semantic */
+  --color-surface-page: var(--primitive-color-white);
+  --color-surface-panel: var(--primitive-color-gray-50);
+  --color-surface-raised: var(--primitive-color-white);
+  --color-surface-inset: var(--primitive-color-gray-100);
+  --color-content-primary: var(--primitive-color-gray-900);
+  --color-content-secondary: var(--primitive-color-gray-500);
+  --color-content-muted: var(--primitive-color-gray-500);
+  --color-content-on-accent: var(--primitive-color-white);
+  --color-border-default: var(--primitive-color-gray-300);
+  --color-border-subtle: var(--primitive-color-gray-100);
+  --color-border-focus: var(--primitive-color-blue-600);
+  --color-link: var(--primitive-color-blue-600);
+  --color-link-hover: var(--primitive-color-blue-600);
+  --color-positive: var(--primitive-color-green-600);
+  --color-secondary: var(--primitive-color-purple-600);
+  --color-warning: var(--primitive-color-orange-700);
+  --color-code-key: var(--primitive-color-purple-600);
+  --color-code-string: var(--primitive-color-green-600);
+  --color-code-number: var(--primitive-color-orange-700);
+  --color-code-punctuation: var(--primitive-color-gray-500);
+  --color-code-comment: var(--primitive-color-gray-500);
+  --color-status-surface: var(--primitive-color-gray-900);
+  --color-status-content: var(--primitive-color-white);
+
+  --font-family-ui: var(--primitive-font-mono);
+  --font-family-body: var(--primitive-font-sans);
+  --font-family-mono: var(--primitive-font-mono);
+  --font-size-label: var(--primitive-font-size-xs);
+  --font-size-body: var(--primitive-font-size-md);
+  --font-size-body-small: var(--primitive-font-size-sm);
+  --font-size-heading: var(--primitive-font-size-xl);
+  --font-size-display: var(--primitive-font-size-2xl);
+  --line-height-heading: var(--primitive-leading-tight);
+  --line-height-body: var(--primitive-leading-loose);
+  --line-height-ui: var(--primitive-leading-normal);
+
+  --space-1: var(--primitive-size-1);
+  --space-2: var(--primitive-size-2);
+  --space-3: var(--primitive-size-3);
+  --space-4: var(--primitive-size-4);
+  --space-5: var(--primitive-size-5);
+  --space-6: var(--primitive-size-6);
+  --space-8: var(--primitive-size-8);
+  --space-10: var(--primitive-size-10);
+  --space-12: var(--primitive-size-12);
+  --space-16: var(--primitive-size-16);
+
+  --radius-control: var(--primitive-radius-sm);
+  --radius-card: var(--primitive-radius-md);
+  --radius-shell: var(--primitive-radius-lg);
+  --radius-pill: var(--primitive-radius-pill);
+  --border-width-hairline: var(--primitive-border-hairline);
+  --focus-width: var(--primitive-focus-width);
+  --focus-offset: var(--primitive-focus-offset);
+  --motion-duration-fast: var(--primitive-duration-fast);
+  --motion-duration-panel: var(--primitive-duration-panel);
+  --motion-duration-typing: var(--primitive-duration-typing);
+  --motion-duration-reduced: var(--primitive-duration-reduced);
+  --motion-ease-standard: var(--primitive-ease-standard);
+  --type-tracking-label: var(--primitive-tracking-label);
+  --size-cursor-width: var(--primitive-cursor-width);
+  --size-cursor-offset: var(--primitive-cursor-offset);
+  --size-cursor-block: var(--primitive-cursor-block);
+  --min-page-block-size: var(--primitive-min-page-block-size);
+  --min-shell-block-size: var(--primitive-min-shell-block-size);
+  --space-fluid-panel-block: var(--primitive-fluid-panel-block-space);
+  --space-fluid-panel-inline: var(--primitive-fluid-panel-inline-space);
+  --measure-body: var(--primitive-measure-body);
+  --control-height: var(--primitive-control-height);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* @semantic */
+  --color-surface-page: var(--primitive-color-dark-page);
+  --color-surface-panel: var(--primitive-color-dark-panel);
+  --color-surface-raised: var(--primitive-color-dark-raised);
+  --color-surface-inset: var(--primitive-color-dark-page);
+  --color-content-primary: var(--primitive-color-dark-text);
+  --color-content-secondary: var(--primitive-color-dark-secondary);
+  --color-content-muted: var(--primitive-color-dark-secondary);
+  --color-content-on-accent: var(--primitive-color-dark-page);
+  --color-border-default: var(--primitive-color-dark-border);
+  --color-border-subtle: var(--primitive-color-dark-border);
+  --color-border-focus: var(--primitive-color-dark-link);
+  --color-link: var(--primitive-color-dark-link);
+  --color-link-hover: var(--primitive-color-dark-link);
+  --color-positive: var(--primitive-color-dark-positive);
+  --color-secondary: var(--primitive-color-dark-purple);
+  --color-warning: var(--primitive-color-dark-orange);
+  --color-code-key: var(--primitive-color-dark-purple);
+  --color-code-string: var(--primitive-color-dark-positive);
+  --color-code-number: var(--primitive-color-dark-orange);
+  --color-code-punctuation: var(--primitive-color-dark-secondary);
+  --color-code-comment: var(--primitive-color-dark-secondary);
+  --color-status-surface: var(--primitive-color-dark-raised);
+  --color-status-content: var(--primitive-color-dark-text);
+}

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio editor design system preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./preview.css" />
+  </head>
+  <body>
+    <main class="preview-page">
+      <header class="preview-header">
+        <div>
+          <p class="preview-kicker">design system / editor light</p>
+          <h1>Portfolio editor preview</h1>
+        </div>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Use dark theme</button>
+      </header>
+
+      <section class="preview-section" aria-labelledby="shell-heading">
+        <div>
+          <p class="preview-label">foundation composition</p>
+          <h2 id="shell-heading">Editor shell</h2>
+        </div>
+
+        <div class="editor-shell">
+          <div class="tab-list" role="tablist" aria-label="Portfolio files">
+            <button class="tab" type="button" role="tab" aria-selected="true" aria-controls="preview-about" id="preview-about-tab">about.md</button>
+            <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="preview-projects" id="preview-projects-tab">projects.tsx</button>
+            <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="preview-experience" id="preview-experience-tab">experience.json</button>
+            <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="preview-contact" id="preview-contact-tab">contact.md</button>
+          </div>
+
+          <section class="editor-panel" role="tabpanel" tabindex="0" aria-labelledby="preview-about-tab" id="preview-about">
+            <div class="editor-panel__copy">
+              <p class="editor-panel__eyebrow">about.md</p>
+              <h2 class="editor-panel__headline">Peter Gabriel Lopez — Backend Engineer &amp; AI Automation Specialist</h2>
+              <p class="editor-panel__body">I build backend systems, AI-agent workflows, and dependable automations across Go, Laravel/PHP, Python, n8n, Make.com, and GoHighLevel. I work full-time as a Data Analyst at DILG Region VI while taking on focused freelance and contract engagements.</p>
+              <p class="editor-panel__body">Open to contract work across timezones, with a preference for useful systems over noisy demos.</p>
+              <span class="availability" aria-label="Available for contract work"><span class="availability__dot" aria-hidden="true"></span>available for contract work</span>
+            </div>
+          </section>
+
+          <section class="editor-panel" role="tabpanel" tabindex="0" aria-labelledby="preview-projects-tab" id="preview-projects" hidden>
+            <div class="editor-panel__copy">
+              <p class="editor-panel__eyebrow">projects.tsx</p>
+              <h2>Selected builds</h2>
+              <div class="project-stack">
+                <article class="project-card">
+                  <p class="project-card__meta">Sieitz Innovations</p>
+                  <h3>Multi-Agent Branding Guide Generator</h3>
+                  <p class="project-card__copy">A coordinated research, strategy, and copy workflow that turns a trigger into a synced Notion branding guide.</p>
+                  <ul class="tag-list" aria-label="Technologies"><li class="tag">n8n</li><li class="tag">Multi-Agent Orchestration</li><li class="tag">Notion API</li><li class="tag">AI Agents</li></ul>
+                  <div class="flow-diagram" role="img" aria-label="Trigger, Researcher Agent, Strategist Agent, Copywriter Agent, Notion Sync">
+                    <div class="flow-track"><span class="flow-node">Trigger</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Researcher Agent</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Strategist Agent</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Copywriter Agent</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Notion Sync</span></div>
+                  </div>
+                </article>
+                <article class="project-card">
+                  <p class="project-card__meta">DILG Region VI</p>
+                  <h3>Regional Data Warehouse System</h3>
+                  <p class="project-card__copy">A digitization pipeline and backend system that moves paper records into a Laravel/MySQL service with a React dashboard.</p>
+                  <ul class="tag-list" aria-label="Technologies"><li class="tag">Laravel</li><li class="tag">MySQL</li><li class="tag">React</li><li class="tag">Docker</li></ul>
+                  <div class="flow-diagram" role="img" aria-label="Paper Records, Digitization Pipeline, Laravel and MySQL Backend, React Dashboard">
+                    <div class="flow-track"><span class="flow-node">Paper Records</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Digitization Pipeline</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Laravel/MySQL Backend</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">React Dashboard</span></div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="editor-panel" role="tabpanel" tabindex="0" aria-labelledby="preview-experience-tab" id="preview-experience" hidden>
+            <div class="editor-panel__copy">
+              <p class="editor-panel__eyebrow">experience.json</p>
+              <h2>Experience</h2>
+              <div class="experience-stack">
+                <article class="experience-record"><span class="experience-key">"role"</span><h3 class="experience-value">Data Analyst — DILG Region VI</h3><span class="experience-date">"Jun 2026–Present"</span><p class="experience-description">Current full-time role, shown as credibility context.</p></article>
+                <article class="experience-record"><span class="experience-key">"role"</span><h3 class="experience-value">Lead Automation Specialist — Adsome / Stromberg Media AB</h3><span class="experience-date">"Jan 2026–Present"</span><p class="experience-description">Part-time automation work alongside client engagements.</p></article>
+                <article class="experience-record"><span class="experience-key">"education"</span><h3 class="experience-value">BS Computer Science — Iloilo Science and Technology University</h3><span class="experience-date">"2021–2025"</span></article>
+              </div>
+            </div>
+          </section>
+
+          <section class="editor-panel" role="tabpanel" tabindex="0" aria-labelledby="preview-contact-tab" id="preview-contact" hidden>
+            <div class="editor-panel__copy">
+              <p class="editor-panel__eyebrow">contact.md</p>
+              <h2>Open a conversation</h2>
+              <p class="editor-panel__body">No contact form. Send a direct note about an automation, backend, or AI-agent build.</p>
+              <div class="contact-stack">
+                <a class="contact-link" href="mailto:lopezpetergabriel@gmail.com">lopezpetergabriel@gmail.com</a>
+                <a class="contact-link" href="https://github.com/petergabriel-dev">github.com/petergabriel-dev</a>
+                <span>LinkedIn — profile link pending before launch</span>
+                <span class="availability" aria-label="Available for contract work"><span class="availability__dot" aria-hidden="true"></span>available for contract work</span>
+              </div>
+            </div>
+          </section>
+
+          <footer class="status-bar">
+            <span aria-hidden="true">⎇ main</span>
+            <span class="status-bar__availability"><span class="availability" aria-label="Available for contract work"><span class="availability__dot" aria-hidden="true"></span>available for contract work</span></span>
+            <a class="status-bar__resume" href="#resume">⬇ resume.pdf</a>
+          </footer>
+        </div>
+      </section>
+    </main>
+    <script src="./preview.js" defer></script>
+  </body>
+</html>
