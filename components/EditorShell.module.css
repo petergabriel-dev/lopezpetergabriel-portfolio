@@ -8,6 +8,15 @@
   background: var(--color-surface-page);
 }
 
+.header {
+  display: flex;
+  flex: none;
+  justify-content: flex-end;
+  padding: var(--space-3) var(--space-4);
+  border-block-end: var(--border-width-hairline) solid var(--color-border-default);
+  background: var(--color-surface-panel);
+}
+
 .content {
   display: flex;
   min-block-size: 0;

@@ -2,6 +2,22 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
+const themeScript = `
+(() => {
+  try {
+    const stored = window.localStorage.getItem("portfolio-theme");
+    if (stored === "light" || stored === "dark") {
+      document.documentElement.dataset.theme = stored;
+      return;
+    }
+  } catch {}
+
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    document.documentElement.dataset.theme = "dark";
+  }
+})();
+`;
+
 const inter = Inter({
   variable: "--primitive-font-sans",
   subsets: ["latin"],
@@ -21,7 +37,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetBrainsMono.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${jetBrainsMono.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{ __html: themeScript }}
+          id="theme-resolution"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );
