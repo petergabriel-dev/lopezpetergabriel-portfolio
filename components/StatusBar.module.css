@@ -1,0 +1,29 @@
+.bar {
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-5);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-status-surface);
+  color: var(--color-status-content);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-label);
+}
+
+.branch {
+  white-space: nowrap;
+}
+
+.availability {
+  color: var(--color-positive);
+}
+
+.resume {
+  color: var(--color-status-content);
+}
+
+.resume:hover {
+  color: var(--color-status-content);
+}

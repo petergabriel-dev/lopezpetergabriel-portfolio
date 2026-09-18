@@ -1,0 +1,16 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-positive);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-label);
+}
+
+.dot {
+  inline-size: var(--space-2);
+  block-size: var(--space-2);
+  flex: none;
+  border-radius: var(--radius-pill);
+  background: currentColor;
+}
