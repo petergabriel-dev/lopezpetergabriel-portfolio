@@ -1,0 +1,26 @@
+.copy {
+  display: flex;
+  max-inline-size: var(--measure-body);
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--color-secondary);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-body-small);
+}
+
+.heading {
+  margin: 0;
+  color: var(--color-content-primary);
+  font-size: var(--font-size-heading);
+  line-height: var(--line-height-heading);
+}
+
+.stack {
+  display: flex;
+  min-inline-size: 0;
+  flex-direction: column;
+}

@@ -1,5 +1,10 @@
 import type { ExperienceEntry } from "./types";
 
+export const experienceContent = {
+  eyebrow: "experience.json",
+  heading: "Experience",
+} as const;
+
 export const experience: readonly ExperienceEntry[] = [
   {
     key: "role",
