@@ -1,23 +1,64 @@
 import { aboutContent } from "@/content/about";
+import { contactContent, contactLinks } from "@/content/contact";
+import { experience } from "@/content/experience";
+import { projects } from "@/content/projects";
 import { EditorShell } from "@/components/EditorShell";
-import styles from "./page.module.css";
+import { EditorTabBar, type EditorTab } from "@/components/EditorTabBar";
+
+const tabs: readonly EditorTab[] = [
+  { id: "about", label: "about.md" },
+  { id: "projects", label: "projects.tsx" },
+  { id: "experience", label: "experience.json" },
+  { id: "contact", label: "contact.md" },
+];
 
 export default function Home() {
   return (
     <EditorShell availabilityLabel={aboutContent.availability}>
-      <section className={styles.panel} aria-labelledby="about-heading">
-        <div className={styles.copy}>
-          <p className={styles.eyebrow}>{aboutContent.eyebrow}</p>
-          <h1 id="about-heading" className={styles.headline}>
-            {aboutContent.headline}
-          </h1>
+      <EditorTabBar tabs={tabs}>
+        <div>
+          <p>{aboutContent.eyebrow}</p>
+          <h1>{aboutContent.headline}</h1>
           {aboutContent.paragraphs.map((paragraph) => (
-            <p className={styles.body} key={paragraph}>
-              {paragraph}
-            </p>
+            <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
-      </section>
+        <div>
+          <p>projects.tsx</p>
+          <h2>Selected builds</h2>
+          {projects.map((project) => (
+            <article key={project.title}>
+              <h3>{project.title}</h3>
+              <p>{project.copy}</p>
+            </article>
+          ))}
+        </div>
+        <div>
+          <p>experience.json</p>
+          <h2>Experience</h2>
+          {experience.map((entry) => (
+            <article key={entry.value}>
+              <h3>{entry.value}</h3>
+              <p>{entry.date}</p>
+              {entry.description ? <p>{entry.description}</p> : null}
+            </article>
+          ))}
+        </div>
+        <div>
+          <p>{contactContent.eyebrow}</p>
+          <h2>{contactContent.heading}</h2>
+          <p>{contactContent.body}</p>
+          {contactLinks.map((link) =>
+            link.href ? (
+              <p key={link.label}>
+                <a href={link.href}>{link.label}</a>
+              </p>
+            ) : (
+              <p key={link.label}>{link.label}</p>
+            ),
+          )}
+        </div>
+      </EditorTabBar>
     </EditorShell>
   );
 }
