@@ -28,9 +28,11 @@ export function RepoList({ profileUrl, repos }: RepoListProps) {
       <ul className={styles.list}>
         {repos.map((repo) => (
           <li className={styles.row} key={repo.url}>
-            <a className={styles.name} href={repo.url} rel="noopener noreferrer">
-              {repo.name}
-            </a>
+            <h3 className={styles.name}>
+              <a className={styles.repoLink} href={repo.url} rel="noopener noreferrer">
+                {repo.name}
+              </a>
+            </h3>
             {repo.description ? <p className={styles.description}>{repo.description}</p> : null}
             <div className={styles.meta}>
               <span>{`Language: ${repo.language ?? "—"}`}</span>

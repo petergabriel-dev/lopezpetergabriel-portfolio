@@ -21,20 +21,25 @@
   border-block-end: var(--border-width-hairline) solid var(--color-border-subtle);
 }
 
-.name,
+.name {
+  margin: 0;
+  font-size: var(--font-size-body-small);
+  line-height: var(--line-height-heading);
+}
+
+.repoLink,
 .profileLink {
   color: var(--color-link);
   font-family: var(--font-family-ui);
-  font-size: var(--font-size-body-small);
   font-weight: 700;
 }
 
-.name:hover,
+.repoLink:hover,
 .profileLink:hover {
   color: var(--color-link-hover);
 }
 
-.name:focus-visible,
+.repoLink:focus-visible,
 .profileLink:focus-visible {
   outline: var(--focus-width) solid var(--color-border-focus);
   outline-offset: var(--focus-offset);

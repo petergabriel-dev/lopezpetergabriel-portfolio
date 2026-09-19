@@ -1,6 +1,7 @@
 .copy {
+  --panel-measure: var(--measure-wide);
   display: flex;
-  max-inline-size: var(--measure-body);
+  max-inline-size: var(--measure-wide);
   flex-direction: column;
   gap: var(--space-5);
 }
@@ -17,6 +18,26 @@
   color: var(--color-content-primary);
   font-size: var(--font-size-heading);
   line-height: var(--line-height-heading);
+}
+
+.columns {
+  display: grid;
+  min-inline-size: 0;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+  gap: var(--space-6);
+}
+
+.column {
+  display: flex;
+  min-inline-size: 0;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.syncDate {
+  color: var(--color-content-secondary);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-label);
 }
 
 .stack {
