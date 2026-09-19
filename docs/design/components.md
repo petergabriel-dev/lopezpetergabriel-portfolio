@@ -108,9 +108,9 @@ All component examples consume semantic tokens from `tokens.css`. Values below a
 
 **Token contract:** `--color-link`, `--color-link-hover`, `--color-border-focus`, `--color-border-subtle`, `--color-content-secondary`, `--font-family-ui`, `--font-size-body-small`, `--font-size-label`, `--space-*`.
 
-**Behavior:** Render committed `content/github.ts` data only. Repository and profile links use `rel="noopener noreferrer"`; an empty repository array renders no shell. Dates are absolute and the visible snapshot sync date identifies staleness.
+**Behavior:** Render committed `content/github.ts` data only. Repository and profile links use `rel="noopener noreferrer"`; an empty repository array renders no shell. Dates are absolute and the visible snapshot sync date identifies staleness. The list viewport shows five rows at a time, with remaining snapshot rows reachable by vertical scroll.
 
-**Responsive:** Rows remain readable in the narrow GitHub column. Metadata wraps as text; no icon-only language or star indicators.
+**Responsive:** The five-row list viewport scrolls independently inside the GitHub column. Metadata wraps as text; no icon-only language or star indicators.
 
 **Accessibility:** Repository names are `h3` links. Language, stars, dates, and profile action remain real text with visible focus.
 

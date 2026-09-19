@@ -16,7 +16,7 @@
 
 - `docs/design/components.md` describes the shipped two project cards and three experience records; design-source history may describe broader future content, but that is not permission to invent records.
 - jsdom can verify roles, names, ARIA state, and axe output, but not real focus-ring visibility, OS reduced-motion behavior, pre-paint flash, or responsive overflow. Use browser/manual checks for those contracts.
-- Project step chains wrap inside cards; the contribution grid owns its nested horizontal viewport. Verify nested scroll at narrow widths and never let the page acquire horizontal overflow.
+- Project step chains wrap inside cards; `RepoList` owns a five-row vertical viewport and the contribution grid owns its nested horizontal viewport. Verify both nested scroll owners at narrow widths and never let the page acquire horizontal overflow.
 - GitHub snapshot data can become stale; the visible UTC sync date is intentional and does not pretend to be live. Rotate or replace the local PAT when sync fails; never commit `.env.local` or a token.
 - Contribution semantic roles are duplicated in light, explicit-dark, and OS-dark token blocks. Update all three blocks or a theme silently falls back.
 - A LinkedIn label is intentionally a plain span until a real profile URL exists. Do not turn it into a dead `href`.

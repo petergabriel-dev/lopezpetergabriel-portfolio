@@ -8,7 +8,7 @@ Components receive content through props or content modules. Do not fabricate co
 
 ### CSS
 
-Use one CSS Module beside each component or panel. Consume semantic variables such as `--color-content-primary`, `--space-*`, `--font-family-*`, and motion tokens. Primitive palette/scale values belong in `app/tokens.css`; components do not invent one-off colors, spacing, radii, or durations. The panel owns vertical overflow; the tab list and project step chains wrap, while the contribution grid owns its bounded horizontal viewport. `ProjectsPanel` opts into `--measure-wide` through the `--panel-measure` hook; other panels retain `--measure-body`. Intrinsic `auto-fit` collapse replaces width media queries.
+Use one CSS Module beside each component or panel. Consume semantic variables such as `--color-content-primary`, `--space-*`, `--font-family-*`, and motion tokens. Primitive palette/scale values belong in `app/tokens.css`; components do not invent one-off colors, spacing, radii, or durations. The panel owns page-level vertical overflow; the tab list and project step chains wrap. `RepoList` owns its five-row vertical viewport, while the contribution grid owns its bounded horizontal viewport. `ProjectsPanel` opts into `--measure-wide` through the `--panel-measure` hook; other panels retain `--measure-body`. Intrinsic `auto-fit` collapse replaces width media queries.
 
 ### Accessibility
 

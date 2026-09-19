@@ -5,6 +5,17 @@
   gap: var(--space-4);
 }
 
+.listViewport {
+  min-inline-size: 0;
+  max-block-size: 32rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: var(--color-border-default) var(--color-surface-page);
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  padding-inline-end: var(--space-2);
+}
+
 .list {
   display: flex;
   min-inline-size: 0;

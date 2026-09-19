@@ -25,23 +25,25 @@ export function RepoList({ profileUrl, repos }: RepoListProps) {
 
   return (
     <div className={styles.root}>
-      <ul className={styles.list}>
-        {repos.map((repo) => (
-          <li className={styles.row} key={repo.url}>
-            <h3 className={styles.name}>
-              <a className={styles.repoLink} href={repo.url} rel="noopener noreferrer">
-                {repo.name}
-              </a>
-            </h3>
-            {repo.description ? <p className={styles.description}>{repo.description}</p> : null}
-            <div className={styles.meta}>
-              <span>{`Language: ${repo.language ?? "—"}`}</span>
-              <span>{`${repo.stars} ${repo.stars === 1 ? "star" : "stars"}`}</span>
-              <time dateTime={repo.pushedAt}>{`Updated ${formatUpdatedDate(repo.pushedAt)}`}</time>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <div className={styles.listViewport}>
+        <ul className={styles.list}>
+          {repos.map((repo) => (
+            <li className={styles.row} key={repo.url}>
+              <h3 className={styles.name}>
+                <a className={styles.repoLink} href={repo.url} rel="noopener noreferrer">
+                  {repo.name}
+                </a>
+              </h3>
+              {repo.description ? <p className={styles.description}>{repo.description}</p> : null}
+              <div className={styles.meta}>
+                <span>{`Language: ${repo.language ?? "—"}`}</span>
+                <span>{`${repo.stars} ${repo.stars === 1 ? "star" : "stars"}`}</span>
+                <time dateTime={repo.pushedAt}>{`Updated ${formatUpdatedDate(repo.pushedAt)}`}</time>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
       <a className={styles.profileLink} href={profileUrl} rel="noopener noreferrer">
         View all repositories on GitHub
       </a>

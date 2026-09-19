@@ -125,11 +125,13 @@ describe("accessibility contracts", () => {
     expect(profileLink).toHaveAttribute("href", githubSnapshot.profileUrl);
     expect(profileLink).toHaveAttribute("rel", "noopener noreferrer");
 
-    expect(
-      screen.getByRole("img", {
-        name: `${githubSnapshot.contributions.total} contributions in the last year`,
-      }),
-    ).toBeInTheDocument();
+    const contributionGrid = screen.getByRole("img", {
+      name: `${githubSnapshot.contributions.total} contributions in the last year`,
+    });
+    const firstRepo = screen.getByRole("link", { name: githubSnapshot.repos[0].name });
+    expect(contributionGrid.compareDocumentPosition(firstRepo) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+
+    expect(contributionGrid).toBeInTheDocument();
     expect(document.body.textContent).not.toMatch(/\bago\b/i);
   });
 

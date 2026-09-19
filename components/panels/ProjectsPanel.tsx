@@ -32,11 +32,11 @@ export function ProjectsPanel() {
           <h2 className={styles.heading} id="github-heading">
             GitHub activity
           </h2>
+          <ContributionGrid contributions={githubSnapshot.contributions} />
           <p className={styles.syncDate}>
             Snapshot synced {syncedDateFormatter.format(new Date(githubSnapshot.syncedAt))}
           </p>
           <RepoList profileUrl={githubSnapshot.profileUrl} repos={githubSnapshot.repos} />
-          <ContributionGrid contributions={githubSnapshot.contributions} />
         </section>
       </div>
     </div>

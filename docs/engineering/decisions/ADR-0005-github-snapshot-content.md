@@ -11,7 +11,7 @@ date: 2026-09-19
 
 - Fetch `petergabriel-dev` public non-fork, non-archived repositories and the one-year contribution calendar with the manual `npm run sync:github` script.
 - Validate both GitHub responses before writing the typed `content/github.ts` snapshot; keep the read-only PAT in gitignored local `.env.local` only.
-- Sort repositories by pushed date, cap the snapshot at eight rows, and render contribution totals and repository dates as static absolute UTC text.
+- Sort repositories by pushed date, cap the snapshot at eight rows, show five rows at a time in the scrollable GitHub activity list, and render contribution totals and repository dates as static absolute UTC text.
 - Keep `ProjectsPanel` server-rendered and make no GitHub request from the shipped app, CI, or client bundle.
 
 ## Why
@@ -55,7 +55,7 @@ Code:
 - Good: absolute UTC dates and a visible sync date avoid misleading relative-time copy.
 - Bad/risk: the snapshot becomes stale until the manual sync runs; the UI intentionally reports its sync date rather than hiding that fact.
 - Bad/risk: PAT expiry, GitHub API changes, or contribution-query permissions can block a future refresh; the script fails locally before replacing content.
-- Bad/risk: repository cap and one-year window omit older or longer-term activity by design.
+- Bad/risk: repository cap and one-year window omit older or longer-term activity by design; the five-row viewport adds a second scroll owner inside the panel.
 
 ## Read when
 
