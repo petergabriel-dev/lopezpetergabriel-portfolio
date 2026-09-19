@@ -14,14 +14,17 @@
 
 ### Content and accessibility
 
-- `docs/design/components.md` describes four project cards and six experience records, while verified preview copy currently supplies two cards and three records. This is an intentional content gap, not permission to invent records.
+- `docs/design/components.md` describes the shipped two project cards and three experience records; design-source history may describe broader future content, but that is not permission to invent records.
 - jsdom can verify roles, names, ARIA state, and axe output, but not real focus-ring visibility, OS reduced-motion behavior, pre-paint flash, or responsive overflow. Use browser/manual checks for those contracts.
-- Flow diagrams need bounded overflow. Let the diagram scroll inside its own viewport; never let the page acquire horizontal overflow.
+- Project step chains wrap inside cards; the contribution grid owns its nested horizontal viewport. Verify nested scroll at narrow widths and never let the page acquire horizontal overflow.
+- GitHub snapshot data can become stale; the visible UTC sync date is intentional and does not pretend to be live. Rotate or replace the local PAT when sync fails; never commit `.env.local` or a token.
+- Contribution semantic roles are duplicated in light, explicit-dark, and OS-dark token blocks. Update all three blocks or a theme silently falls back.
 - A LinkedIn label is intentionally a plain span until a real profile URL exists. Do not turn it into a dead `href`.
 
 ### Build, CI, and delivery
 
 - Generated Next types are not guaranteed on a fresh checkout before `npm run typecheck`. `app/layout.tsx` uses explicit `ReactNode` props instead of generated `LayoutProps` so CI typecheck works before `next build`.
+- The projects panel opts into `--measure-wide` through `--panel-measure`; changing `.panel > *` globally can widen unrelated tabs. Keep the intrinsic `auto-fit` collapse and the panel as the vertical scroll owner.
 - Vercel can silently use the connected repository's default branch for production. Set and verify Production Branch as `main`; keep Node aligned with `.nvmrc`. Vercel is external to this repo and its dashboard is the operational source of truth.
 - This machine has multiple GitHub SSH aliases. This repo must use `git@github-personal:...`, not bare `git@github.com:...`, or the wrong SSH identity may be used.
 - `public/resume.pdf` is user-supplied. Without it, the status-bar download link cannot satisfy its real-PDF verification gate.

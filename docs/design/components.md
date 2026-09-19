@@ -84,37 +84,53 @@ All component examples consume semantic tokens from `tokens.css`. Values below a
 
 ## 6. ProjectCard
 
-**Purpose:** Show four flagship case studies as proof, not as a tool list.
+**Purpose:** Show curated case studies as proof, not as a tool list.
 
-**Anatomy:** project title, client/context, problem → build → outcome paragraph, `TagChip` list, `FlowDiagram`.
+**Anatomy:** project title, client/context, problem → build → outcome paragraph, `TagChip` list, wrapping step chain.
 
 **States:** default, hover, focus-within, reduced motion.
 
-**Token contract:** `--color-surface-raised`, `--color-border-default`, `--color-border-focus`, `--color-content-primary`, `--color-content-secondary`, `--radius-card`, `--space-*`, motion tokens.
+**Token contract:** `--color-surface-raised`, `--color-border-default`, `--color-border-focus`, `--color-content-primary`, `--color-content-secondary`, `--color-surface-inset`, `--color-link`, `--radius-card`, `--radius-control`, `--space-*`, motion tokens.
 
-**Behavior:** Cards present: Multi-Agent Branding Guide Generator; AI Video Ad Pipeline; Client Intake Automation; Regional Data Warehouse System. Descriptions stay honest; no fabricated screenshots or metrics.
+**Behavior:** Shipped cards are Multi-Agent Branding Guide Generator and Regional Data Warehouse System. Descriptions stay honest; no fabricated screenshots or metrics. Each step chain names every stage in order and uses decorative arrow separators.
 
-**Responsive:** Stack cards vertically. Flow diagram may scroll within its own region. Tags wrap. Card content remains readable without hover.
+**Responsive:** The projects column stacks cards. Step nodes wrap inside the card without a second horizontal scrollbar. Tags wrap. Card content remains readable without hover.
 
-**Accessibility:** Use a heading hierarchy. If card has a destination, make one clear link target; do not make every decorative child clickable. Hover lift must have a focus-visible equivalent.
+**Accessibility:** Use a heading hierarchy and a text alternative for each step chain. Decorative arrows are hidden from assistive technology. Hover lift must have a focus-visible equivalent.
 
-## 7. FlowDiagram
+## 7. RepoList
 
-**Purpose:** Abstractly communicate a build pipeline.
+**Purpose:** Show current public GitHub repositories beside curated project work.
 
-**Anatomy:** labeled nodes, directional connectors, optional branch/migration note.
+**Anatomy:** linked repository name, optional description, language text, star count, absolute UTC updated date, profile link.
 
-**States:** default, focus only if interactive, overflow, reduced motion.
+**States:** default, hover, focus-visible, short snapshot.
 
-**Token contract:** `--color-surface-inset`, `--color-border-default`, `--color-link`, `--color-secondary`, `--color-content-primary`, `--font-family-mono`, `--font-size-label`, `--space-*`, `--radius-control`.
+**Token contract:** `--color-link`, `--color-link-hover`, `--color-border-focus`, `--color-border-subtle`, `--color-content-secondary`, `--font-family-ui`, `--font-size-body-small`, `--font-size-label`, `--space-*`.
 
-**Behavior:** Render as inline SVG or equivalent semantic markup. Convey sequence with labels and connectors, not decoration. Client Intake includes migration note: later rebuilt on GoHighLevel + Make.com for reliability at scale.
+**Behavior:** Render committed `content/github.ts` data only. Repository and profile links use `rel="noopener noreferrer"`; an empty repository array renders no shell. Dates are absolute and the visible snapshot sync date identifies staleness.
 
-**Responsive:** Preserve node labels. Allow horizontal scrolling or controlled wrapping; never shrink labels below readable size. Keep diagram bounded by panel width.
+**Responsive:** Rows remain readable in the narrow GitHub column. Metadata wraps as text; no icon-only language or star indicators.
 
-**Accessibility:** Provide a concise text alternative naming each step. SVG text must not be the only source of meaning. No animation is needed.
+**Accessibility:** Repository names are `h3` links. Language, stars, dates, and profile action remain real text with visible focus.
 
-## 8. TagChip
+## 8. ContributionGrid
+
+**Purpose:** Show one year of public contribution activity without a runtime GitHub request.
+
+**Anatomy:** accessible total, month labels, seven-row day cells, Less/More legend, bounded horizontal viewport.
+
+**States:** light theme, dark theme, narrow viewport, empty only when snapshot validation permits it.
+
+**Token contract:** `--color-contribution-0` through `--color-contribution-4`, `--color-content-primary`, `--color-content-secondary`, `--font-family-ui`, `--font-size-body-small`, `--font-size-label`, `--radius-control`, `--space-*`.
+
+**Behavior:** Render snapshot weeks as static markup in a `role="img"` region named by the real yearly total. The grid owns horizontal overflow; the page and panel do not. The visible sync date belongs to `ProjectsPanel`.
+
+**Responsive:** Keep cells and gaps on spacing tokens. Scroll the grid inside its own viewport when the GitHub column is narrower than one year.
+
+**Accessibility:** The accessible name states the real total. Cells and legend swatches are presentational; Less/More remains visible as a visual supplement.
+
+## 9. TagChip
 
 **Purpose:** Compact, scannable technology/context labels.
 
@@ -130,7 +146,7 @@ All component examples consume semantic tokens from `tokens.css`. Values below a
 
 **Accessibility:** Text must remain legible in both themes. If noninteractive, do not add button semantics or misleading click affordance.
 
-## 9. ExperienceRecord
+## 10. ExperienceRecord
 
 **Purpose:** Present chronology with JSON/editor flavor while staying human-readable.
 
@@ -146,7 +162,7 @@ All component examples consume semantic tokens from `tokens.css`. Values below a
 
 **Accessibility:** Use headings and lists, not color-coded spans alone. Expose dates as text. Mark punctuation decorative where appropriate.
 
-## 10. ContactAction
+## 11. ContactAction
 
 **Purpose:** Offer honest, direct contact paths without a fake form.
 
