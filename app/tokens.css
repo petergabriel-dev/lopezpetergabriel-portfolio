@@ -12,6 +12,16 @@
   --primitive-color-gray-900: #24292f;
   --primitive-color-blue-600: #0969da;
   --primitive-color-green-600: #1a7f37;
+  --primitive-color-contribution-light-0: #ebedf0;
+  --primitive-color-contribution-light-1: #9be9a8;
+  --primitive-color-contribution-light-2: #40c463;
+  --primitive-color-contribution-light-3: #30a14e;
+  --primitive-color-contribution-light-4: #216e39;
+  --primitive-color-contribution-dark-0: #21262d;
+  --primitive-color-contribution-dark-1: #0e4429;
+  --primitive-color-contribution-dark-2: #006d32;
+  --primitive-color-contribution-dark-3: #26a641;
+  --primitive-color-contribution-dark-4: #39d353;
   --primitive-color-purple-600: #8250df;
   --primitive-color-orange-700: #bc4c00;
 
@@ -70,6 +80,7 @@
   --primitive-fluid-panel-block-space: 6vw;
   --primitive-fluid-panel-inline-space: 7vw;
   --primitive-measure-body: 46rem;
+  --primitive-measure-wide: 78rem;
   --primitive-control-height: 2.5rem;
   --primitive-ease-standard: cubic-bezier(0.2, 0, 0, 1);
 
@@ -97,6 +108,11 @@
   --color-code-comment: var(--primitive-color-gray-500);
   --color-status-surface: var(--primitive-color-gray-900);
   --color-status-content: var(--primitive-color-white);
+  --color-contribution-0: var(--primitive-color-contribution-light-0);
+  --color-contribution-1: var(--primitive-color-contribution-light-1);
+  --color-contribution-2: var(--primitive-color-contribution-light-2);
+  --color-contribution-3: var(--primitive-color-contribution-light-3);
+  --color-contribution-4: var(--primitive-color-contribution-light-4);
 
   --font-family-ui: var(--primitive-font-mono);
   --font-family-body: var(--primitive-font-sans);
@@ -142,6 +158,7 @@
   --space-fluid-panel-block: var(--primitive-fluid-panel-block-space);
   --space-fluid-panel-inline: var(--primitive-fluid-panel-inline-space);
   --measure-body: var(--primitive-measure-body);
+  --measure-wide: var(--primitive-measure-wide);
   --control-height: var(--primitive-control-height);
 }
 
@@ -177,6 +194,12 @@
   --color-code-comment: var(--primitive-color-dark-secondary);
   --color-status-surface: var(--primitive-color-dark-raised);
   --color-status-content: var(--primitive-color-dark-text);
+  --color-contribution-0: var(--primitive-color-contribution-dark-0);
+  --color-contribution-1: var(--primitive-color-contribution-dark-1);
+  --color-contribution-2: var(--primitive-color-contribution-dark-2);
+  --color-contribution-3: var(--primitive-color-contribution-dark-3);
+  --color-contribution-4: var(--primitive-color-contribution-dark-4);
+  --measure-wide: var(--primitive-measure-wide);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -207,5 +230,11 @@
     --color-code-comment: var(--primitive-color-dark-secondary);
     --color-status-surface: var(--primitive-color-dark-raised);
     --color-status-content: var(--primitive-color-dark-text);
+    --color-contribution-0: var(--primitive-color-contribution-dark-0);
+    --color-contribution-1: var(--primitive-color-contribution-dark-1);
+    --color-contribution-2: var(--primitive-color-contribution-dark-2);
+    --color-contribution-3: var(--primitive-color-contribution-dark-3);
+    --color-contribution-4: var(--primitive-color-contribution-dark-4);
+    --measure-wide: var(--primitive-measure-wide);
   }
 }

@@ -61,7 +61,7 @@
 }
 
 .panel > * {
-  max-inline-size: var(--measure-body);
+  max-inline-size: var(--panel-measure, var(--measure-body));
 }
 
 .panel :is(h1, h2, h3, p) {
