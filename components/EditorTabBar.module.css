@@ -42,14 +42,6 @@
   gap: var(--space-6);
   overflow: auto;
   padding: clamp(var(--space-6), var(--space-fluid-panel-block), var(--space-12)) clamp(var(--space-4), var(--space-fluid-panel-inline), var(--space-10));
-  opacity: 0;
-  transform: translateY(var(--space-1));
-  transition: opacity var(--motion-duration-panel) var(--motion-ease-standard), transform var(--motion-duration-panel) var(--motion-ease-standard);
-}
-
-.panel:not([hidden]) {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .panel > * {
@@ -73,11 +65,4 @@
 .panel h3 {
   font-size: var(--font-size-body);
   line-height: var(--line-height-heading);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .panel {
-    transform: none;
-    transition-duration: var(--motion-duration-reduced);
-  }
 }
