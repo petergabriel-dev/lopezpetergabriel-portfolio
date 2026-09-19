@@ -38,8 +38,8 @@ Preview theme control is only a design-preview aid. Production implementation sh
 
 ## Composition rules
 
-- One editor shell fills available viewport space without creating a second navigation system.
-- Four tabs stay in spec order. Tab row scrolls horizontally on narrow screens; it never becomes a dropdown or bottom nav.
+- One editor shell locks to the visible viewport with a `100dvh` block size and `40rem` minimum, keeping panel scrolling inside the frame at normal heights without creating a second navigation system.
+- Four tabs stay in spec order. Tab row wraps onto additional rows on narrow screens; it never becomes a side-scrolling control, a dropdown, or bottom nav.
 - Main content swaps in place. Do not add scroll-triggered section choreography.
 - Status bar remains visible at the shell bottom. Its center availability message may wrap on narrow screens.
 - Project cards stack vertically in the content panel. Flow diagrams may scroll horizontally inside their own bounded region.

@@ -12,9 +12,9 @@ All component examples consume semantic tokens from `tokens.css`. Values below a
 
 **Token contract:** `--color-surface-page`, `--color-surface-panel`, `--color-border-default`, `--radius-shell`, `--space-*`, `--font-family-ui`.
 
-**Behavior:** Fill available viewport height. Keep header, panel, and status bar in one visual frame. Content region may scroll; navigation must not duplicate tabs elsewhere.
+**Behavior:** Use a viewport-locked `100dvh` frame with a `40rem` minimum. Keep header, tab row, active panel, and status bar in one visual frame; the active panel owns scrolling at normal heights, while shorter viewports may scroll the document to keep the footer reachable. Navigation must not duplicate tabs elsewhere.
 
-**Responsive:** Use fluid inline padding from the spacing scale. Preserve shell hierarchy at narrow widths. Let the tab row own horizontal overflow; never introduce a sidebar or fixed-width shell.
+**Responsive:** Use fluid inline padding from the spacing scale. Preserve shell hierarchy at narrow widths. Let the tab row wrap instead of scrolling horizontally; never introduce a sidebar or fixed-width shell.
 
 **Accessibility:** Use a `main` landmark for active content. Keep contrast between shell, panel, and borders in both themes. Do not rely on editor chrome to communicate current location.
 
@@ -30,7 +30,7 @@ All component examples consume semantic tokens from `tokens.css`. Values below a
 
 **Behavior:** Fixed order: `about.md`, `projects.tsx`, `experience.json`, `contact.md`. Clicking or keyboard activation swaps panel in place. Use `role="tablist"`, `role="tab"`, `aria-selected`, and `aria-controls`.
 
-**Responsive:** Tab list is horizontally scrollable on narrow screens. Keep labels intact; do not abbreviate extensions or convert to a select.
+**Responsive:** Tab list wraps onto additional rows on narrow screens. Keep labels intact; do not abbreviate extensions, introduce horizontal scrolling, or convert to a select.
 
 **Accessibility:** Active state must have text/shape distinction, not color alone. Ensure focused tabs remain visible when scrolled into view. Support arrow-key navigation if using roving tabindex.
 
