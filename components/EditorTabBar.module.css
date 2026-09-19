@@ -9,9 +9,8 @@
 .tabList {
   display: flex;
   flex: none;
-  overflow-x: auto;
+  flex-wrap: wrap;
   border-block-end: var(--border-width-hairline) solid var(--color-border-default);
-  scrollbar-width: thin;
 }
 
 .tab {
@@ -41,7 +40,24 @@
   flex-direction: column;
   gap: var(--space-6);
   overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: var(--color-border-default) var(--color-surface-page);
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
   padding: clamp(var(--space-6), var(--space-fluid-panel-block), var(--space-12)) clamp(var(--space-4), var(--space-fluid-panel-inline), var(--space-10));
+}
+
+.panel::-webkit-scrollbar {
+  width: var(--space-2);
+}
+
+.panel::-webkit-scrollbar-track {
+  background: var(--color-surface-page);
+}
+
+.panel::-webkit-scrollbar-thumb {
+  border: var(--border-width-hairline) solid var(--color-surface-page);
+  background: var(--color-border-default);
 }
 
 .panel > * {
