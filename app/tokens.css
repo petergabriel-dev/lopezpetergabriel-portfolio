@@ -65,7 +65,7 @@
   --primitive-duration-panel: 180ms;
   --primitive-duration-typing: 48ms;
   --primitive-duration-reduced: 0.001ms;
-  --primitive-min-page-block-size: 100vh;
+  --primitive-min-page-block-size: 100dvh;
   --primitive-min-shell-block-size: 40rem;
   --primitive-fluid-panel-block-space: 6vw;
   --primitive-fluid-panel-inline-space: 7vw;

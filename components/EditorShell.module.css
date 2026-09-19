@@ -1,7 +1,8 @@
 .shell {
   display: flex;
   flex-direction: column;
-  min-block-size: var(--min-page-block-size);
+  block-size: 100dvh;
+  min-block-size: var(--min-shell-block-size);
   overflow: hidden;
   border: var(--border-width-hairline) solid var(--color-border-default);
   border-radius: var(--radius-shell);
