@@ -28,7 +28,7 @@ export function ProjectsPanel() {
             ))}
           </div>
         </section>
-        <section className={styles.column} aria-labelledby="github-heading">
+        <section className={`${styles.column} ${styles.githubColumn}`} aria-labelledby="github-heading">
           <h2 className={styles.heading} id="github-heading">
             GitHub activity
           </h2>

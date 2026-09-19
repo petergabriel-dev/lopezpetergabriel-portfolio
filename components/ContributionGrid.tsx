@@ -41,7 +41,7 @@ function monthLabels(weeks: GithubSnapshot["contributions"]["weeks"]): readonly 
 
 export function ContributionGrid({ contributions }: ContributionGridProps) {
   const labels = monthLabels(contributions.weeks);
-  const gridColumns = `repeat(${contributions.weeks.length}, var(--space-3))`;
+  const gridColumns = `repeat(${contributions.weeks.length}, var(--space-2))`;
   const accessibleName = `${contributions.total} contributions in the last year`;
 
   return (

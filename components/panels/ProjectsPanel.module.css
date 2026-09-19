@@ -1,9 +1,11 @@
 .copy {
   --panel-measure: var(--measure-wide);
   display: flex;
+  min-block-size: 0;
   max-inline-size: var(--measure-wide);
+  flex: 1;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: var(--space-4);
 }
 
 .eyebrow {
@@ -22,7 +24,9 @@
 
 .columns {
   display: grid;
+  min-block-size: 0;
   min-inline-size: 0;
+  flex: 1;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
   gap: var(--space-6);
 }
@@ -31,7 +35,13 @@
   display: flex;
   min-inline-size: 0;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: var(--space-4);
+}
+
+.githubColumn {
+  display: grid;
+  min-block-size: 0;
+  grid-template-rows: auto auto auto minmax(0, 1fr);
 }
 
 .syncDate {
@@ -44,5 +54,5 @@
   display: flex;
   min-inline-size: 0;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: var(--space-4);
 }
