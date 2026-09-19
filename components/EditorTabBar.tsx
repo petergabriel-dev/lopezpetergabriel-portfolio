@@ -1,6 +1,6 @@
 "use client";
 
-import { Children, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
+import { Children, useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 
 import styles from "./EditorTabBar.module.css";
 
@@ -17,8 +17,17 @@ type EditorTabBarProps = {
 export function EditorTabBar({ tabs, children }: EditorTabBarProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const panelRefs = useRef<Array<HTMLElement | null>>([]);
   const panels = Children.toArray(children);
   const activeTab = tabs[activeIndex] ?? tabs[0];
+
+  useEffect(() => {
+    const activePanel = panelRefs.current[activeIndex];
+
+    if (activePanel) {
+      activePanel.scrollTop = 0;
+    }
+  }, [activeIndex]);
 
   function handleKeyDown(event: KeyboardEvent<HTMLButtonElement>, index: number) {
     if (!tabs.length || (event.key !== "ArrowRight" && event.key !== "ArrowLeft")) {
@@ -73,6 +82,9 @@ export function EditorTabBar({ tabs, children }: EditorTabBarProps) {
             hidden={!isActive}
             id={`${tab.id}-panel`}
             key={tab.id}
+            ref={(element) => {
+              panelRefs.current[index] = element;
+            }}
             role="tabpanel"
             tabIndex={0}
           >

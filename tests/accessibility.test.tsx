@@ -66,6 +66,19 @@ describe("EditorTabBar", () => {
     expect(screen.getByRole("tabpanel")).toHaveAttribute("id", "projects-panel");
   });
 
+  it("resets active panel scroll position when switching tabs", () => {
+    renderTabs();
+
+    const aboutPanel = screen.getByRole("tabpanel");
+    aboutPanel.scrollTop = 120;
+
+    fireEvent.click(screen.getByRole("tab", { name: "projects.tsx" }));
+    fireEvent.click(screen.getByRole("tab", { name: "about.md" }));
+
+    expect(screen.getByRole("tabpanel")).toBe(aboutPanel);
+    expect(aboutPanel.scrollTop).toBe(0);
+  });
+
   it("wraps arrow navigation in both directions and moves focus", () => {
     renderTabs();
 
