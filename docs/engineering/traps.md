@@ -7,6 +7,11 @@
 - `localStorage` can throw in blocked/private contexts. The resolver and `ThemeToggle` catch storage failures; theme application must still work for the current page.
 - `next dev` can append a Next.js agent-rules block to `AGENTS.md`. `AGENTS.md` and `CLAUDE.md` are generated/project instruction files; restore unrelated generated changes and do not hand-edit them.
 
+### Layout and overflow
+
+- `100vh` tracks the layout viewport, not always the visible mobile viewport. The editor shell and page minimum use `100dvh`; verify document scroll metrics at desktop and mobile sizes.
+- The shell has a `40rem` minimum block size. Below that viewport height, the document scrolls as an intentional fallback so header, wrapped tabs, panel content, and `StatusBar` remain reachable; do not hide page overflow to force the frame.
+
 ### Content and accessibility
 
 - `docs/design/components.md` describes four project cards and six experience records, while verified preview copy currently supplies two cards and three records. This is an intentional content gap, not permission to invent records.

@@ -4,6 +4,7 @@
 - Node major is 22 as pinned by `.nvmrc`; CI reads the same file.
 - The four tabs stay in order: `about.md`, `projects.tsx`, `experience.json`, `contact.md`. The active tab has `aria-selected="true"` and `tabIndex=0`; inactive tabs have `tabIndex=-1`. Arrow navigation wraps and moves focus.
 - Every tab's `aria-controls` resolves to its live `tabpanel`; inactive panels are hidden. Focus indicators use `--color-border-focus` with offset and are not color-only.
+- The editor frame keeps its header, wrapped tab row, and `StatusBar` reachable at normal viewport heights: the document does not scroll while the active panel owns overflow. A `40rem` shell minimum is the short-viewport escape hatch, allowing the document to scroll instead of clipping the footer.
 - `prefers-reduced-motion: reduce` disables typing, cursor blink, and project-card lift. Availability always has visible text; color/pulse is supplemental.
 - Theme resolution runs before application content: stored `portfolio-theme` values `light`/`dark` win, otherwise OS dark preference sets `data-theme="dark"`. Storage failures must fall back to OS preference without breaking rendering. The dark media rule is scoped to `:root:not([data-theme="light"])` so explicit light wins on dark OS settings.
 - Content is source-backed. Current shipped data contains exactly two project records and three experience records from `docs/design/preview.html`; missing future entries must shorten output rather than crash. LinkedIn has no URL and must not render as a link.

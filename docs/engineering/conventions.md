@@ -8,7 +8,7 @@ Components receive content through props or content modules. Do not fabricate co
 
 ### CSS
 
-Use one CSS Module beside each component or panel. Consume semantic variables such as `--color-content-primary`, `--space-*`, `--font-family-*`, and motion tokens. Primitive palette/scale values belong in `app/tokens.css`; components do not invent one-off colors, spacing, radii, or durations. Responsive overflow belongs to its owner: the tab list scrolls horizontally, and each flow diagram owns its own bounded horizontal scroll.
+Use one CSS Module beside each component or panel. Consume semantic variables such as `--color-content-primary`, `--space-*`, `--font-family-*`, and motion tokens. Primitive palette/scale values belong in `app/tokens.css`; components do not invent one-off colors, spacing, radii, or durations. Responsive overflow belongs to its owner: the tab list wraps onto additional rows instead of scrolling horizontally, and each flow diagram owns its own bounded horizontal scroll.
 
 ### Accessibility
 
