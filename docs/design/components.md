@@ -44,7 +44,7 @@ All component examples consume semantic tokens from `tokens.css`. Values below a
 
 **Token contract:** `--color-surface-panel`, `--color-content-primary`, `--color-content-secondary`, `--font-family-body`, `--font-family-mono`, `--font-size-display`, `--line-height-body`, `--measure-body`, `--space-*`, motion tokens.
 
-**Behavior:** `about.md` headline types once on first page load, then settles. Other panels appear without element-by-element reveal. Panel changes use only the panel transition.
+**Behavior:** `about.md` headline types once on first page load, then settles. Other panels appear without element-by-element reveal. Panel changes swap instantly with no transition.
 
 **Responsive:** Keep text measure below `--measure-body`; let headings wrap naturally. Use fluid panel padding. Cursor must not force horizontal overflow.
 
