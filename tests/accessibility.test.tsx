@@ -2,10 +2,12 @@ import { axe } from "jest-axe";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
+import { githubSnapshot } from "@/content/github";
+import { projects } from "@/content/projects";
+import { AboutPanel } from "@/components/panels/AboutPanel";
 import { ContactPanel } from "@/components/panels/ContactPanel";
 import { ExperiencePanel } from "@/components/panels/ExperiencePanel";
 import { ProjectsPanel } from "@/components/panels/ProjectsPanel";
-import { AboutPanel } from "@/components/panels/AboutPanel";
 import { EditorTabBar, type EditorTab } from "@/components/EditorTabBar";
 import { StatusBar } from "@/components/StatusBar";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -105,6 +107,30 @@ describe("accessibility contracts", () => {
       "rel",
       "noopener noreferrer",
     );
+  });
+
+  it("renders snapshot-backed projects and GitHub accessibility contracts", () => {
+    render(<ProjectsPanel />);
+
+    for (const project of projects) {
+      const flowName = project.flow.map((step) => step.label).join(", ");
+      expect(screen.getByRole("img", { name: flowName })).toBeInTheDocument();
+    }
+
+    for (const repo of githubSnapshot.repos) {
+      expect(screen.getByRole("link", { name: repo.name })).toHaveAttribute("rel", "noopener noreferrer");
+    }
+
+    const profileLink = screen.getByRole("link", { name: /View all repositories/ });
+    expect(profileLink).toHaveAttribute("href", githubSnapshot.profileUrl);
+    expect(profileLink).toHaveAttribute("rel", "noopener noreferrer");
+
+    expect(
+      screen.getByRole("img", {
+        name: `${githubSnapshot.contributions.total} contributions in the last year`,
+      }),
+    ).toBeInTheDocument();
+    expect(document.body.textContent).not.toMatch(/\bago\b/i);
   });
 
   it("gives resume download an action and file-type name", () => {
