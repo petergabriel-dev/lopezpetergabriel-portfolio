@@ -3,7 +3,6 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import { githubSnapshot } from "@/content/github";
-import { projects } from "@/content/projects";
 import { AboutPanel } from "@/components/panels/AboutPanel";
 import { ContactPanel } from "@/components/panels/ContactPanel";
 import { ExperiencePanel } from "@/components/panels/ExperiencePanel";
@@ -111,11 +110,6 @@ describe("accessibility contracts", () => {
 
   it("renders snapshot-backed projects and GitHub accessibility contracts", () => {
     render(<ProjectsPanel />);
-
-    for (const project of projects) {
-      const flowName = project.flow.map((step) => step.label).join(", ");
-      expect(screen.getByRole("img", { name: flowName })).toBeInTheDocument();
-    }
 
     for (const repo of githubSnapshot.repos) {
       expect(screen.getByRole("link", { name: repo.name })).toHaveAttribute("rel", "noopener noreferrer");

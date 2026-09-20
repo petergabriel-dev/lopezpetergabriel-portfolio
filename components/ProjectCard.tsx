@@ -1,5 +1,3 @@
-import { Fragment } from "react";
-
 import type { Project } from "@/content/types";
 
 import styles from "./ProjectCard.module.css";
@@ -20,23 +18,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <TagChip key={tag} label={tag} />
         ))}
       </ul>
-      {project.flow.length ? (
-        <div className={styles.flowDiagram} role="img" aria-label={project.flow.map((step) => step.label).join(", ")}>
-          <div className={styles.flowTrack}>
-            {project.flow.map((step, index) => (
-              <Fragment key={`${index}-${step.label}`}>
-                {index > 0 ? (
-                  <span className={styles.flowArrow} aria-hidden="true">
-                    →
-                  </span>
-                ) : null}
-                <span className={styles.flowNode}>{step.label}</span>
-              </Fragment>
-            ))}
-          </div>
-        </div>
-      ) : null}
-      {project.migrationNote ? <p className={styles.note}>{project.migrationNote}</p> : null}
     </article>
   );
 }
