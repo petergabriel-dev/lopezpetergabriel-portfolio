@@ -1,8 +1,9 @@
 import { axe } from "jest-axe";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import { githubSnapshot } from "@/content/github";
+import { projects } from "@/content/projects";
 import { AboutPanel } from "@/components/panels/AboutPanel";
 import { ContactPanel } from "@/components/panels/ContactPanel";
 import { ExperiencePanel } from "@/components/panels/ExperiencePanel";
@@ -108,8 +109,20 @@ describe("accessibility contracts", () => {
     );
   });
 
-  it("renders snapshot-backed projects and GitHub accessibility contracts", () => {
+  it("renders all project cards and GitHub accessibility contracts", () => {
     render(<ProjectsPanel />);
+
+    expect(screen.getByRole("heading", { name: "What I've built", level: 2 })).toBeInTheDocument();
+
+    for (const project of projects) {
+      const heading = screen.getByRole("heading", { name: project.title, level: 3 });
+      const card = heading.closest("article");
+
+      expect(card).not.toBeNull();
+      const technologies = within(card as HTMLElement).getByRole("list", { name: "Technologies" });
+
+      expect(within(technologies).getAllByRole("listitem")).toHaveLength(project.tags.length);
+    }
 
     for (const repo of githubSnapshot.repos) {
       expect(screen.getByRole("link", { name: repo.name })).toHaveAttribute("rel", "noopener noreferrer");
