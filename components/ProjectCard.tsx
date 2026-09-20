@@ -9,7 +9,7 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className={styles.card}>
+    <article className={styles.card} tabIndex={0}>
       <p className={styles.context}>{project.context}</p>
       <h3 className={styles.title}>{project.title}</h3>
       <p className={styles.copy}>{project.copy}</p>
