@@ -52,7 +52,16 @@
 
 .stack {
   display: flex;
+  min-block-size: 0;
   min-inline-size: 0;
+  flex: 1;
+  max-block-size: 32rem;
   flex-direction: column;
   gap: var(--space-4);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: var(--color-border-default) var(--color-surface-page);
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  padding-inline-end: var(--space-2);
 }
