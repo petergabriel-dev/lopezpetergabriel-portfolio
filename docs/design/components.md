@@ -86,17 +86,17 @@ All component examples consume semantic tokens from `tokens.css`. Values below a
 
 **Purpose:** Show curated case studies as proof, not as a tool list.
 
-**Anatomy:** project title, client/context, problem → build → outcome paragraph, `TagChip` list, wrapping step chain.
+**Anatomy:** client/context, project title, one-sentence copy, `TagChip` technologies list, keyboard-focusable card.
 
-**States:** default, hover, focus-within, reduced motion.
+**States:** default, hover, focus-visible, reduced motion.
 
 **Token contract:** `--color-surface-raised`, `--color-border-default`, `--color-border-focus`, `--color-content-primary`, `--color-content-secondary`, `--color-surface-inset`, `--color-link`, `--radius-card`, `--radius-control`, `--space-*`, motion tokens.
 
-**Behavior:** Shipped cards are Multi-Agent Branding Guide Generator and Regional Data Warehouse System. Descriptions stay honest; no fabricated screenshots or metrics. Each step chain names every stage in order and uses decorative arrow separators.
+**Behavior:** Shipped cards are Regional Data Warehouse System, Production Automation Systems, Client Intake & CRM Migration, AI Content & Multimedia Pipelines, and Internsheet & CRM Automation. Descriptions stay honest and trace the current CV; no fabricated screenshots, metrics, or URLs.
 
-**Responsive:** The projects column stacks cards. Step nodes wrap inside the card without a second horizontal scrollbar. Tags wrap. Card content remains readable without hover.
+**Responsive:** The ProjectsPanel left-column stack owns a bounded vertical viewport. Cards stack inside it, tags wrap, and card content remains readable without hover or a second horizontal scrollbar.
 
-**Accessibility:** Use a heading hierarchy and a text alternative for each step chain. Decorative arrows are hidden from assistive technology. Hover lift must have a focus-visible equivalent.
+**Accessibility:** Use a heading hierarchy, a `Technologies` list, and keyboard focus on each card. The focus-visible outline uses `--color-border-focus`; hover lift is disabled under reduced motion.
 
 ## 7. RepoList
 

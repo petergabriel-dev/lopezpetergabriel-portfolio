@@ -65,8 +65,8 @@ Preview theme control is only a design-preview aid. Production implementation sh
 
 - Headline positions Peter as a backend engineer and AI automation specialist.
 - DILG is credibility and stability context, not the primary sales headline.
-- Case studies always state problem → build → outcome where source material supports it.
-- Use semantic step chains and contribution cells only from verified content. Never imply a screenshot or metric that is not verified.
+- Case studies use source-backed context, build, and outcome language only where the current CV supports it.
+- Use semantic Technologies lists and contribution cells only from verified content. Never imply a screenshot or metric that is not verified.
 - LinkedIn remains a labeled placeholder until the real profile URL is supplied.
 
 ## Handoff
