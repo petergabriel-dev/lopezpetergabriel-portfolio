@@ -14,12 +14,12 @@ This is a single Next.js App Router route. `app/page.tsx` composes the portfolio
 - `components/TypingHeadline.tsx` is the client boundary for the one-load headline reveal.
 - `components/StatusBar.tsx` and `components/AvailabilityBadge.tsx` are server components. `AboutPanel`, `ProjectsPanel`, `ExperiencePanel`, and `ContactPanel` are server components that compose the interactive children where needed.
 
-### Content flow
+### Content model
 
-Typed data lives under `content/`: `types.ts` defines project, experience, flow, contact, repository, and contribution contracts; the modules export curated content plus the generated `githubSnapshot`. `scripts/sync-github.mjs` fetches public repositories and the contribution calendar with a local token, validates both responses, then writes `content/github.ts` after successful fetches. Panels map those values into presentation components.
+Typed data lives under `content/`: `types.ts` defines project, experience, contact, repository, and contribution contracts; the modules export curated content plus the generated `githubSnapshot`. `scripts/sync-github.mjs` fetches public repositories and the contribution calendar with a local token, validates both responses, then writes `content/github.ts` after successful fetches. Panels map those values into presentation components.
 
-Projects use `ProjectCard` and `TagChip`; the card owns its wrapping step chain and text alternative. `ProjectsPanel` renders project cards beside `RepoList` and `ContributionGrid`, using the committed snapshot and visible sync date. Experience uses `ExperienceRecord`. Contact uses `ContactAction`; a missing `ContactLink.href` produces plain LinkedIn placeholder text rather than a dead anchor.
+Projects use `ProjectCard` and `TagChip`; cards expose their context, copy, technologies, and keyboard focus. `ProjectsPanel` renders project cards beside `RepoList` and `ContributionGrid`, using the committed snapshot and visible sync date. Experience uses `ExperienceRecord`. Contact uses `ContactAction`; a missing `ContactLink.href` produces plain LinkedIn placeholder text rather than a dead anchor.
 
 ### Styling and delivery
 
-`app/tokens.css` contains primitive and semantic custom properties, including light/dark roles, contribution levels, wide measure, and system-preference fallback. Component styles are CSS Modules and consume semantic tokens. The active panel owns page scrolling; `RepoList` owns its five-row vertical viewport and `ContributionGrid` owns its bounded horizontal viewport. `public/resume.pdf` is served as a static same-origin download. `.github/workflows/ci.yml` runs quality checks for `dev` pushes and `main` pull requests; deployment is external to Actions.
+`app/tokens.css` contains primitive and semantic custom properties, including light/dark roles, contribution levels, wide measure, and system-preference fallback. Component styles are CSS Modules and consume semantic tokens. The active panel owns page scrolling; the ProjectsPanel left-column stack, `RepoList`, and `ContributionGrid` own nested bounded viewports. `public/resume.pdf` is served as a static same-origin download. `.github/workflows/ci.yml` runs quality checks for `dev` pushes and `main` pull requests; deployment is external to Actions.

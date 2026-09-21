@@ -8,11 +8,11 @@ Components receive content through props or content modules. Do not fabricate co
 
 ### CSS
 
-Use one CSS Module beside each component or panel. Consume semantic variables such as `--color-content-primary`, `--space-*`, `--font-family-*`, and motion tokens. Primitive palette/scale values belong in `app/tokens.css`; components do not invent one-off colors, spacing, radii, or durations. The panel owns page-level vertical overflow; the tab list and project step chains wrap. `RepoList` owns its five-row vertical viewport, while the contribution grid owns its bounded horizontal viewport. `ProjectsPanel` opts into `--measure-wide` through the `--panel-measure` hook; other panels retain `--measure-body`. Intrinsic `auto-fit` collapse replaces width media queries.
+Use one CSS Module beside each component or panel. Consume semantic variables such as `--color-content-primary`, `--space-*`, `--font-family-*`, and motion tokens. Primitive palette/scale values belong in `app/tokens.css`; components do not invent one-off colors, spacing, radii, or durations. The panel owns page-level vertical overflow; the ProjectsPanel left-column stack and `RepoList` own bounded vertical viewports, while the contribution grid owns its bounded horizontal viewport. `ProjectsPanel` opts into `--measure-wide` through the `--panel-measure` hook; other panels retain `--measure-body`. Intrinsic `auto-fit` collapse replaces width media queries.
 
 ### Accessibility
 
-Query and test by role and accessible name. Preserve native anchors for real destinations. Use `role="tablist"`, `role="tab"`, `aria-selected`, `aria-controls`, and `role="tabpanel"` for file navigation. Keep a visible `:focus-visible` outline using the focus token. Decorative punctuation, branch glyphs, arrows, and contribution cells/legend swatches are presentational; semantic flow text and the contribution total remain available.
+Query and test by role and accessible name. Preserve native anchors for real destinations. Use `role="tablist"`, `role="tab"`, `aria-selected`, `aria-controls`, and `role="tabpanel"` for file navigation. Keep a visible `:focus-visible` outline using the focus token. Decorative punctuation, branch glyphs, arrows, and contribution cells/legend swatches are presentational; the contribution total remains available.
 
 ### Verification
 
