@@ -2,8 +2,8 @@
   display: flex;
   min-inline-size: 0;
   flex-direction: column;
-  gap: var(--space-4);
-  padding: var(--space-5);
+  gap: var(--space-3);
+  padding: var(--space-3);
   border: var(--border-width-hairline) solid var(--color-border-default);
   border-radius: var(--radius-card);
   background: var(--color-surface-raised);
@@ -14,6 +14,11 @@
 .card:focus-within {
   border-color: var(--color-link);
   transform: translateY(calc(-1 * var(--space-1)));
+}
+
+.card:focus-visible {
+  outline: var(--focus-width) solid var(--color-border-focus);
+  outline-offset: var(--focus-offset);
 }
 
 .context {
@@ -30,8 +35,7 @@
   line-height: var(--line-height-heading);
 }
 
-.copy,
-.note {
+.copy {
   margin: 0;
   color: var(--color-content-secondary);
 }
@@ -43,11 +47,6 @@
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-.note {
-  font-family: var(--font-family-ui);
-  font-size: var(--font-size-body-small);
 }
 
 @media (prefers-reduced-motion: reduce) {

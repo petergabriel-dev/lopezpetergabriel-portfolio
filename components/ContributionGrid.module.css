@@ -1,0 +1,81 @@
+.viewport {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  overflow-x: auto;
+  overscroll-behavior: contain;
+  padding-block: 0;
+}
+
+.content {
+  inline-size: max-content;
+  min-inline-size: 100%;
+}
+
+.total {
+  margin: 0;
+  color: var(--color-content-primary);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-label);
+}
+
+.months,
+.calendar {
+  display: grid;
+  column-gap: var(--space-1);
+}
+
+.months {
+  min-block-size: var(--space-3);
+  align-items: end;
+  color: var(--color-content-secondary);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-label);
+}
+
+.calendar {
+  margin-block-start: 0;
+}
+
+.week {
+  display: grid;
+  grid-template-rows: repeat(7, var(--space-2));
+  row-gap: var(--space-1);
+}
+
+.cell,
+.swatch {
+  display: block;
+  inline-size: var(--space-2);
+  block-size: var(--space-2);
+  border-radius: var(--radius-control);
+}
+
+.level0 {
+  background: var(--color-contribution-0);
+}
+
+.level1 {
+  background: var(--color-contribution-1);
+}
+
+.level2 {
+  background: var(--color-contribution-2);
+}
+
+.level3 {
+  background: var(--color-contribution-3);
+}
+
+.level4 {
+  background: var(--color-contribution-4);
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-block-start: var(--space-2);
+  color: var(--color-content-secondary);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-label);
+}

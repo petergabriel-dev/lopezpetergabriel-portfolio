@@ -1,8 +1,11 @@
 .copy {
+  --panel-measure: var(--measure-wide);
   display: flex;
-  max-inline-size: var(--measure-body);
+  min-block-size: 0;
+  max-inline-size: var(--measure-wide);
+  flex: 1;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: var(--space-4);
 }
 
 .eyebrow {
@@ -19,9 +22,46 @@
   line-height: var(--line-height-heading);
 }
 
-.stack {
+.columns {
+  display: grid;
+  min-block-size: 0;
+  min-inline-size: 0;
+  flex: 1;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+  gap: var(--space-6);
+}
+
+.column {
   display: flex;
   min-inline-size: 0;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: var(--space-4);
+}
+
+.githubColumn {
+  display: grid;
+  min-block-size: 0;
+  grid-template-rows: auto auto auto minmax(0, 1fr);
+}
+
+.syncDate {
+  color: var(--color-content-secondary);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-label);
+}
+
+.stack {
+  display: flex;
+  min-block-size: 0;
+  min-inline-size: 0;
+  flex: 1;
+  max-block-size: 32rem;
+  flex-direction: column;
+  gap: var(--space-4);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: var(--color-border-default) var(--color-surface-page);
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  padding-inline-end: var(--space-2);
 }

@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+/* Preserve hidden behavior when component display rules override the UA stylesheet. */
+[hidden] {
+  display: none !important;
+}
+
 html {
   min-block-size: 100%;
   background: var(--color-surface-page);

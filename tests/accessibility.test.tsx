@@ -1,11 +1,13 @@
 import { axe } from "jest-axe";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
+import { githubSnapshot } from "@/content/github";
+import { projects } from "@/content/projects";
+import { AboutPanel } from "@/components/panels/AboutPanel";
 import { ContactPanel } from "@/components/panels/ContactPanel";
 import { ExperiencePanel } from "@/components/panels/ExperiencePanel";
 import { ProjectsPanel } from "@/components/panels/ProjectsPanel";
-import { AboutPanel } from "@/components/panels/AboutPanel";
 import { EditorTabBar, type EditorTab } from "@/components/EditorTabBar";
 import { StatusBar } from "@/components/StatusBar";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -66,6 +68,19 @@ describe("EditorTabBar", () => {
     expect(screen.getByRole("tabpanel")).toHaveAttribute("id", "projects-panel");
   });
 
+  it("resets active panel scroll position when switching tabs", () => {
+    renderTabs();
+
+    const aboutPanel = screen.getByRole("tabpanel");
+    aboutPanel.scrollTop = 120;
+
+    fireEvent.click(screen.getByRole("tab", { name: "projects.tsx" }));
+    fireEvent.click(screen.getByRole("tab", { name: "about.md" }));
+
+    expect(screen.getByRole("tabpanel")).toBe(aboutPanel);
+    expect(aboutPanel.scrollTop).toBe(0);
+  });
+
   it("wraps arrow navigation in both directions and moves focus", () => {
     renderTabs();
 
@@ -92,6 +107,39 @@ describe("accessibility contracts", () => {
       "rel",
       "noopener noreferrer",
     );
+  });
+
+  it("renders all project cards and GitHub accessibility contracts", () => {
+    render(<ProjectsPanel />);
+
+    expect(screen.getByRole("heading", { name: "What I've built", level: 2 })).toBeInTheDocument();
+
+    for (const project of projects) {
+      const heading = screen.getByRole("heading", { name: project.title, level: 3 });
+      const card = heading.closest("article");
+
+      expect(card).not.toBeNull();
+      const technologies = within(card as HTMLElement).getByRole("list", { name: "Technologies" });
+
+      expect(within(technologies).getAllByRole("listitem")).toHaveLength(project.tags.length);
+    }
+
+    for (const repo of githubSnapshot.repos) {
+      expect(screen.getByRole("link", { name: repo.name })).toHaveAttribute("rel", "noopener noreferrer");
+    }
+
+    const profileLink = screen.getByRole("link", { name: /View all repositories/ });
+    expect(profileLink).toHaveAttribute("href", githubSnapshot.profileUrl);
+    expect(profileLink).toHaveAttribute("rel", "noopener noreferrer");
+
+    const contributionGrid = screen.getByRole("img", {
+      name: `${githubSnapshot.contributions.total} contributions in the last year`,
+    });
+    const firstRepo = screen.getByRole("link", { name: githubSnapshot.repos[0].name });
+    expect(contributionGrid.compareDocumentPosition(firstRepo) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+
+    expect(contributionGrid).toBeInTheDocument();
+    expect(document.body.textContent).not.toMatch(/\bago\b/i);
   });
 
   it("gives resume download an action and file-type name", () => {

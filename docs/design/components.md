@@ -12,9 +12,9 @@ All component examples consume semantic tokens from `tokens.css`. Values below a
 
 **Token contract:** `--color-surface-page`, `--color-surface-panel`, `--color-border-default`, `--radius-shell`, `--space-*`, `--font-family-ui`.
 
-**Behavior:** Fill available viewport height. Keep header, panel, and status bar in one visual frame. Content region may scroll; navigation must not duplicate tabs elsewhere.
+**Behavior:** Use a viewport-locked `100dvh` frame with a `40rem` minimum. Keep header, tab row, active panel, and status bar in one visual frame; the active panel owns scrolling at normal heights, while shorter viewports may scroll the document to keep the footer reachable. Navigation must not duplicate tabs elsewhere.
 
-**Responsive:** Use fluid inline padding from the spacing scale. Preserve shell hierarchy at narrow widths. Let the tab row own horizontal overflow; never introduce a sidebar or fixed-width shell.
+**Responsive:** Use fluid inline padding from the spacing scale. Preserve shell hierarchy at narrow widths. Let the tab row wrap instead of scrolling horizontally; never introduce a sidebar or fixed-width shell.
 
 **Accessibility:** Use a `main` landmark for active content. Keep contrast between shell, panel, and borders in both themes. Do not rely on editor chrome to communicate current location.
 
@@ -30,7 +30,7 @@ All component examples consume semantic tokens from `tokens.css`. Values below a
 
 **Behavior:** Fixed order: `about.md`, `projects.tsx`, `experience.json`, `contact.md`. Clicking or keyboard activation swaps panel in place. Use `role="tablist"`, `role="tab"`, `aria-selected`, and `aria-controls`.
 
-**Responsive:** Tab list is horizontally scrollable on narrow screens. Keep labels intact; do not abbreviate extensions or convert to a select.
+**Responsive:** Tab list wraps onto additional rows on narrow screens. Keep labels intact; do not abbreviate extensions, introduce horizontal scrolling, or convert to a select.
 
 **Accessibility:** Active state must have text/shape distinction, not color alone. Ensure focused tabs remain visible when scrolled into view. Support arrow-key navigation if using roving tabindex.
 
@@ -44,7 +44,7 @@ All component examples consume semantic tokens from `tokens.css`. Values below a
 
 **Token contract:** `--color-surface-panel`, `--color-content-primary`, `--color-content-secondary`, `--font-family-body`, `--font-family-mono`, `--font-size-display`, `--line-height-body`, `--measure-body`, `--space-*`, motion tokens.
 
-**Behavior:** `about.md` headline types once on first page load, then settles. Other panels appear without element-by-element reveal. Panel changes use only the panel transition.
+**Behavior:** `about.md` headline types once on first page load, then settles. Other panels appear without element-by-element reveal. Panel changes swap instantly with no transition.
 
 **Responsive:** Keep text measure below `--measure-body`; let headings wrap naturally. Use fluid panel padding. Cursor must not force horizontal overflow.
 
@@ -84,37 +84,53 @@ All component examples consume semantic tokens from `tokens.css`. Values below a
 
 ## 6. ProjectCard
 
-**Purpose:** Show four flagship case studies as proof, not as a tool list.
+**Purpose:** Show curated case studies as proof, not as a tool list.
 
-**Anatomy:** project title, client/context, problem → build → outcome paragraph, `TagChip` list, `FlowDiagram`.
+**Anatomy:** client/context, project title, one-sentence copy, `TagChip` technologies list, keyboard-focusable card.
 
-**States:** default, hover, focus-within, reduced motion.
+**States:** default, hover, focus-visible, reduced motion.
 
-**Token contract:** `--color-surface-raised`, `--color-border-default`, `--color-border-focus`, `--color-content-primary`, `--color-content-secondary`, `--radius-card`, `--space-*`, motion tokens.
+**Token contract:** `--color-surface-raised`, `--color-border-default`, `--color-border-focus`, `--color-content-primary`, `--color-content-secondary`, `--color-surface-inset`, `--color-link`, `--radius-card`, `--radius-control`, `--space-*`, motion tokens.
 
-**Behavior:** Cards present: Multi-Agent Branding Guide Generator; AI Video Ad Pipeline; Client Intake Automation; Regional Data Warehouse System. Descriptions stay honest; no fabricated screenshots or metrics.
+**Behavior:** Shipped cards are Regional Data Warehouse System, Production Automation Systems, Client Intake & CRM Migration, AI Content & Multimedia Pipelines, and Internsheet & CRM Automation. Descriptions stay honest and trace the current CV; no fabricated screenshots, metrics, or URLs.
 
-**Responsive:** Stack cards vertically. Flow diagram may scroll within its own region. Tags wrap. Card content remains readable without hover.
+**Responsive:** The ProjectsPanel left-column stack owns a bounded vertical viewport. Cards stack inside it, tags wrap, and card content remains readable without hover or a second horizontal scrollbar.
 
-**Accessibility:** Use a heading hierarchy. If card has a destination, make one clear link target; do not make every decorative child clickable. Hover lift must have a focus-visible equivalent.
+**Accessibility:** Use a heading hierarchy, a `Technologies` list, and keyboard focus on each card. The focus-visible outline uses `--color-border-focus`; hover lift is disabled under reduced motion.
 
-## 7. FlowDiagram
+## 7. RepoList
 
-**Purpose:** Abstractly communicate a build pipeline.
+**Purpose:** Show current public GitHub repositories beside curated project work.
 
-**Anatomy:** labeled nodes, directional connectors, optional branch/migration note.
+**Anatomy:** linked repository name, optional description, language text, star count, absolute UTC updated date, profile link.
 
-**States:** default, focus only if interactive, overflow, reduced motion.
+**States:** default, hover, focus-visible, short snapshot.
 
-**Token contract:** `--color-surface-inset`, `--color-border-default`, `--color-link`, `--color-secondary`, `--color-content-primary`, `--font-family-mono`, `--font-size-label`, `--space-*`, `--radius-control`.
+**Token contract:** `--color-link`, `--color-link-hover`, `--color-border-focus`, `--color-border-subtle`, `--color-content-secondary`, `--font-family-ui`, `--font-size-body-small`, `--font-size-label`, `--space-*`.
 
-**Behavior:** Render as inline SVG or equivalent semantic markup. Convey sequence with labels and connectors, not decoration. Client Intake includes migration note: later rebuilt on GoHighLevel + Make.com for reliability at scale.
+**Behavior:** Render committed `content/github.ts` data only. Repository and profile links use `rel="noopener noreferrer"`; an empty repository array renders no shell. Dates are absolute and the visible snapshot sync date identifies staleness. The list viewport shows five rows at a time, with remaining snapshot rows reachable by vertical scroll.
 
-**Responsive:** Preserve node labels. Allow horizontal scrolling or controlled wrapping; never shrink labels below readable size. Keep diagram bounded by panel width.
+**Responsive:** The five-row list viewport scrolls independently inside the GitHub column. Metadata wraps as text; no icon-only language or star indicators.
 
-**Accessibility:** Provide a concise text alternative naming each step. SVG text must not be the only source of meaning. No animation is needed.
+**Accessibility:** Repository names are `h3` links. Language, stars, dates, and profile action remain real text with visible focus.
 
-## 8. TagChip
+## 8. ContributionGrid
+
+**Purpose:** Show one year of public contribution activity without a runtime GitHub request.
+
+**Anatomy:** accessible total, month labels, seven-row day cells, Less/More legend, bounded horizontal viewport.
+
+**States:** light theme, dark theme, narrow viewport, empty only when snapshot validation permits it.
+
+**Token contract:** `--color-contribution-0` through `--color-contribution-4`, `--color-content-primary`, `--color-content-secondary`, `--font-family-ui`, `--font-size-body-small`, `--font-size-label`, `--radius-control`, `--space-*`.
+
+**Behavior:** Render snapshot weeks as static markup in a `role="img"` region named by the real yearly total. The grid owns horizontal overflow; the page and panel do not. The visible sync date belongs to `ProjectsPanel`.
+
+**Responsive:** Keep cells and gaps on spacing tokens. Scroll the grid inside its own viewport when the GitHub column is narrower than one year.
+
+**Accessibility:** The accessible name states the real total. Cells and legend swatches are presentational; Less/More remains visible as a visual supplement.
+
+## 9. TagChip
 
 **Purpose:** Compact, scannable technology/context labels.
 
@@ -130,7 +146,7 @@ All component examples consume semantic tokens from `tokens.css`. Values below a
 
 **Accessibility:** Text must remain legible in both themes. If noninteractive, do not add button semantics or misleading click affordance.
 
-## 9. ExperienceRecord
+## 10. ExperienceRecord
 
 **Purpose:** Present chronology with JSON/editor flavor while staying human-readable.
 
@@ -146,7 +162,7 @@ All component examples consume semantic tokens from `tokens.css`. Values below a
 
 **Accessibility:** Use headings and lists, not color-coded spans alone. Expose dates as text. Mark punctuation decorative where appropriate.
 
-## 10. ContactAction
+## 11. ContactAction
 
 **Purpose:** Offer honest, direct contact paths without a fake form.
 

@@ -38,11 +38,11 @@ Preview theme control is only a design-preview aid. Production implementation sh
 
 ## Composition rules
 
-- One editor shell fills available viewport space without creating a second navigation system.
-- Four tabs stay in spec order. Tab row scrolls horizontally on narrow screens; it never becomes a dropdown or bottom nav.
+- One editor shell locks to the visible viewport with a `100dvh` block size and `40rem` minimum, keeping panel scrolling inside the frame at normal heights without creating a second navigation system.
+- Four tabs stay in spec order. Tab row wraps onto additional rows on narrow screens; it never becomes a side-scrolling control, a dropdown, or bottom nav.
 - Main content swaps in place. Do not add scroll-triggered section choreography.
 - Status bar remains visible at the shell bottom. Its center availability message may wrap on narrow screens.
-- Project cards stack vertically in the content panel. Flow diagrams may scroll horizontally inside their own bounded region.
+- The projects panel uses intrinsic columns when space allows, with project cards stacked in the first column. Step chains wrap; the contribution grid owns its bounded horizontal viewport.
 - No sidebar, decorative gradient, particle effect, fake form, or fabricated project screenshot.
 
 ## Interaction and accessibility
@@ -65,8 +65,8 @@ Preview theme control is only a design-preview aid. Production implementation sh
 
 - Headline positions Peter as a backend engineer and AI automation specialist.
 - DILG is credibility and stability context, not the primary sales headline.
-- Case studies always state problem → build → outcome where source material supports it.
-- Use abstract SVG flow diagrams only. Never imply a screenshot or metric that is not verified.
+- Case studies use source-backed context, build, and outcome language only where the current CV supports it.
+- Use semantic Technologies lists and contribution cells only from verified content. Never imply a screenshot or metric that is not verified.
 - LinkedIn remains a labeled placeholder until the real profile URL is supplied.
 
 ## Handoff
