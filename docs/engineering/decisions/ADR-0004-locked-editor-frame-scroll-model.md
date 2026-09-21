@@ -14,6 +14,7 @@ date: 2026-09-19
 - Wrap the tab row instead of adding horizontal tab scrolling or alternate navigation.
 - Reset the newly active panel's `scrollTop` to `0` when the tab changes; preserve roving tabindex, ARIA state, and arrow-key focus behavior.
 - Allow the document to scroll below the `40rem` shell minimum so short viewports do not clip the footer.
+- Give the ProjectsPanel left-column card stack its own bounded vertical viewport as the third nested scroll owner alongside `RepoList` and `ContributionGrid`'s bounded viewports.
 
 ## Why
 
@@ -40,6 +41,7 @@ Code:
 - `components/EditorShell.module.css`
 - `components/EditorTabBar.module.css`
 - `components/EditorTabBar.tsx`
+- `components/panels/ProjectsPanel.module.css`
 - `tests/accessibility.test.tsx`
 
 ## Consequences
@@ -48,6 +50,7 @@ Code:
 - Good: narrow screens show complete tab labels without a horizontally scrolling tab row.
 - Good: switching files starts each newly shown panel at its top without stealing focus.
 - Good: light and dark themes share token-driven scrollbar styling.
+- Good: long project lists scroll inside the left column while the GitHub column and editor frame stay visible.
 - Bad/risk: very short viewports scroll the document and may show less of the shell at once; this is the intentional `40rem` fallback.
 - Bad/risk: responsive frame height and scrollbar visibility require browser verification because jsdom does not model them.
 
@@ -55,6 +58,7 @@ Code:
 
 - changing editor shell sizing or page viewport units
 - changing tab-row wrapping, panel overflow, or scrollbar styling
+- changing the ProjectsPanel left-column viewport
 - changing tab activation, panel mounting, or scroll restoration
 - reviewing narrow-viewport accessibility or browser layout behavior
 
