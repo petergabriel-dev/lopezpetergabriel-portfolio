@@ -3,6 +3,7 @@ id: ADR-0003
 title: Separate dev and main delivery with GitHub CI and Vercel
 status: Active
 date: 2026-09-18
+readWhen: Use `dev` for direct development pushes and `main` for protected releases.
 ---
 
 # ADR-0003: Separate dev and main delivery with GitHub CI and Vercel

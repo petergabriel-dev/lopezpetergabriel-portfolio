@@ -3,6 +3,7 @@ id: ADR-0001
 title: Use Next.js App Router for the portfolio site
 status: Active
 date: 2026-09-18
+readWhen: Use Next.js 16 App Router with TypeScript for the site route.
 ---
 
 # ADR-0001: Use Next.js App Router for the portfolio site

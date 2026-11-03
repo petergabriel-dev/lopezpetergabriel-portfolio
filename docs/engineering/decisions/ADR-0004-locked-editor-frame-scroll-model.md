@@ -1,11 +1,14 @@
 ---
 id: ADR-0004
 title: Lock editor frame and keep scrolling in active panels
-status: Active
+status: Superseded
 date: 2026-09-19
+readWhen: Historical only; superseded by ADR-0006 on 2026-11-03.
 ---
 
 # ADR-0004: Lock editor frame and keep scrolling in active panels
+
+> **Superseded by ADR-0006** (2026-11-03). The Storm Glass dashboard scrolls the page normally and has no locked frame, tabs or nested scroll owners. This record is kept for history.
 
 ## Decision
 

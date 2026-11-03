@@ -3,6 +3,7 @@ id: ADR-0005
 title: Use a committed GitHub snapshot for public activity
 status: Active
 date: 2026-09-19
+readWhen: Change GitHub data fetching, snapshot generation, or repository selection.
 ---
 
 # ADR-0005: Use a committed GitHub snapshot for public activity

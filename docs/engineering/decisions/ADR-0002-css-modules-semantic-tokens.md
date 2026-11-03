@@ -3,6 +3,7 @@ id: ADR-0002
 title: Use CSS Modules with semantic design tokens
 status: Active
 date: 2026-09-18
+readWhen: Keep primitives and theme roles in `app/tokens.css`.
 ---
 
 # ADR-0002: Use CSS Modules with semantic design tokens
