@@ -14,7 +14,7 @@ Components receive content through props or content modules. Do not fabricate co
 
 Use one CSS Module beside each component or view. Consume semantic custom properties only. Primitive palette and scale values live in `app/tokens.css` under `/* @primitive */`, and semantic roles under `/* @semantic */`. Components do not invent one-off colors, spacing, radii, blurs, shadows or durations.
 
-Layouts are mobile-first. Exactly one width media query, `(min-width: 760px)`, handles shell-level structural differences: the rail vs. the mobile nav bar, and the header actions. Inside sections, use intrinsic `repeat(auto-fit, minmax(min(<n>, 100%), 1fr))` grids instead of media queries. There are no nested scroll areas.
+Layouts are mobile-first with exactly one breakpoint value, `(min-width: 760px)`. It appears in `app/tokens.css` and in component and view modules for desktop layouts; no other width media query exists. Inside sections, prefer intrinsic `repeat(auto-fit, minmax(min(<n>, 100%), 1fr))` grids. When a component must adapt to its own width, use a container query (`container-type: inline-size`) rather than a new viewport breakpoint. There are no nested scroll areas.
 
 Always pair `backdrop-filter` with `-webkit-backdrop-filter`. Gate hover styles behind `@media (hover: hover) and (pointer: fine)`. Use `display: contents` only on non-semantic wrapper `div`s.
 

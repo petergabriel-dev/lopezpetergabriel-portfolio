@@ -94,7 +94,7 @@ Named exports live in `components/icons.tsx`. Each is a 24 × 24 viewBox, `strok
 
 **Variants:**
 - `grid` (≥ 760 px): number and category pill, title, "orgShort · period", summary clamped to 3 lines, first three tags, expand icon, min height `--size-card-min`.
-- `compact` (< 760 px): one line with number, "category · period", title and orgShort.
+- Below 760 px the `grid` variant renders as a compact row: number, "category · period", title and orgShort (same DOM, CSS grid areas).
 - `featured` (Home sidebar): number, title, orgShort, expand icon.
 
 **States:**
@@ -107,7 +107,7 @@ Named exports live in `components/icons.tsx`. Each is a 24 × 24 viewBox, `strok
 
 ## TagChip
 
-A non-interactive `li` inside a `ul`, used for dialog tech tags and education honors. Glass chip pill, mono label. Not focusable.
+A non-interactive `li` inside a `ul`, used for the dialog's tech tags. Glass chip pill, mono label. Not focusable.
 
 ## ProjectDialog (client)
 
@@ -200,7 +200,7 @@ One variant is hidden per breakpoint. Dots are decorative; "Present" is in text.
 
 ## EducationCard (server)
 
-Desktop aside card: degree, school, years, and an honors `ul` of `TagChip` ("TOPCIT Passer 2025", "Dean's Lister AY 2021–22"). On mobile, education lives in the RoleList timeline.
+Desktop aside card: degree, school, years, and an `ul aria-label="Honors"` of outlined pills ("TOPCIT Passer · 2025", "Dean's Lister · AY 2021–22"). On mobile, education lives in the RoleList timeline.
 
 ## ContactLine (server)
 
@@ -208,7 +208,7 @@ Desktop aside card: degree, school, years, and an honors `ul` of `TagChip` ("TOP
 
 **Anatomy:** label and value, with a 38 px icon ring (`--size-ring`): phone icon for phone, arrow for email, LinkedIn and GitHub.
 
-**Accessibility:** names are "Email lopezpetergabriel@gmail.com", "Call +63 976 126 0783", "LinkedIn profile" and "GitHub profile". External links use `rel="noopener noreferrer"`.
+**Accessibility:** each name is the visible label and value ("Email lopezpetergabriel@gmail.com", "Phone · Philippines, UTC+8 +63 976 126 0783", "LinkedIn in/…", "GitHub github.com/…"), which satisfies WCAG 2.5.3 Label in Name. External links use `rel="noopener noreferrer"`; emails may break before "@".
 
 **States:** hover (pointer-gated) and focus-visible.
 
