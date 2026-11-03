@@ -1,168 +1,268 @@
-/* Portfolio editor design tokens. */
+/* Storm Glass design tokens (ADR-0002, ADR-0006). Dark only, mobile-first.
+   Components consume the semantic layer only. Contrast table: docs/design/README.md. */
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 
   /* @primitive */
-  --primitive-color-white: #ffffff;
-  --primitive-color-gray-50: #f6f8fa;
-  --primitive-color-gray-100: #eaeef2;
-  --primitive-color-gray-300: #d0d7de;
-  --primitive-color-gray-500: #57606a;
-  --primitive-color-gray-900: #24292f;
-  --primitive-color-blue-600: #0969da;
-  --primitive-color-green-600: #1a7f37;
-  --primitive-color-contribution-light-0: #ebedf0;
-  --primitive-color-contribution-light-1: #9be9a8;
-  --primitive-color-contribution-light-2: #40c463;
-  --primitive-color-contribution-light-3: #30a14e;
-  --primitive-color-contribution-light-4: #216e39;
-  --primitive-color-contribution-dark-0: #21262d;
-  --primitive-color-contribution-dark-1: #0e4429;
-  --primitive-color-contribution-dark-2: #006d32;
-  --primitive-color-contribution-dark-3: #26a641;
-  --primitive-color-contribution-dark-4: #39d353;
-  --primitive-color-purple-600: #8250df;
-  --primitive-color-orange-700: #bc4c00;
+  --primitive-teal-ground: #1b2a2c;
+  --primitive-teal-backdrop: #33494c;
+  --primitive-teal-stop-1: #4a6266;
+  --primitive-teal-stop-2: #34494c;
+  --primitive-teal-stop-3: #2b3d36;
+  --primitive-teal-stop-4: #22322a;
+  --primitive-white: #ffffff;
+  --primitive-mist-50: #f3f6f5;
+  --primitive-mist-100: #eef2f1;
+  --primitive-mist-200: #e4ebea;
+  --primitive-mist-300: #dce4e3;
+  --primitive-ink: #14211f;
+  --primitive-gold: #f5e3a8;
 
-  --primitive-color-dark-page: #0d1117;
-  --primitive-color-dark-panel: #161b22;
-  --primitive-color-dark-raised: #21262d;
-  --primitive-color-dark-border: #30363d;
-  --primitive-color-dark-text: #f0f6fc;
-  --primitive-color-dark-secondary: #8b949e;
-  --primitive-color-dark-link: #58a6ff;
-  --primitive-color-dark-positive: #3fb950;
-  --primitive-color-dark-purple: #bc8cff;
-  --primitive-color-dark-orange: #d29922;
+  --primitive-white-a025: rgba(255, 255, 255, 0.025);
+  --primitive-white-a05: rgba(255, 255, 255, 0.05);
+  --primitive-white-a07: rgba(255, 255, 255, 0.07);
+  --primitive-white-a10: rgba(255, 255, 255, 0.1);
+  --primitive-white-a12: rgba(255, 255, 255, 0.12);
+  --primitive-white-a13: rgba(255, 255, 255, 0.13);
+  --primitive-white-a14: rgba(255, 255, 255, 0.14);
+  --primitive-white-a16: rgba(255, 255, 255, 0.16);
+  --primitive-white-a18: rgba(255, 255, 255, 0.18);
+  --primitive-white-a20: rgba(255, 255, 255, 0.2);
+  --primitive-white-a22: rgba(255, 255, 255, 0.22);
+  --primitive-white-a24: rgba(255, 255, 255, 0.24);
+  --primitive-white-a26: rgba(255, 255, 255, 0.26);
+  --primitive-white-a30: rgba(255, 255, 255, 0.3);
+  --primitive-white-a32: rgba(255, 255, 255, 0.32);
+  --primitive-white-a35: rgba(255, 255, 255, 0.35);
+  --primitive-white-a75: rgba(255, 255, 255, 0.75);
 
-  --primitive-size-1: 0.25rem;
-  --primitive-size-2: 0.5rem;
-  --primitive-size-3: 0.75rem;
-  --primitive-size-4: 1rem;
-  --primitive-size-5: 1.25rem;
-  --primitive-size-6: 1.5rem;
-  --primitive-size-8: 2rem;
-  --primitive-size-10: 2.5rem;
-  --primitive-size-12: 3rem;
-  --primitive-size-16: 4rem;
+  --primitive-scrim-a28: rgba(10, 20, 22, 0.28);
+  --primitive-scrim-a31: rgba(10, 20, 22, 0.31);
+  --primitive-scrim-a35: rgba(10, 20, 22, 0.35);
+  --primitive-scrim-a45: rgba(10, 20, 22, 0.45);
+  --primitive-scrim-a50: rgba(10, 20, 22, 0.5);
+  --primitive-scrim-a55: rgba(10, 20, 22, 0.55);
+  --primitive-overlay-a58: rgba(8, 16, 18, 0.58);
+  --primitive-modal-a82: rgba(34, 52, 55, 0.82);
+  --primitive-modal-a86: rgba(34, 52, 55, 0.86);
+  --primitive-shadow-frame: rgba(5, 12, 13, 0.45);
+  --primitive-shadow-feature: rgba(6, 14, 15, 0.22);
+  --primitive-shadow-modal: rgba(4, 10, 11, 0.6);
+  --primitive-level-1: rgba(214, 226, 224, 0.3);
+  --primitive-level-2: rgba(228, 236, 234, 0.56);
+  --primitive-level-3: rgba(243, 246, 245, 0.88);
+  --primitive-gold-a55: rgba(245, 227, 168, 0.55);
+  --primitive-gold-a65: rgba(245, 227, 168, 0.65);
 
-  --primitive-font-size-xs: 0.6875rem;
-  --primitive-font-size-sm: 0.8125rem;
-  --primitive-font-size-md: 1rem;
-  --primitive-font-size-lg: 1.25rem;
-  --primitive-font-size-xl: clamp(1.5rem, 4vw, 2.25rem);
-  --primitive-font-size-2xl: clamp(2rem, 6vw, 3.5rem);
-  --primitive-tracking-label: 0.04em;
-  --primitive-cursor-width: 0.08em;
-  --primitive-cursor-offset: -0.1em;
-  --primitive-cursor-block: 1em;
-
-  --primitive-leading-tight: 1.2;
-  --primitive-leading-normal: 1.5;
-  --primitive-leading-loose: 1.75;
-
-  --primitive-radius-sm: 0.25rem;
-  --primitive-radius-md: 0.5rem;
-  --primitive-radius-lg: 0.75rem;
-  --primitive-radius-pill: 999rem;
-
-  --primitive-border-hairline: 0.0625rem;
-  --primitive-focus-width: 0.125rem;
-  --primitive-focus-offset: 0.125rem;
-
-  --primitive-duration-fast: 120ms;
-  --primitive-duration-panel: 180ms;
-  --primitive-duration-typing: 48ms;
-  --primitive-duration-reduced: 0.001ms;
-  --primitive-min-page-block-size: 100dvh;
-  --primitive-min-shell-block-size: 40rem;
-  --primitive-fluid-panel-block-space: 6vw;
-  --primitive-fluid-panel-inline-space: 7vw;
-  --primitive-measure-body: 46rem;
-  --primitive-measure-wide: 96rem;
-  --primitive-control-height: 2.5rem;
-  --primitive-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --primitive-font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --primitive-font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* @semantic */
-  --color-surface-page: var(--primitive-color-white);
-  --color-surface-panel: var(--primitive-color-gray-50);
-  --color-surface-raised: var(--primitive-color-white);
-  --color-surface-inset: var(--primitive-color-gray-100);
-  --color-content-primary: var(--primitive-color-gray-900);
-  --color-content-secondary: var(--primitive-color-gray-500);
-  --color-content-muted: var(--primitive-color-gray-500);
-  --color-content-on-accent: var(--primitive-color-white);
-  --color-border-default: var(--primitive-color-gray-300);
-  --color-border-subtle: var(--primitive-color-gray-100);
-  --color-border-focus: var(--primitive-color-blue-600);
-  --color-link: var(--primitive-color-blue-600);
-  --color-link-hover: var(--primitive-color-blue-600);
-  --color-positive: var(--primitive-color-green-600);
-  --color-secondary: var(--primitive-color-purple-600);
-  --color-warning: var(--primitive-color-orange-700);
-  --color-code-key: var(--primitive-color-purple-600);
-  --color-code-string: var(--primitive-color-green-600);
-  --color-code-number: var(--primitive-color-orange-700);
-  --color-code-punctuation: var(--primitive-color-gray-500);
-  --color-code-comment: var(--primitive-color-gray-500);
-  --color-status-surface: var(--primitive-color-gray-900);
-  --color-status-content: var(--primitive-color-white);
-  --color-contribution-0: var(--primitive-color-contribution-light-0);
-  --color-contribution-1: var(--primitive-color-contribution-light-1);
-  --color-contribution-2: var(--primitive-color-contribution-light-2);
-  --color-contribution-3: var(--primitive-color-contribution-light-3);
-  --color-contribution-4: var(--primitive-color-contribution-light-4);
+  --color-ground: var(--primitive-teal-ground);
+  --color-ground-hatch: repeating-linear-gradient(135deg, var(--primitive-white-a025) 0 1px, transparent 1px 16px);
+  --color-backdrop-base: var(--primitive-teal-backdrop);
+  /* ponytail: gradient-and-hatch stand-in for the backdrop photo; swap this token for the photo, keep --color-scrim. */
+  --color-backdrop:
+    repeating-linear-gradient(135deg, var(--primitive-white-a05) 0 1px, transparent 1px 14px),
+    linear-gradient(180deg, var(--primitive-teal-stop-1) 0%, var(--primitive-teal-stop-2) 30%, var(--primitive-teal-stop-3) 55%, var(--primitive-teal-stop-4) 100%);
+  /* Thinnest stop raised from the design's .15 (mobile) / .08 (desktop) to .31 so all text passes 4.5:1. */
+  --color-scrim: linear-gradient(180deg, var(--primitive-scrim-a45), var(--primitive-scrim-a31) 40%, var(--primitive-scrim-a35));
 
-  --font-family-ui: var(--primitive-font-mono);
-  --font-family-body: var(--primitive-font-sans);
+  --color-content-primary: var(--primitive-mist-50);
+  --color-content-strong: var(--primitive-white);
+  --color-content-body: var(--primitive-mist-200);
+  /* Raised from the design's #DCE4E3 for 4.5:1 on glass. */
+  --color-content-meta: var(--primitive-mist-200);
+  --color-content-bullet: var(--primitive-mist-100);
+  --color-content-on-light: var(--primitive-ink);
+  --color-content-logo: var(--primitive-teal-ground);
+  --color-accent: var(--primitive-gold);
+  --color-accent-glow: var(--primitive-gold-a55);
+  --color-focus-ring: var(--primitive-gold);
+  --color-divider: var(--primitive-white-a14);
+  --color-ring: var(--primitive-white-a35);
+  --color-avatar-ring: var(--primitive-white-a75);
+
+  --color-contribution-0: var(--primitive-white-a07);
+  --color-contribution-1: var(--primitive-level-1);
+  --color-contribution-2: var(--primitive-level-2);
+  --color-contribution-3: var(--primitive-level-3);
+  --color-contribution-4: var(--primitive-gold);
+
+  --glass-nav-fill: var(--primitive-white-a12);
+  --glass-nav-border: var(--primitive-white-a18);
+  --glass-nav-active-fill: var(--primitive-white-a26);
+  --glass-nav-item-border: var(--primitive-white-a22);
+  --glass-card-fill: var(--primitive-white-a14);
+  --glass-card-grid-fill: var(--primitive-white-a13);
+  --glass-card-border: var(--primitive-white-a20);
+  --glass-feature-fill: var(--primitive-white-a16);
+  --glass-feature-border: var(--primitive-white-a26);
+  --glass-dark-fill: var(--primitive-scrim-a28);
+  --glass-dark-border: var(--primitive-white-a16);
+  --glass-chip-fill: var(--primitive-white-a16);
+  --glass-chip-border: var(--primitive-white-a20);
+  --glass-tag-border: var(--primitive-white-a32);
+  --glass-icon-fill: var(--primitive-white-a14);
+  --glass-icon-border: var(--primitive-white-a20);
+  --glass-pill-fill: var(--primitive-white-a10);
+  --glass-pill-border: var(--primitive-white-a26);
+  --glass-pill-on-fill: var(--primitive-mist-50);
+  --glass-cta-fill: var(--primitive-white-a14);
+  --glass-cta-border: var(--primitive-white-a30);
+  --glass-hover-fill: var(--primitive-white-a18);
+  --glass-overlay-fill: var(--primitive-overlay-a58);
+  --glass-modal-fill: var(--primitive-modal-a86);
+  --glass-modal-border: var(--primitive-white-a24);
+
+  --blur-nav: blur(20px) saturate(140%);
+  --blur-card: blur(20px) saturate(140%);
+  --blur-feature: blur(24px) saturate(150%);
+  --blur-dark: blur(18px);
+  --blur-chip: blur(12px);
+  --blur-icon: blur(16px);
+  --blur-overlay: blur(8px);
+  --blur-modal: blur(30px) saturate(150%);
+
+  --shadow-frame: 0 30px 80px var(--primitive-shadow-frame);
+  --shadow-feature: 0 12px 40px var(--primitive-shadow-feature);
+  --shadow-modal: 0 40px 120px var(--primitive-shadow-modal);
+  --shadow-contribution-top: 0 0 8px 1px var(--primitive-gold-a65);
+  --shadow-accent-dot: 0 0 10px var(--primitive-gold-a55);
+
+  --font-family-sans: var(--primitive-font-sans);
   --font-family-mono: var(--primitive-font-mono);
-  --font-size-label: var(--primitive-font-size-xs);
-  --font-size-body: var(--primitive-font-size-md);
-  --font-size-body-small: var(--primitive-font-size-sm);
-  --font-size-heading: var(--primitive-font-size-xl);
-  --font-size-display: var(--primitive-font-size-2xl);
-  --line-height-heading: var(--primitive-leading-tight);
-  --line-height-body: var(--primitive-leading-loose);
-  --line-height-ui: var(--primitive-leading-normal);
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
-  --space-1: var(--primitive-size-1);
-  --space-2: var(--primitive-size-2);
-  --space-3: var(--primitive-size-3);
-  --space-4: var(--primitive-size-4);
-  --space-5: var(--primitive-size-5);
-  --space-6: var(--primitive-size-6);
-  --space-8: var(--primitive-size-8);
-  --space-10: var(--primitive-size-10);
-  --space-12: var(--primitive-size-12);
-  --space-16: var(--primitive-size-16);
+  --font-size-title: 44px;
+  --line-height-title: 1.05;
+  --font-size-clock: 64px;
+  --line-height-clock: 1;
+  --font-size-display: 44px;
+  --line-height-display: 1;
+  --font-size-modal-title: 28px;
+  --line-height-modal-title: 1.1;
+  --font-size-numeral: 26px;
+  --line-height-numeral: 1;
+  --font-size-card-title: 16px;
+  --line-height-card-title: 1.3;
+  --font-size-name: 16px;
+  --font-size-summary: 16px;
+  --line-height-summary: 1.6;
+  --font-size-body: 15px;
+  --line-height-body: 1.65;
+  --font-size-body-small: 14px;
+  --font-size-small: 13px;
+  --line-height-small: 1.5;
+  --font-size-caption: 12px;
+  --font-size-label: 11px;
+  --font-size-micro: 10px;
+  --line-height-tight: 1.3;
 
-  --radius-control: var(--primitive-radius-sm);
-  --radius-card: var(--primitive-radius-md);
-  --radius-shell: var(--primitive-radius-lg);
-  --radius-pill: var(--primitive-radius-pill);
-  --border-width-hairline: var(--primitive-border-hairline);
-  --focus-width: var(--primitive-focus-width);
-  --focus-offset: var(--primitive-focus-offset);
-  --motion-duration-fast: var(--primitive-duration-fast);
-  --motion-duration-panel: var(--primitive-duration-panel);
-  --motion-duration-typing: var(--primitive-duration-typing);
-  --motion-duration-reduced: var(--primitive-duration-reduced);
-  --motion-ease-standard: var(--primitive-ease-standard);
-  --type-tracking-label: var(--primitive-tracking-label);
-  --size-cursor-width: var(--primitive-cursor-width);
-  --size-cursor-offset: var(--primitive-cursor-offset);
-  --size-cursor-block: var(--primitive-cursor-block);
-  --min-page-block-size: var(--primitive-min-page-block-size);
-  --min-shell-block-size: var(--primitive-min-shell-block-size);
-  --space-fluid-panel-block: var(--primitive-fluid-panel-block-space);
-  --space-fluid-panel-inline: var(--primitive-fluid-panel-inline-space);
-  --measure-body: var(--primitive-measure-body);
-  --measure-wide: var(--primitive-measure-wide);
-  --control-height: var(--primitive-control-height);
+  --tracking-title: -0.03em;
+  --tracking-clock: -0.045em;
+  --tracking-display: -0.04em;
+  --tracking-modal: -0.025em;
+  --tracking-card: -0.01em;
+
+  --radius-frame: 0;
+  --radius-modal: 28px;
+  --radius-feature: 24px;
+  --radius-nav: 22px;
+  --radius-card: 22px;
+  --radius-card-compact: 20px;
+  --radius-dark: 18px;
+  --radius-nav-item: 16px;
+  --radius-pill: 999px;
+  --radius-cell: 2px;
+
+  --space-page: 0;
+  --space-frame: 16px 16px 28px;
+  --space-section: 20px;
+  --space-stack: 12px;
+  --space-grid: 12px;
+  --space-card: 18px;
+  --space-card-sm: 16px 18px;
+  --space-card-lg: 20px 22px;
+
+  --size-nav-item: 56px;
+  --size-icon-button: 46px;
+  --size-avatar: 44px;
+  --size-control: 44px;
+  --size-cta: 52px;
+  --size-ring: 38px;
+  --size-logo: 44px;
+  --size-frame-max: 1360px;
+  --size-card-min: 250px;
+  --size-toolkit-min: 150px;
+
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 3px;
+
+  --motion-duration-overlay: 200ms;
+  --motion-duration-modal: 320ms;
+  --motion-duration-hover: 150ms;
+  --motion-ease-overlay: ease-out;
+  --motion-ease-expand: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --motion-ease-hover: ease;
 }
 
-:where(:root) {
-  --primitive-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --primitive-font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+/* The single shell breakpoint (ADR-0006). */
+@media (min-width: 760px) {
+  :root {
+    /* @semantic */
+    --color-backdrop:
+      repeating-linear-gradient(135deg, var(--primitive-white-a05) 0 1px, transparent 1px 14px),
+      linear-gradient(180deg, var(--primitive-teal-stop-1) 0%, var(--primitive-teal-stop-2) 48%, var(--primitive-teal-stop-3) 70%, var(--primitive-teal-stop-4) 100%);
+    /* Thinnest stop raised from .08 to .31; right edge from .3 to .35. */
+    --color-scrim: linear-gradient(90deg, var(--primitive-scrim-a50), var(--primitive-scrim-a31) 58%, var(--primitive-scrim-a35));
+    --glass-modal-fill: var(--primitive-modal-a82);
+    --blur-modal: blur(32px) saturate(150%);
+
+    --font-size-title: clamp(44px, 5.4vw, 76px);
+    --line-height-title: 1.04;
+    --font-size-clock: 76px;
+    --font-size-display: 48px;
+    --font-size-modal-title: clamp(28px, 3.4vw, 40px);
+    --font-size-numeral: 30px;
+    --font-size-card-title: 17px;
+    --font-size-name: 17px;
+    --font-size-summary: 17px;
+
+    --radius-frame: 36px;
+    --radius-modal: 32px;
+    --radius-feature: 26px;
+    --radius-nav: 24px;
+    --radius-cell: 3px;
+
+    --space-page: clamp(12px, 2.8vw, 40px);
+    --space-frame: 22px;
+    --space-section: 28px;
+
+    --size-nav-item: 48px;
+    --size-avatar: 52px;
+    --size-logo: 48px;
+    --size-toolkit-min: 190px;
+
+    --motion-duration-modal: 340ms;
+  }
+}
+
+/* Without backdrop-filter, white glass reads flat over a photo: fall back to darker, opaque fills (keeps contrast). */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root {
+    /* @semantic */
+    --glass-nav-fill: var(--primitive-modal-a82);
+    --glass-card-fill: var(--primitive-modal-a82);
+    --glass-card-grid-fill: var(--primitive-modal-a82);
+    --glass-feature-fill: var(--primitive-modal-a86);
+    --glass-chip-fill: var(--primitive-modal-a82);
+    --glass-icon-fill: var(--primitive-modal-a82);
+    --glass-cta-fill: var(--primitive-modal-a82);
+  }
 }

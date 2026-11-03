@@ -73,7 +73,36 @@ The backdrop is currently the gradient-and-hatch stand-in from the handoff. A re
 
 ## Contrast table
 
-Filled in by the tokens task: text role × surface, composite colors and ratios.
+Measured 2026-11-03 against the worst case: the lightest backdrop stop `#4a6266` under the scrim's thinnest stop (`.31`), plus the glass fill. Browsers blend alpha in sRGB. Blur over the smooth stand-in gradient keeps the same average color, and `saturate()` and the 5% hatch lines are ignored.
+
+The design's values failed this check:
+- `#DCE4E3` captions on .14 glass: 3.89:1.
+- `#F3F6F5` on .16 feature glass: 4.40:1.
+- White on the .26 active nav item: 3.79:1.
+
+The fixes:
+- **Scrim:** the thinnest stop rose from `.08` (desktop, at 58%) and `.15` (mobile, at 40%) to `.31`. The desktop right edge rose from `.30` to `.35`.
+- **`--color-content-meta`:** `#DCE4E3` → `#E4EBEA`.
+- **`--glass-hover-fill`:** set to `.18`.
+
+| Surface (composite) | primary `#F3F6F5` | strong `#FFFFFF` | body/meta `#E4EBEA` | bullet `#EEF2F1` |
+|---|---|---|---|---|
+| Backdrop, no glass `#364a4d` | 8.62 | 9.37 | 7.75 | 8.31 |
+| Pill off .10 `#4a5c5f` | 6.47 | 7.03 | 5.82 | 6.23 |
+| Nav .12 `#4e6063` | 6.11 | 6.64 | 5.49 | 5.88 |
+| Card grid .13 `#506164` | 5.94 | 6.46 | 5.34 | 5.72 |
+| Card / icon / CTA .14 `#526366` | 5.77 | 6.28 | 5.19 | 5.56 |
+| Feature / chip .16 `#56676a` | 5.46 | 5.94 | 4.91 | 5.26 |
+| Hover .18 `#5a6a6d` | 5.16 | 5.62 | 4.65 | 4.98 |
+| Nav active .26 `#6a797b` (white text only) | — | 4.53 | — | — |
+| Dark glass .28 `#2a3b3e` | 10.81 | 11.75 | 9.72 | 10.41 |
+| Modal .82 on overlay .58 `#213235` | 12.30 | 13.38 | 11.07 | 11.86 |
+| Light pill `#F3F6F5`, on-light `#14211f` | — | — | — | 15.24 (on-light) |
+
+Rules that keep this table true:
+- The active nav item uses `--color-content-strong` only.
+- No text sits on glass lighter than .18, except that active item.
+- Re-measure when the real backdrop photo replaces the stand-in.
 
 ## Content guardrails
 
