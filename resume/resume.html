@@ -1,0 +1,288 @@
+<!doctype html>
+<!--
+  Source for public/resume.pdf. Content is drawn from the owner's master CV (local only).
+  Regenerate:
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --no-pdf-header-footer \
+    --print-to-pdf=public/resume.pdf "file://$PWD/resume/resume.html"
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Peter Gabriel Lopez — Résumé</title>
+    <meta name="author" content="Peter Gabriel Lopez" />
+    <style>
+      @page {
+        size: A4;
+        margin: 12mm 16mm 12mm;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body {
+        margin: 0;
+        color: #1d2627;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 9.4pt;
+        line-height: 1.42;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      header {
+        padding-bottom: 8pt;
+        border-bottom: 1.5pt solid #1b2a2c;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 21pt;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        line-height: 1.1;
+      }
+
+      .role {
+        margin: 2pt 0 6pt;
+        color: #3b4b4d;
+        font-size: 11pt;
+      }
+
+      .contact {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        color: #3b4b4d;
+        font-size: 8.8pt;
+      }
+
+      .contact li {
+        display: inline;
+      }
+
+      .contact li + li::before {
+        content: " · ";
+        color: #8a9799;
+      }
+
+      h2 {
+        margin: 11pt 0 5pt;
+        padding-bottom: 2pt;
+        border-bottom: 0.6pt solid #c3cdce;
+        color: #1b2a2c;
+        font-size: 9pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      section > p {
+        margin: 0;
+      }
+
+      .entry {
+        margin-top: 8pt;
+        break-inside: avoid;
+      }
+
+      .entry:first-of-type {
+        margin-top: 0;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 9.8pt;
+        font-weight: 700;
+      }
+
+      .meta {
+        margin: 0.5pt 0 2pt;
+        color: #4d5d5f;
+        font-size: 8.8pt;
+      }
+
+      ul.points {
+        margin: 2pt 0 0;
+        padding-left: 12pt;
+      }
+
+      ul.points li {
+        margin-top: 1.5pt;
+      }
+
+      .skills p {
+        margin: 2pt 0 0;
+      }
+
+      .skills strong,
+      .label {
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Peter Gabriel Lopez</h1>
+      <p class="role">Software Engineer &amp; Automation Specialist</p>
+      <ul class="contact">
+        <li>Iloilo City, Philippines</li>
+        <li><a href="mailto:lopezpetergabriel@gmail.com">lopezpetergabriel@gmail.com</a></li>
+        <li><a href="tel:+639761260783">+63 976 126 0783</a></li>
+        <li><a href="https://www.linkedin.com/in/peter-gabriel-lopez-702646393">linkedin.com/in/peter-gabriel-lopez-702646393</a></li>
+        <li><a href="https://github.com/petergabriel-dev">github.com/petergabriel-dev</a></li>
+        <li><a href="https://lopezpetergabriel-portfolio.vercel.app/">lopezpetergabriel-portfolio.vercel.app</a></li>
+      </ul>
+    </header>
+
+    <section>
+      <h2>Profile</h2>
+      <p>
+        Software engineer and automation specialist working across backend and full-stack development, AI-agent
+        infrastructure, API integrations and CRM automation. Builds with Go, PHP/Laravel, Python, TypeScript, React,
+        MySQL and Docker, and automates with n8n, Make.com and GoHighLevel. Has delivered internal systems for a
+        regional Philippine government office and technical solutions for clients in the United Kingdom and Sweden.
+      </p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <div class="entry">
+        <h3>Data Analyst — Department of the Interior and Local Government (DILG), Region VI</h3>
+        <p class="meta">Iloilo City, Philippines · Full-time · June 2026 – Present</p>
+        <ul class="points">
+          <li>Lead the design and development of a regional-office digital records and data warehouse platform in PHP (Laravel), MySQL and React, versioned in Git, to consolidate information and move paper-based records and workflows into one digital system (in development).</li>
+          <li>Served as resource person for a capability-development activity on Data Organization and Management for the Monitoring and Evaluation of Local Government Support Fund (LGSF) projects, held with the third-quarter program implementation review.</li>
+          <li>Provide general IT support, multimedia documentation, and livestream and audiovisual operations for events.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <h3>Freelance Automation Consultant — Theory of Khaos</h3>
+        <p class="meta">Remote · United Kingdom-based brand strategy studio · January 2026 – June 2026</p>
+        <ul class="points">
+          <li>Built client-intake automations in Make.com that process Stripe payments and Tally applications, route lead data to Folk CRM, and trigger Mailchimp actions and Slack notifications.</li>
+          <li>Migrated intake routing from Folk CRM to GoHighLevel by updating the Make.com workflows, then configured GHL-native automations for contact and opportunity management.</li>
+          <li>Built an n8n AI research workflow that analyzes historical closed-deal leads and generates brand-positioning insights for prospecting.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <h3>Lead Automation Specialist (Part-Time) — Adsome (Stromberg Media AB)</h3>
+        <p class="meta">Remote · Sweden-based client · January 2026 – March 2026</p>
+        <ul class="points">
+          <li>Designed, maintained and troubleshot automations built on n8n, GoHighLevel and AI-agent workflows for lead nurturing, reporting and content pipelines.</li>
+          <li>Identified operational bottlenecks, implemented or refined automations and integrations, and documented the systems for maintenance and handoff.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <h3>Multimedia Specialist &amp; AI Automation Lead — Sieitz Innovations OPC</h3>
+        <p class="meta">Iloilo City, Philippines · August 2025 – May 2026</p>
+        <ul class="points">
+          <li>Developed a Dockerized Go backend and API for a full-stack AI content platform where users generate AI images and videos and work with content calendars.</li>
+          <li>Built n8n generative-media workflows with Google Veo and Seedream, including an API-driven video-ad generator (Google Veo 3, Seedream V3) that turns static food images into social-media video assets.</li>
+          <li>Built a multi-agent branding workflow with Researcher, Strategist and Copywriter agents and bidirectional Notion sync that produces structured brand guides.</li>
+          <li>Separately deployed the company's static portfolio website on Vercel, and handled photography, videography and post-production.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <h3>Automation Engineer &amp; CRM Intern — Zenlabs Venture Management Inc.</h3>
+        <p class="meta">Iloilo City, Philippines · January 2025 – May 2025</p>
+        <ul class="points">
+          <li>Contributed application functionality and web development to Internsheet, a full-stack web application.</li>
+          <li>Built and configured GoHighLevel marketing funnels, CRM automations and lead follow-up flows, and worked with Odoo CRM configuration and operational data.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Selected Projects</h2>
+
+      <div class="entry">
+        <h3>pi-extensions — AI coding-agent infrastructure</h3>
+        <p class="meta">Independent project · TypeScript, MCP, JSON-RPC · <a href="https://github.com/petergabriel-dev/pi-extensions">github.com/petergabriel-dev/pi-extensions</a></p>
+        <ul class="points">
+          <li>Model Context Protocol bridge linking Claude Code, Cursor and OpenCode with shared Pi coding-agent session plans, task progress and messages.</li>
+          <li>File-based inter-process communication with atomic writes, permission checks and idempotent response replay; event-sourced plan tracker with stable task IDs and branch-aware state.</li>
+          <li>Single-writer build lease, per-tool read-only workflow hooks, and supervised subagents run as JSON-RPC child processes with concurrency limits, timeouts, bounded I/O and tool allowlists.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <h3>Government Digital Records &amp; Data Warehouse Platform — DILG Region VI</h3>
+        <p class="meta">Work project · Laravel, MySQL, React · in development</p>
+        <ul class="points">
+          <li>Platform to organize regional-office records and data and replace fragmented paper-based workflows with a unified digital information system.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <h3>Full-Stack AI Content Platform — Sieitz Innovations OPC</h3>
+        <p class="meta">Work project · Go, Docker, REST APIs</p>
+        <ul class="points">
+          <li>Go API and backend, containerized with Docker, for AI image generation, AI video generation and content-calendar creation; a separate deliverable from the company's static Vercel website.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <h3>Client Intake &amp; CRM Migration Automation — Theory of Khaos</h3>
+        <p class="meta">Make.com, Stripe, Tally, Folk CRM, GoHighLevel, Mailchimp, Slack</p>
+        <ul class="points">
+          <li>Connected payment and application events to lead capture, CRM records, mailing actions and team notifications, then moved the routing from Folk CRM to GoHighLevel with complementary GHL automations.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <h3>Multi-Agent Branding Guide Workflow</h3>
+        <p class="meta">n8n, Notion</p>
+        <ul class="points">
+          <li>Researcher, Strategist and Copywriter AI agents that generate comprehensive branding guides from source and client material, with error handling and bidirectional Notion synchronization.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <h3>Dynamic Image Protection API — Computer Science thesis</h3>
+        <p class="meta">Iloilo Science and Technology University</p>
+        <ul class="points">
+          <li>Investigated protecting images on websites with chaotic encryption based on a Logistic Map XOR algorithm.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="skills">
+      <h2>Skills</h2>
+      <p><strong>Backend &amp; languages:</strong> Go, PHP (Laravel), Python, JavaScript, TypeScript, SQL; React, Node.js; REST APIs, webhooks, JSON-RPC; MySQL; Docker, Git, GitHub, CI, Vercel.</p>
+      <p><strong>Automation &amp; CRM:</strong> n8n, Make.com, GoHighLevel; Folk CRM, Odoo CRM, Mailchimp; Stripe, Tally, Slack, Notion, Google Sheets, Google Docs, Google Drive.</p>
+      <p><strong>AI agents:</strong> Model Context Protocol (MCP), Claude Code, Cursor, OpenCode, Pi coding agent; multi-agent n8n workflows, AI research and prompt-enhancement workflows.</p>
+      <p><strong>Media:</strong> Google Veo, Seedream; Adobe Premiere Pro, DaVinci Resolve; Adobe Lightroom, Adobe Photoshop, Capture One; livestream and audiovisual operations.</p>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="entry">
+        <h3>Bachelor of Science in Computer Science — Iloilo Science and Technology University</h3>
+        <p class="meta">2021 – 2025</p>
+        <ul class="points">
+          <li>Test of Practical Competency in IT (TOPCIT): Passer, 2025.</li>
+          <li>Dean's Lister, first and second semesters of Academic Year 2021–2022.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Languages</h2>
+      <p>English, Filipino, Hiligaynon</p>
+    </section>
+  </body>
+</html>
