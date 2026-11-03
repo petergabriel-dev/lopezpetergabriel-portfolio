@@ -35,6 +35,7 @@
   --primitive-white-a30: rgba(255, 255, 255, 0.3);
   --primitive-white-a32: rgba(255, 255, 255, 0.32);
   --primitive-white-a35: rgba(255, 255, 255, 0.35);
+  --primitive-white-a60: rgba(255, 255, 255, 0.6);
   --primitive-white-a75: rgba(255, 255, 255, 0.75);
 
   --primitive-scrim-a28: rgba(10, 20, 22, 0.28);
@@ -52,6 +53,7 @@
   --primitive-level-1: rgba(214, 226, 224, 0.3);
   --primitive-level-2: rgba(228, 236, 234, 0.56);
   --primitive-level-3: rgba(243, 246, 245, 0.88);
+  --primitive-gold-a28: rgba(245, 227, 168, 0.28);
   --primitive-gold-a55: rgba(245, 227, 168, 0.55);
   --primitive-gold-a65: rgba(245, 227, 168, 0.65);
 
@@ -130,6 +132,8 @@
   --shadow-modal: 0 40px 120px var(--primitive-shadow-modal);
   --shadow-contribution-top: 0 0 8px 1px var(--primitive-gold-a65);
   --shadow-accent-dot: 0 0 10px 2px var(--primitive-gold-a55);
+  --shadow-timeline-current: 0 0 0 5px var(--primitive-gold-a28), 0 0 22px 8px var(--primitive-gold-a55);
+  --gradient-timeline: linear-gradient(180deg, var(--primitive-white-a16), var(--primitive-white-a60) 20%, var(--primitive-white-a20));
 
   --font-family-sans: var(--primitive-font-sans);
   --font-family-mono: var(--primitive-font-mono);
@@ -204,7 +208,6 @@
   --size-logo: 44px;
   --size-frame-max: 1360px;
   --size-card-min: 250px;
-  --size-toolkit-min: 150px;
 
   --focus-ring-width: 2px;
   --focus-ring-offset: 3px;
@@ -255,7 +258,6 @@
     --size-nav-item: 48px;
     --size-avatar: 52px;
     --size-logo: 48px;
-    --size-toolkit-min: 190px;
 
     --motion-duration-modal: 340ms;
   }

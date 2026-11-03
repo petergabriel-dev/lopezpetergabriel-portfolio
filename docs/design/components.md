@@ -176,7 +176,7 @@ A `ul` of three dark-glass rows (`--glass-dark-*`, `--blur-dark`), each an `aria
 
 **Anatomy:** `section` with `h2` "Toolkit" (no subtitle) and a `ul` of four dark-glass cards. Each card has an icon and `h3` area title, four tool lines, and a "Used at …" footer.
 
-**Layout:** `auto-fit` with `minmax(min(var(--size-toolkit-min), 100%), 1fr)`; `--size-toolkit-min` is 150 mobile (2 × 2) and 190 desktop.
+**Layout:** 2 × 2 by default; four across via a container query once the toolkit is at least 796px wide (each card 190px or more), so it is never 3 + 1.
 
 ## ResumeCard (server)
 

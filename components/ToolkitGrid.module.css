@@ -1,0 +1,75 @@
+.section {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.heading {
+  margin: 0;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Always 2x2 or four across (never 3 + 1): four columns once each card can be 190px wide. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-grid);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@container (min-width: 796px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: var(--space-card);
+  border: 1px solid var(--glass-dark-border);
+  border-radius: var(--radius-card);
+  background: var(--glass-dark-fill);
+  -webkit-backdrop-filter: var(--blur-dark);
+  backdrop-filter: var(--blur-dark);
+}
+
+.area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: var(--font-size-card-title);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-card);
+}
+
+.icon {
+  flex: none;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-size-body-small);
+  line-height: 1.4;
+  list-style: none;
+}
+
+.usedAt {
+  margin: auto 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-divider);
+  color: var(--color-content-meta);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-label);
+  line-height: 1.5;
+}

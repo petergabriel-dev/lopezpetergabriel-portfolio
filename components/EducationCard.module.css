@@ -1,0 +1,24 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--glass-dark-border);
+  border-radius: var(--radius-card-compact);
+  background: var(--glass-dark-fill);
+  -webkit-backdrop-filter: var(--blur-dark);
+  backdrop-filter: var(--blur-dark);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}

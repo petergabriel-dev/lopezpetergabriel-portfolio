@@ -1,0 +1,67 @@
+.card {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: var(--space-feature);
+  border: 1px solid var(--glass-feature-border);
+  border-radius: var(--radius-feature);
+  background: var(--glass-feature-fill);
+  -webkit-backdrop-filter: var(--blur-feature);
+  backdrop-filter: var(--blur-feature);
+  box-shadow: var(--shadow-feature);
+  color: var(--color-content-primary);
+  text-decoration: none;
+  transition: background-color var(--motion-duration-hover) var(--motion-ease-hover);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    background: var(--glass-hover-fill);
+  }
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+}
+
+.labelIcon {
+  flex: none;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.download {
+  /* Scales down with the card so "Download" and the circle always fit on one row. */
+  font-size: min(var(--font-size-display), 17cqi);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--line-height-display);
+}
+
+.circle {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-icon-button);
+  height: var(--size-icon-button);
+  border-radius: 50%;
+  background: var(--glass-pill-on-fill);
+  color: var(--color-content-logo);
+}
+
+.size {
+  color: var(--color-content-meta);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-caption);
+}

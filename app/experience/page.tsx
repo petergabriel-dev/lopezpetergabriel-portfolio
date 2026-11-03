@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
-import { experiencePage } from "@/content/experience";
+import { ExperienceView } from "@/components/views/ExperienceView";
+import { getResumeSizeLabel } from "@/lib/resume";
 
 export const metadata: Metadata = {
   title: "Experience",
@@ -9,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function ExperiencePage() {
-  return <h1>{experiencePage.titleLines.join(" ")}</h1>;
+  return <ExperienceView resumeSize={getResumeSizeLabel()} />;
 }

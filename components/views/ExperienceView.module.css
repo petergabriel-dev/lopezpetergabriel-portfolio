@@ -1,0 +1,93 @@
+/* Mobile: one column, wrappers dissolve so the timeline can sit between hero and toolkit. */
+.row {
+  flex-direction: column;
+  gap: 20px;
+}
+
+.main,
+.side {
+  display: contents;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  order: 1;
+  padding: 8px 4px 0;
+}
+
+.hero > ul {
+  align-self: stretch;
+}
+
+.timeline {
+  order: 2;
+}
+
+.toolkit {
+  order: 3;
+}
+
+.resume {
+  order: 4;
+}
+
+/* Two-class selectors so these win over the components' own display rules regardless of CSS order. */
+.side .desktopOnly,
+.titleBreak {
+  display: none;
+}
+
+.body {
+  max-width: 620px;
+}
+
+@media (min-width: 760px) {
+  .row {
+    flex-direction: row;
+    gap: var(--space-section);
+  }
+
+  .main {
+    display: flex;
+    flex: 999 1 520px;
+    flex-direction: column;
+    gap: 28px;
+    min-width: 0;
+  }
+
+  .side {
+    display: flex;
+    flex: 1 1 300px;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .hero {
+    gap: 22px;
+    padding: 14px 0 0;
+  }
+
+  /* Desktop keeps DOM order (résumé first in the aside). */
+  .hero,
+  .timeline,
+  .toolkit,
+  .resume {
+    order: 0;
+  }
+
+  .side .desktopOnly {
+    display: flex;
+  }
+
+  .titleBreak {
+    display: inline;
+  }
+
+  .side .timeline {
+    display: none;
+  }
+}
