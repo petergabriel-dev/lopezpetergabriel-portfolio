@@ -5,14 +5,6 @@ import { afterEach } from "vitest";
 
 afterEach(() => {
   cleanup();
-
-  try {
-    window.localStorage.clear();
-  } catch {
-    // jsdom can expose storage without a usable backing file.
-  }
-
-  document.documentElement.removeAttribute("data-theme");
 });
 
 Object.defineProperty(window, "matchMedia", {

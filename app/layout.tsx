@@ -3,22 +3,6 @@ import type { ReactNode } from "react";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const themeScript = `
-(() => {
-  try {
-    const stored = window.localStorage.getItem("portfolio-theme");
-    if (stored === "light" || stored === "dark") {
-      document.documentElement.dataset.theme = stored;
-      return;
-    }
-  } catch {}
-
-  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    document.documentElement.dataset.theme = "dark";
-  }
-})();
-`;
-
 const inter = Inter({
   variable: "--primitive-font-sans",
   subsets: ["latin"],
@@ -38,17 +22,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${jetBrainsMono.variable}`}
-      suppressHydrationWarning
-    >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{ __html: themeScript }}
-          id="theme-resolution"
-        />
-      </head>
+    <html lang="en" className={`${inter.variable} ${jetBrainsMono.variable}`}>
       <body>{children}</body>
     </html>
   );
