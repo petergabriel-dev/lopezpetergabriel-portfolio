@@ -12,11 +12,14 @@ describe("GitHub components", () => {
   it("protects repository and profile links", () => {
     render(<RepoList profileUrl={githubSnapshot.profileUrl} repos={githubSnapshot.repos} />);
 
-    for (const repo of githubSnapshot.repos) {
-      expect(screen.getByRole("link", { name: repo.name })).toHaveAttribute("rel", "noopener noreferrer");
+    expect(screen.getAllByRole("listitem")).toHaveLength(Math.min(6, githubSnapshot.repos.length));
+    for (const repo of githubSnapshot.repos.slice(0, 6)) {
+      const link = screen.getByRole("link", { name: new RegExp(`^${repo.name} `) });
+      expect(link).toHaveAttribute("href", repo.url);
+      expect(link).toHaveAttribute("rel", "noopener noreferrer");
     }
 
-    const profileLink = screen.getByRole("link", { name: /View all repositories/ });
+    const profileLink = screen.getByRole("link", { name: "Profile" });
     expect(profileLink).toHaveAttribute("href", githubSnapshot.profileUrl);
     expect(profileLink).toHaveAttribute("rel", "noopener noreferrer");
     expect(document.body.textContent).not.toMatch(/\bago\b/i);

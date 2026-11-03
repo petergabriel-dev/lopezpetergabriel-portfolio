@@ -1,52 +1,50 @@
-import type { GithubSnapshot } from "@/content/types";
+import type { GithubRepo } from "@/content/types";
 
+import { IconArrowUpRight } from "./icons";
 import styles from "./RepoList.module.css";
 
+const shortDate = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+
 type RepoListProps = {
-  profileUrl: GithubSnapshot["profileUrl"];
-  repos: GithubSnapshot["repos"];
+  repos: readonly GithubRepo[];
+  profileUrl: string;
+  limit?: number;
 };
 
-const updatedDateFormatter = new Intl.DateTimeFormat("en-US", {
-  day: "numeric",
-  month: "short",
-  timeZone: "UTC",
-  year: "numeric",
-});
-
-function formatUpdatedDate(value: string) {
-  return updatedDateFormatter.format(new Date(value));
-}
-
-export function RepoList({ profileUrl, repos }: RepoListProps) {
-  if (!repos.length) {
-    return null;
-  }
+/** Recently pushed public repositories. No scrolling; shows the first `limit` (snapshot order is newest first). */
+export function RepoList({ repos, profileUrl, limit = 6 }: RepoListProps) {
+  const shown = repos.slice(0, limit);
 
   return (
-    <div className={styles.root}>
-      <div className={styles.listViewport}>
+    <section className={styles.section} aria-labelledby="repos-title">
+      <div className={styles.header}>
+        <h2 id="repos-title" className={styles.title}>
+          Recently pushed on GitHub
+        </h2>
+        <a href={profileUrl} className={styles.profile} rel="noopener noreferrer">
+          Profile
+        </a>
+      </div>
+      {shown.length === 0 ? (
+        <p className={styles.empty}>No public repositories yet</p>
+      ) : (
         <ul className={styles.list}>
-          {repos.map((repo) => (
-            <li className={styles.row} key={repo.url}>
-              <h3 className={styles.name}>
-                <a className={styles.repoLink} href={repo.url} rel="noopener noreferrer">
-                  {repo.name}
-                </a>
-              </h3>
-              {repo.description ? <p className={styles.description}>{repo.description}</p> : null}
-              <div className={styles.meta}>
-                <span>{`Language: ${repo.language ?? "—"}`}</span>
-                <span>{`${repo.stars} ${repo.stars === 1 ? "star" : "stars"}`}</span>
-                <time dateTime={repo.pushedAt}>{`Updated ${formatUpdatedDate(repo.pushedAt)}`}</time>
-              </div>
+          {shown.map((repo) => (
+            <li key={repo.url}>
+              <a href={repo.url} className={styles.repo} rel="noopener noreferrer">
+                <span className={styles.text}>
+                  <span className={styles.name}>{repo.name}</span>{" "}
+                  <span className={styles.meta}>
+                    {repo.language ? `${repo.language} · ` : ""}
+                    {shortDate.format(new Date(repo.pushedAt))}
+                  </span>
+                </span>
+                <IconArrowUpRight size={16} className={styles.arrow} />
+              </a>
             </li>
           ))}
         </ul>
-      </div>
-      <a className={styles.profileLink} href={profileUrl} rel="noopener noreferrer">
-        View all repositories on GitHub
-      </a>
-    </div>
+      )}
+    </section>
   );
 }

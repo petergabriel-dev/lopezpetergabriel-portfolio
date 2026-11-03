@@ -184,9 +184,12 @@ export const projects: readonly Project[] = [
   },
 ];
 
-/** Original 1-based position of a project in the full list (cards and dialog keep it when filtered). */
+/**
+ * Original 1-based position of a project in the full list (cards and dialog keep it when filtered).
+ * Matches by id: projects passed from a server component arrive in client components as copies.
+ */
 export function projectNumber(project: Project): number {
-  return projects.indexOf(project) + 1;
+  return projects.findIndex((candidate) => candidate.id === project.id) + 1;
 }
 
 /** "01" */
