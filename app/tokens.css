@@ -129,7 +129,7 @@
   --shadow-feature: 0 12px 40px var(--primitive-shadow-feature);
   --shadow-modal: 0 40px 120px var(--primitive-shadow-modal);
   --shadow-contribution-top: 0 0 8px 1px var(--primitive-gold-a65);
-  --shadow-accent-dot: 0 0 10px var(--primitive-gold-a55);
+  --shadow-accent-dot: 0 0 10px 2px var(--primitive-gold-a55);
 
   --font-family-sans: var(--primitive-font-sans);
   --font-family-mono: var(--primitive-font-mono);
@@ -189,6 +189,7 @@
   --space-card: 18px;
   --space-card-sm: 16px 18px;
   --space-card-lg: 20px 22px;
+  --space-feature: 20px 22px;
 
   --size-nav-item: 56px;
   --size-icon-button: 46px;
@@ -243,6 +244,7 @@
     --space-page: clamp(12px, 2.8vw, 40px);
     --space-frame: 22px;
     --space-section: 28px;
+    --space-feature: 22px 24px;
 
     --size-nav-item: 48px;
     --size-avatar: 52px;

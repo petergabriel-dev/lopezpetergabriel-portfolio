@@ -54,6 +54,16 @@ export function IconExperience(props: IconProps) {
   );
 }
 
+/** Briefcase without the divider line (used for "Contract"). */
+export function IconBriefcase(props: IconProps) {
+  return (
+    <Svg strokeWidth={1.7} {...props}>
+      <rect x="3" y="7" width="18" height="13" rx="2.5" />
+      <path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7" />
+    </Svg>
+  );
+}
+
 export function IconMail(props: IconProps) {
   return (
     <Svg {...props}>
