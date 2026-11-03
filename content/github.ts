@@ -1,24 +1,32 @@
 import type { GithubSnapshot } from "./types";
 
 export const githubSnapshot: GithubSnapshot = {
-  "syncedAt": "2026-09-19T06:40:28.502Z",
+  "syncedAt": "2026-11-03T14:32:15.632Z",
   "profileUrl": "https://github.com/petergabriel-dev",
   "repos": [
-    {
-      "name": "lopezpetergabriel-portfolio",
-      "description": "My portfolio website",
-      "language": "TypeScript",
-      "stars": 0,
-      "pushedAt": "2026-09-18T08:39:36Z",
-      "url": "https://github.com/petergabriel-dev/lopezpetergabriel-portfolio"
-    },
     {
       "name": "pi-extensions",
       "description": "Pi extensions that improve AI coding agent context retention and AI development workflows in the Pi coding agent.",
       "language": "TypeScript",
       "stars": 0,
-      "pushedAt": "2026-09-18T06:03:17Z",
+      "pushedAt": "2026-11-03T02:56:30Z",
       "url": "https://github.com/petergabriel-dev/pi-extensions"
+    },
+    {
+      "name": "budget-calendar",
+      "description": "Mobile app for tracking your expenses in a calendar format.",
+      "language": "Kotlin",
+      "stars": 0,
+      "pushedAt": "2026-10-02T14:27:24Z",
+      "url": "https://github.com/petergabriel-dev/budget-calendar"
+    },
+    {
+      "name": "lopezpetergabriel-portfolio",
+      "description": "My portfolio website",
+      "language": "TypeScript",
+      "stars": 0,
+      "pushedAt": "2026-09-21T03:00:30Z",
+      "url": "https://github.com/petergabriel-dev/lopezpetergabriel-portfolio"
     },
     {
       "name": "hearth",
@@ -35,14 +43,6 @@ export const githubSnapshot: GithubSnapshot = {
       "stars": 0,
       "pushedAt": "2026-06-16T01:58:22Z",
       "url": "https://github.com/petergabriel-dev/focus"
-    },
-    {
-      "name": "budget-calendar",
-      "description": "Mobile app for tracking your expenses in a calendar format.",
-      "language": "Kotlin",
-      "stars": 0,
-      "pushedAt": "2026-05-22T06:44:17Z",
-      "url": "https://github.com/petergabriel-dev/budget-calendar"
     },
     {
       "name": "disable-recommended-yt",
@@ -70,281 +70,8 @@ export const githubSnapshot: GithubSnapshot = {
     }
   ],
   "contributions": {
-    "total": 901,
+    "total": 1692,
     "weeks": [
-      {
-        "days": [
-          {
-            "date": "2025-09-14",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-09-15",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-09-16",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-09-17",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-09-18",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-09-19",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-09-20",
-            "count": 0,
-            "level": 0
-          }
-        ]
-      },
-      {
-        "days": [
-          {
-            "date": "2025-09-21",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-09-22",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-09-23",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-09-24",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-09-25",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-09-26",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-09-27",
-            "count": 0,
-            "level": 0
-          }
-        ]
-      },
-      {
-        "days": [
-          {
-            "date": "2025-09-28",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-09-29",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-09-30",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-01",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-02",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-03",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-04",
-            "count": 0,
-            "level": 0
-          }
-        ]
-      },
-      {
-        "days": [
-          {
-            "date": "2025-10-05",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-06",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-07",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-08",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-09",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-10",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-11",
-            "count": 0,
-            "level": 0
-          }
-        ]
-      },
-      {
-        "days": [
-          {
-            "date": "2025-10-12",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-13",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-14",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-15",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-16",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-17",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-18",
-            "count": 0,
-            "level": 0
-          }
-        ]
-      },
-      {
-        "days": [
-          {
-            "date": "2025-10-19",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-20",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-21",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-22",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-23",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-24",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-25",
-            "count": 0,
-            "level": 0
-          }
-        ]
-      },
-      {
-        "days": [
-          {
-            "date": "2025-10-26",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-27",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-28",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-29",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-30",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-31",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-11-01",
-            "count": 0,
-            "level": 0
-          }
-        ]
-      },
       {
         "days": [
           {
@@ -1520,7 +1247,7 @@ export const githubSnapshot: GithubSnapshot = {
           {
             "date": "2026-05-31",
             "count": 12,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-06-01",
@@ -1530,12 +1257,12 @@ export const githubSnapshot: GithubSnapshot = {
           {
             "date": "2026-06-02",
             "count": 24,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-06-03",
             "count": 24,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-06-04",
@@ -1603,7 +1330,7 @@ export const githubSnapshot: GithubSnapshot = {
           {
             "date": "2026-06-15",
             "count": 25,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-06-16",
@@ -1686,7 +1413,7 @@ export const githubSnapshot: GithubSnapshot = {
           {
             "date": "2026-06-30",
             "count": 12,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-07-01",
@@ -1719,13 +1446,13 @@ export const githubSnapshot: GithubSnapshot = {
           },
           {
             "date": "2026-07-06",
-            "count": 0,
-            "level": 0
+            "count": 39,
+            "level": 4
           },
           {
             "date": "2026-07-07",
-            "count": 5,
-            "level": 1
+            "count": 28,
+            "level": 3
           },
           {
             "date": "2026-07-08",
@@ -1768,12 +1495,12 @@ export const githubSnapshot: GithubSnapshot = {
           },
           {
             "date": "2026-07-15",
-            "count": 15,
+            "count": 24,
             "level": 2
           },
           {
             "date": "2026-07-16",
-            "count": 7,
+            "count": 9,
             "level": 1
           },
           {
@@ -1808,7 +1535,7 @@ export const githubSnapshot: GithubSnapshot = {
           {
             "date": "2026-07-22",
             "count": 24,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-07-23",
@@ -1856,13 +1583,13 @@ export const githubSnapshot: GithubSnapshot = {
           },
           {
             "date": "2026-07-31",
-            "count": 0,
-            "level": 0
+            "count": 4,
+            "level": 1
           },
           {
             "date": "2026-08-01",
-            "count": 3,
-            "level": 1
+            "count": 34,
+            "level": 3
           }
         ]
       },
@@ -1891,7 +1618,7 @@ export const githubSnapshot: GithubSnapshot = {
           {
             "date": "2026-08-06",
             "count": 12,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-08-07",
@@ -1914,8 +1641,8 @@ export const githubSnapshot: GithubSnapshot = {
           },
           {
             "date": "2026-08-10",
-            "count": 9,
-            "level": 1
+            "count": 22,
+            "level": 2
           },
           {
             "date": "2026-08-11",
@@ -1924,13 +1651,13 @@ export const githubSnapshot: GithubSnapshot = {
           },
           {
             "date": "2026-08-12",
-            "count": 6,
-            "level": 1
+            "count": 16,
+            "level": 2
           },
           {
             "date": "2026-08-13",
-            "count": 6,
-            "level": 1
+            "count": 13,
+            "level": 2
           },
           {
             "date": "2026-08-14",
@@ -2136,6 +1863,259 @@ export const githubSnapshot: GithubSnapshot = {
             "date": "2026-09-19",
             "count": 0,
             "level": 0
+          }
+        ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-09-20",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-09-21",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-09-22",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-09-23",
+            "count": 10,
+            "level": 1
+          },
+          {
+            "date": "2026-09-24",
+            "count": 22,
+            "level": 2
+          },
+          {
+            "date": "2026-09-25",
+            "count": 7,
+            "level": 1
+          },
+          {
+            "date": "2026-09-26",
+            "count": 6,
+            "level": 1
+          }
+        ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-09-27",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-09-28",
+            "count": 22,
+            "level": 2
+          },
+          {
+            "date": "2026-09-29",
+            "count": 20,
+            "level": 2
+          },
+          {
+            "date": "2026-09-30",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-10-01",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-10-02",
+            "count": 15,
+            "level": 2
+          },
+          {
+            "date": "2026-10-03",
+            "count": 0,
+            "level": 0
+          }
+        ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-10-04",
+            "count": 12,
+            "level": 1
+          },
+          {
+            "date": "2026-10-05",
+            "count": 31,
+            "level": 3
+          },
+          {
+            "date": "2026-10-06",
+            "count": 25,
+            "level": 2
+          },
+          {
+            "date": "2026-10-07",
+            "count": 17,
+            "level": 2
+          },
+          {
+            "date": "2026-10-08",
+            "count": 21,
+            "level": 2
+          },
+          {
+            "date": "2026-10-09",
+            "count": 10,
+            "level": 1
+          },
+          {
+            "date": "2026-10-10",
+            "count": 11,
+            "level": 1
+          }
+        ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-10-11",
+            "count": 9,
+            "level": 1
+          },
+          {
+            "date": "2026-10-12",
+            "count": 33,
+            "level": 3
+          },
+          {
+            "date": "2026-10-13",
+            "count": 24,
+            "level": 2
+          },
+          {
+            "date": "2026-10-14",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-10-15",
+            "count": 17,
+            "level": 2
+          },
+          {
+            "date": "2026-10-16",
+            "count": 27,
+            "level": 3
+          },
+          {
+            "date": "2026-10-17",
+            "count": 12,
+            "level": 1
+          }
+        ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-10-18",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-10-19",
+            "count": 39,
+            "level": 4
+          },
+          {
+            "date": "2026-10-20",
+            "count": 26,
+            "level": 3
+          },
+          {
+            "date": "2026-10-21",
+            "count": 49,
+            "level": 4
+          },
+          {
+            "date": "2026-10-22",
+            "count": 22,
+            "level": 2
+          },
+          {
+            "date": "2026-10-23",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-10-24",
+            "count": 0,
+            "level": 0
+          }
+        ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-10-25",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-10-26",
+            "count": 18,
+            "level": 2
+          },
+          {
+            "date": "2026-10-27",
+            "count": 10,
+            "level": 1
+          },
+          {
+            "date": "2026-10-28",
+            "count": 24,
+            "level": 2
+          },
+          {
+            "date": "2026-10-29",
+            "count": 51,
+            "level": 4
+          },
+          {
+            "date": "2026-10-30",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-10-31",
+            "count": 0,
+            "level": 0
+          }
+        ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-11-01",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-11-02",
+            "count": 34,
+            "level": 3
+          },
+          {
+            "date": "2026-11-03",
+            "count": 21,
+            "level": 2
           }
         ]
       }
