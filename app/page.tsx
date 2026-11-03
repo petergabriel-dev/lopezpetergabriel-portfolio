@@ -1,7 +1,5 @@
-export default function Home() {
-  return (
-    <main id="content">
-      <h1>Peter Gabriel Lopez</h1>
-    </main>
-  );
+import { aboutContent } from "@/content/about";
+
+export default function HomePage() {
+  return <h1>{aboutContent.titleLines.join(" ")}</h1>;
 }

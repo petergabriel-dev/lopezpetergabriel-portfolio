@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import { AppShell } from "@/components/AppShell";
+
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -27,10 +29,18 @@ export const metadata: Metadata = {
     "Portfolio of Peter Gabriel Lopez, a software engineer and automation specialist in Iloilo City, Philippines, building backend systems, client automations and AI-agent infrastructure.",
 };
 
+// Matches --color-ground (app/tokens.css) for the browser UI tint.
+export const viewport: Viewport = {
+  themeColor: "#1b2a2c",
+  colorScheme: "dark",
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${plusJakartaSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <AppShell>{children}</AppShell>
+      </body>
     </html>
   );
 }

@@ -1,0 +1,123 @@
+/* Mobile: four-up labeled bar. Desktop (>= 760px): icon rail with tooltips. */
+.nav {
+  grid-area: nav;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+  padding: 6px;
+  border: 1px solid var(--glass-nav-border);
+  border-radius: var(--radius-nav);
+  background: var(--glass-nav-fill);
+  -webkit-backdrop-filter: var(--blur-nav);
+  backdrop-filter: var(--blur-nav);
+}
+
+.link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: var(--size-nav-item);
+  border-radius: var(--radius-nav-item);
+  color: var(--color-content-body);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
+  text-decoration: none;
+  transition: background-color var(--motion-duration-hover) var(--motion-ease-hover);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+
+/* After .link so the rail-only items stay hidden on mobile. */
+.logo,
+.resume {
+  display: none;
+}
+
+.link[aria-current="page"] {
+  background: var(--glass-nav-active-fill);
+  color: var(--color-content-strong);
+  font-weight: var(--font-weight-semibold);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:not([aria-current="page"]):hover {
+    background: var(--glass-hover-fill);
+  }
+}
+
+@media (min-width: 760px) {
+  .nav {
+    flex: 1 1 64px;
+    align-self: stretch;
+    grid-template-columns: repeat(auto-fill, var(--size-nav-item));
+    justify-content: center;
+    align-content: start;
+    gap: 12px;
+    padding: 14px 8px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--size-logo);
+    height: var(--size-logo);
+    margin-bottom: 18px;
+    border-radius: 50%;
+    background: var(--glass-pill-on-fill);
+    color: var(--color-content-logo);
+    font-size: 15px;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+
+  .resume {
+    display: flex;
+    margin-top: 18px;
+    border: 1px solid var(--glass-nav-item-border);
+  }
+
+  .link {
+    width: var(--size-nav-item);
+    height: var(--size-nav-item);
+    min-height: 0;
+  }
+
+  .icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* The text label is the accessible name; on desktop it shows as a tooltip. */
+  .label {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 12px);
+    z-index: 2;
+    padding: 6px 12px;
+    border: 1px solid var(--glass-modal-border);
+    border-radius: var(--radius-pill);
+    background: var(--glass-modal-fill);
+    color: var(--color-content-primary);
+    font-size: var(--font-size-caption);
+    font-weight: var(--font-weight-medium);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-50%);
+  }
+
+  .link:hover .label,
+  .link:focus-visible .label {
+    opacity: 1;
+  }
+}
