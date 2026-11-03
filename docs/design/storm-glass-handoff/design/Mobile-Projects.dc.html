@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Projects (mobile) — Peter Gabriel Lopez</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#1b2a2c}
+a{color:#F3F6F5;text-decoration:none}
+a:hover{color:#ffffff}
+a:focus-visible,button:focus-visible{outline:2px solid #F5E3A8;outline-offset:3px}
+@keyframes pgFade{from{opacity:0}to{opacity:1}}
+@keyframes pgExpand{from{opacity:0;transform:translateY(18px) scale(0.94)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div ref="{{setRootRef}}" style="position: relative; width: 390px; min-height: 2400px; box-sizing: border-box; padding: 16px 16px 28px; display: flex; flex-direction: column; gap: 20px; background-color: #33494c; background-image: linear-gradient(180deg, rgba(10,20,22,0.45), rgba(10,20,22,0.15) 40%, rgba(10,20,22,0.35)), repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 14px), linear-gradient(180deg, #4a6266 0%, #34494c 30%, #2b3d36 55%, #22322a 100%); font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; color: #F3F6F5">
+
+<header style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 4px">
+<a href="Mobile-Home.dc.html" style="display: flex; align-items: center; gap: 12px">
+<span style="width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #F3F6F5; color: #1b2a2c; font-size: 14px; font-weight: 700; letter-spacing: -0.02em">PL</span>
+<span style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 12px; color: #DCE4E3">Portfolio of</span>
+<span style="font-size: 16px; font-weight: 600; letter-spacing: -0.01em">Peter Gabriel Lopez</span>
+</span>
+</a>
+<div style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 50%; border: 2px solid rgba(255,255,255,0.75); display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(135deg, #5b7276 0 4px, #4d6467 4px 8px); font-family: 'Geist Mono', ui-monospace, monospace; font-size: 9px; color: #F3F6F5">Photo</div>
+</header>
+
+<nav aria-label="Sections" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; padding: 6px; border-radius: 22px; background: rgba(255,255,255,0.12); backdrop-filter: blur(20px) saturate(140%); -webkit-backdrop-filter: blur(20px) saturate(140%); border: 1px solid rgba(255,255,255,0.18)">
+<a href="Mobile-Home.dc.html" style="min-height: 56px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: #E4EBEA; font-size: 11px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"></path></svg>About</a>
+<a href="Mobile-Projects.dc.html" aria-current="page" style="min-height: 56px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; background: rgba(255,255,255,0.26); color: #ffffff; font-size: 11px; font-weight: 600"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 8l10 5 10-5Z"></path><path d="m2 12.5 10 5 10-5"></path><path d="m2 17 10 5 10-5"></path></svg>Projects</a>
+<a href="Mobile-Experience.dc.html" style="min-height: 56px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: #E4EBEA; font-size: 11px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5"></rect><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7"></path><path d="M3 12.5h18"></path></svg>Experience</a>
+<a href="Mobile-Contact.dc.html" style="min-height: 56px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: #E4EBEA; font-size: 11px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="m3.5 7 8.5 6 8.5-6"></path></svg>Contact</a>
+</nav>
+
+<section aria-labelledby="m-projects-title" style="display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding: 8px 4px 0">
+<span style="padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.16); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.2)">Projects · 11 builds</span>
+<h1 id="m-projects-title" style="margin: 0; font-size: 44px; line-height: 1.05; font-weight: 400; letter-spacing: -0.03em">What I've built</h1>
+<p style="margin: 0; font-size: 15px; line-height: 1.65; color: #E4EBEA; text-wrap: pretty">Government systems, client automations, generative-media pipelines and AI-agent infrastructure. Tap a project for the full breakdown.</p>
+</section>
+
+<div role="group" aria-label="Filter projects" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{filters}}" as="f" hint-placeholder-count="4">
+<button type="button" onClick="{{f.pick}}" aria-pressed="{{f.pressed}}" style="display: flex; align-items: center; gap: 6px; min-height: 44px; box-sizing: border-box; padding: 0 14px; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 500; color: {{f.color}}; background: {{f.bg}}; border: 1px solid {{f.border}}">{{f.name}}<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; opacity: 0.85">{{f.count}}</span></button>
+</sc-for>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{cards}}" as="p" hint-placeholder-count="6">
+<button type="button" onClick="{{p.open}}" aria-haspopup="dialog" style="width: 100%; box-sizing: border-box; display: flex; align-items: center; gap: 14px; padding: 16px 16px 16px 18px; border-radius: 22px; cursor: pointer; text-align: left; font-family: inherit; color: #F3F6F5; background: rgba(255,255,255,0.13); backdrop-filter: blur(20px) saturate(140%); -webkit-backdrop-filter: blur(20px) saturate(140%); border: 1px solid rgba(255,255,255,0.2)">
+<span style="width: 36px; flex-shrink: 0; font-size: 26px; line-height: 1; font-weight: 300; letter-spacing: -0.04em">{{p.num}}</span>
+<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #DCE4E3">{{p.kicker}}</span>
+<span style="font-size: 15px; font-weight: 600; line-height: 1.3">{{p.title}}</span>
+<span style="font-size: 12px; line-height: 1.4; color: #DCE4E3">{{p.orgShort}}</span>
+</span>
+<span aria-hidden="true" style="width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.35)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M9 21H3v-6"></path><path d="m21 3-7 7"></path><path d="m3 21 7-7"></path></svg></span>
+</button>
+</sc-for>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 4px 4px 0; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #DCE4E3">
+<span>Recently pushed on GitHub</span>
+<a href="https://github.com/petergabriel-dev" style="text-decoration: underline; text-underline-offset: 3px">Profile</a>
+</div>
+<div style="display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: rgba(10,20,22,0.3); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,0.16)">
+<a href="https://github.com/petergabriel-dev/pi-extensions" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; padding: 10px 18px; box-sizing: border-box; border-bottom: 1px solid rgba(255,255,255,0.12)"><span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; font-weight: 600">pi-extensions</span><span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #DCE4E3">TypeScript · Sep 18</span></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></a>
+<a href="https://github.com/petergabriel-dev/lopezpetergabriel-portfolio" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; padding: 10px 18px; box-sizing: border-box; border-bottom: 1px solid rgba(255,255,255,0.12)"><span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; font-weight: 600; overflow-wrap: anywhere">lopezpetergabriel-portfolio</span><span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #DCE4E3">TypeScript · Sep 18</span></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></a>
+<a href="https://github.com/petergabriel-dev/hearth" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; padding: 10px 18px; box-sizing: border-box; border-bottom: 1px solid rgba(255,255,255,0.12)"><span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; font-weight: 600">hearth</span><span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #DCE4E3">Jun 19</span></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></a>
+<a href="https://github.com/petergabriel-dev/focus" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; padding: 10px 18px; box-sizing: border-box; border-bottom: 1px solid rgba(255,255,255,0.12)"><span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; font-weight: 600">focus</span><span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #DCE4E3">Go · Jun 16</span></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></a>
+<a href="https://github.com/petergabriel-dev/budget-calendar" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; padding: 10px 18px; box-sizing: border-box; border-bottom: 1px solid rgba(255,255,255,0.12)"><span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; font-weight: 600">budget-calendar</span><span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #DCE4E3">Kotlin · May 22</span></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></a>
+<a href="https://github.com/petergabriel-dev/disable-recommended-yt" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; padding: 10px 18px; box-sizing: border-box"><span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; font-weight: 600">disable-recommended-yt</span><span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #DCE4E3">CSS · May 20</span></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></a>
+</div>
+</div>
+
+<div style="align-self: center; display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 10px; border: 1px dashed rgba(255,255,255,0.5); background: rgba(10,20,22,0.4); font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #E9EFEE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"></rect><circle cx="9" cy="10" r="2"></circle><path d="m21 16-5-5-9 9"></path></svg>Backdrop photo · portrait crop 1200 × 2400</div>
+
+<sc-if value="{{isOpen}}" hint-placeholder-val="{{false}}">
+<div onKeyDown="{{onModalKey}}" style="position: absolute; inset: 0; z-index: 50; background: rgba(8,16,18,0.6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); animation: pgFade 200ms ease-out">
+<button type="button" onClick="{{close}}" aria-label="Close project details" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; background: transparent; cursor: default"></button>
+<div role="dialog" aria-modal="true" aria-labelledby="m-project-modal-title" style="position: absolute; left: 10px; right: 10px; top: {{modalTop}}; box-sizing: border-box; padding: 22px 22px 20px; border-radius: 28px; display: flex; flex-direction: column; gap: 16px; background: rgba(34,52,55,0.86); backdrop-filter: blur(30px) saturate(150%); -webkit-backdrop-filter: blur(30px) saturate(150%); border: 1px solid rgba(255,255,255,0.24); box-shadow: 0 30px 90px rgba(4,10,11,0.6); animation: pgExpand 320ms cubic-bezier(0.2, 0.8, 0.2, 1)">
+<div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #DCE4E3; padding-top: 4px">
+<span>{{m.num}} / 11</span>
+<span style="padding: 3px 9px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.32); color: #F3F6F5">{{m.cat}}</span>
+<span>{{m.period}}</span>
+</div>
+<button type="button" ref="{{setCloseRef}}" onClick="{{close}}" aria-label="Close" style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #F3F6F5; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.28)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6 6 18"></path></svg></button>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h2 id="m-project-modal-title" style="margin: 0; font-size: 28px; line-height: 1.12; font-weight: 500; letter-spacing: -0.025em">{{m.title}}</h2>
+<span style="font-size: 13px; line-height: 1.45; color: #DCE4E3">{{m.org}}</span>
+</div>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #F3F6F5; text-wrap: pretty">{{m.summary}}</p>
+<div style="height: 1px; background: rgba(255,255,255,0.16)"></div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #DCE4E3">What I built</span>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{m.points}}" as="pt" hint-placeholder-count="3">
+<li style="display: grid; grid-template-columns: 12px minmax(0, 1fr); gap: 8px; font-size: 14px; line-height: 1.55; color: #EEF2F1"><span aria-hidden="true" style="width: 6px; height: 6px; margin-top: 8px; border-radius: 50%; background: #F5E3A8; box-shadow: 0 0 8px 1px rgba(245,227,168,0.5)"></span><span>{{pt.text}}</span></li>
+</sc-for>
+</ul>
+</div>
+<ul aria-label="Technologies" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{m.tags}}" as="t" hint-placeholder-count="4">
+<li style="padding: 5px 10px; border-radius: 999px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.24)">{{t.name}}</li>
+</sc-for>
+</ul>
+<sc-if value="{{m.hasLink}}" hint-placeholder-val="{{false}}">
+<a href="{{m.linkHref}}" style="min-height: 48px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0 20px; border-radius: 999px; background: #F3F6F5; color: #14211f; font-size: 14px; font-weight: 600">{{m.linkLabel}}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></a>
+</sc-if>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding-top: 4px">
+<button type="button" onClick="{{m.prev}}" aria-label="Previous project" style="min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 6px; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: 14px; color: #F3F6F5; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.24)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>Previous</button>
+<button type="button" onClick="{{m.next}}" aria-label="Next project" style="min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 6px; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: 14px; color: #F3F6F5; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.24)">Next<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button>
+</div>
+</div>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":2400}}'>
+class Component extends DCLogic {
+  projects() {
+    return [
+      { cat: 'Work', title: 'Digital Records & Data Warehouse Platform', org: 'DILG Region VI · Data Analyst', orgShort: 'DILG Region VI', period: 'Jun 2026 – Present', summary: 'A regional-office platform that consolidates information and moves paper-based records and workflows into one digital system. Currently in development.', points: ['Leading the design and development of the platform for DILG Region VI.', 'Built with PHP (Laravel), MySQL and React, versioned in Git.', 'Aims to replace fragmented paper-based workflows with a unified digital information system.'], tags: ['Laravel', 'PHP', 'MySQL', 'React', 'Git'] },
+      { cat: 'Independent', title: 'pi-extensions', org: 'AI coding-agent infrastructure', orgShort: 'AI coding-agent infrastructure', period: 'Independent project', summary: 'A Model Context Protocol bridge that lets Claude Code, Cursor and OpenCode share Pi coding-agent session plans, task progress and messages.', points: ['File-based inter-process communication with atomic writes, permission checks and idempotent response replay.', 'Event-sourced plan tracker with stable task IDs, branch-aware state and task-status coordination.', 'Single-writer build lease plus per-tool read-only workflow hooks.', 'Supervised Pi subagents run as JSON-RPC child processes with concurrency limits, timeouts, bounded input/output and tool allowlists.'], tags: ['TypeScript', 'MCP', 'JSON-RPC', 'IPC', 'Event sourcing'], link: { href: 'https://github.com/petergabriel-dev/pi-extensions', label: 'View on GitHub' } },
+      { cat: 'Work', title: 'Client Intake & CRM Migration', org: 'Theory of Khaos · UK brand strategy studio', orgShort: 'Theory of Khaos', period: 'Jan – Jun 2026', summary: 'Make.com automations that turn Stripe payments and Tally applications into CRM records, email actions and team alerts.', points: ['Built client-intake automations in Make.com that process Stripe payments and Tally applications and route lead data to Folk CRM, with Mailchimp actions and Slack notifications.', 'Moved the routing from Folk CRM to GoHighLevel by updating the Make.com workflows, then configured GHL-native automations for contacts and opportunities.', 'Separately built an n8n AI research workflow that analyzes historical closed-deal leads and generates brand-positioning insights for prospecting.'], tags: ['Make.com', 'Stripe', 'Tally', 'Folk CRM', 'GoHighLevel', 'Mailchimp', 'Slack', 'n8n'] },
+      { cat: 'Work', title: 'Full-Stack AI Content Platform', org: 'Sieitz Innovations OPC', orgShort: 'Sieitz Innovations OPC', period: 'Aug 2025 – May 2026', summary: 'A Dockerized Go backend and API for a product where users generate AI images and videos and plan content calendars.', points: ['Developed the Go API and backend, containerized with Docker.', 'Supports AI image generation, AI video generation and content-calendar creation.', 'A separate deliverable from the company’s static portfolio website, which I also deployed on Vercel.'], tags: ['Go', 'Docker', 'REST APIs'] },
+      { cat: 'Work', title: 'Multi-Agent Branding Guide Workflow', org: 'Sieitz Innovations OPC', orgShort: 'Sieitz Innovations OPC', period: 'Aug 2025 – May 2026', summary: 'Researcher, Strategist and Copywriter agents that turn supplied client material into a structured brand guide.', points: ['Orchestrates Researcher, Strategist and Copywriter AI agents in n8n.', 'Produces comprehensive branding guides from source and client material.', 'Includes error handling and bidirectional synchronization with Notion.'], tags: ['n8n', 'Multi-agent', 'Notion'] },
+      { cat: 'Work', title: 'AI Video Ad Generator', org: 'Sieitz Innovations OPC', orgShort: 'Sieitz Innovations OPC', period: 'Aug 2025 – May 2026', summary: 'An API-driven workflow that turns static food images into social-media video ads.', points: ['Processes static product and food imagery into ad-oriented video clips through API-connected AI generation steps.', 'Built around Google Veo 3 and Seedream V3.', 'Supports asset creation for marketing and social campaigns.'], tags: ['n8n', 'Google Veo 3', 'Seedream V3'] },
+      { cat: 'Work', title: 'Production Automation Systems', org: 'Adsome (Stromberg Media AB) · Lead Automation Specialist, part-time', orgShort: 'Adsome (Stromberg Media AB)', period: 'Jan – Mar 2026', summary: 'Designed, maintained and troubleshot n8n, GoHighLevel and AI-agent workflows for a Sweden-based client.', points: ['Supported lead-nurturing, reporting and content-related automation pipelines.', 'Found operational bottlenecks and implemented or refined automations and integrations to improve workflow efficiency.', 'Documented the automation systems for maintenance and handoff.'], tags: ['n8n', 'GoHighLevel', 'AI agents'] },
+      { cat: 'Work', title: 'Internsheet & CRM Automation', org: 'Zenlabs Venture Management Inc. · Automation Engineer & CRM Intern', orgShort: 'Zenlabs Venture Management Inc.', period: 'Jan – May 2025', summary: 'Full-stack work on the Internsheet web application, plus GoHighLevel funnels and CRM automations.', points: ['Contributed application functionality and web development to the full-stack Internsheet web app.', 'Built and configured GoHighLevel marketing funnels, CRM automations and lead follow-up flows.', 'Worked with Odoo CRM configuration and operational data management.'], tags: ['Full-stack', 'GoHighLevel', 'Odoo CRM'] },
+      { cat: 'Independent', title: 'n8n Workflow Portfolio', org: 'Six documented automation builds', orgShort: 'Six documented automation builds', period: 'Portfolio', summary: 'A set of n8n builds covering brand research, generative video, product content and human-approved copy.', points: ['Brand Researcher: a Notion status change to Research triggers processing of client-conversation transcripts into structured brand research.', 'Google Veo 3.1 Video Generator: an AI prompt enhancer turns short text into full generation prompts, with error handling and auto-upload to Google Drive.', 'Professional Food Photographer: modular, model-specific subworkflows that create food photos and videos.', 'UGC-Style Product Promoter: selfie-style promotional videos for products, places and services.', 'Content Ticketer: AI-drafted social copy logged in Google Sheets, with email approval or redo before it reaches the social team.', 'Master Document Writer: turns a detailed client form into an AI-assisted master document saved to Google Docs.'], tags: ['n8n', 'Notion', 'Google Veo 3.1', 'Google Drive', 'Google Sheets', 'Google Docs'] },
+      { cat: 'Academic', title: 'Dynamic Image Protection API', org: 'BS Computer Science thesis · Iloilo Science and Technology University', orgShort: 'BS Computer Science thesis', period: 'Thesis', summary: 'Research into protecting images on websites with chaotic encryption based on a Logistic Map XOR algorithm.', points: ['Investigated image protection for websites using chaotic encryption.', 'Built the approach around a Logistic Map XOR algorithm.'], tags: ['Chaotic encryption', 'Logistic Map XOR', 'API'] },
+      { cat: 'Academic', title: 'Dog Breed Identifier', org: 'Machine-learning project', orgShort: 'Machine-learning project', period: 'Academic', summary: 'A convolutional neural network trained to identify dog breeds from input images.', points: ['Developed and trained a CNN for image-based dog-breed identification.', 'Built with Python, PyTorch and scikit-learn.'], tags: ['Python', 'PyTorch', 'scikit-learn', 'CNN'] }
+    ];
+  }
+  componentDidUpdate(prevProps, prevState) {
+    const open = this.state ? this.state.open : null;
+    const before = prevState ? prevState.open : null;
+    if (open != null && open !== before && this.closeEl) {
+      try { this.closeEl.focus({ preventScroll: true }); } catch (e) {}
+    }
+  }
+  renderVals() {
+    const P = this.projects();
+    const N = P.length;
+    const s = this.state || {};
+    const filter = s.filter || 'All';
+    const open = s.open != null ? s.open : null;
+    const num = (i) => (i < 9 ? '0' : '') + (i + 1);
+    const close = () => {
+      this.setState({ open: null });
+      const t = this.trigger;
+      if (t && t.focus) setTimeout(() => { try { t.focus({ preventScroll: true }); } catch (e) {} }, 0);
+    };
+    const placeAt = (el) => {
+      const rootH = this.rootEl ? this.rootEl.scrollHeight : 2400;
+      const y = el && el.offsetTop != null ? el.offsetTop - 60 : 400;
+      return Math.max(12, Math.min(y, rootH - 1060));
+    };
+    const filters = ['All', 'Work', 'Independent', 'Academic'].map((c) => {
+      const on = c === filter;
+      return {
+        name: c,
+        count: c === 'All' ? N : P.filter((p) => p.cat === c).length,
+        pressed: on ? 'true' : 'false',
+        color: on ? '#14211f' : '#F3F6F5',
+        bg: on ? '#F3F6F5' : 'rgba(255,255,255,0.1)',
+        border: on ? '#F3F6F5' : 'rgba(255,255,255,0.26)',
+        pick: () => this.setState({ filter: c })
+      };
+    });
+    const cards = P.map((p, i) => ({
+      num: num(i),
+      cat: p.cat,
+      kicker: p.cat + ' · ' + p.period,
+      title: p.title,
+      orgShort: p.orgShort,
+      open: (e) => {
+        const el = e && e.currentTarget;
+        if (el) this.trigger = el;
+        this.setState({ open: i, top: placeAt(el) });
+      }
+    })).filter((c) => filter === 'All' || c.cat === filter);
+    const at = open != null ? open : 0;
+    const cur = P[at];
+    const m = {
+      num: num(at),
+      cat: cur.cat,
+      period: cur.period,
+      title: cur.title,
+      org: cur.org,
+      summary: cur.summary,
+      points: cur.points.map((t) => ({ text: t })),
+      tags: cur.tags.map((t) => ({ name: t })),
+      hasLink: !!cur.link,
+      linkHref: cur.link ? cur.link.href : '',
+      linkLabel: cur.link ? cur.link.label : '',
+      prev: () => this.setState({ open: (at - 1 + N) % N }),
+      next: () => this.setState({ open: (at + 1) % N })
+    };
+    return {
+      filters: filters,
+      cards: cards,
+      isOpen: open != null,
+      modalTop: (s.top != null ? s.top : 400) + 'px',
+      m: m,
+      close: close,
+      onModalKey: (e) => { if (e.key === 'Escape') { e.stopPropagation(); close(); } },
+      setCloseRef: (el) => { this.closeEl = el; },
+      setRootRef: (el) => { this.rootEl = el; }
+    };
+  }
+}
+</script>
+</body>
+</html>

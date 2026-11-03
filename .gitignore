@@ -42,3 +42,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Storm Glass handoff: private or third-party reference material (local only)
+/docs/design/storm-glass-handoff.zip
+/docs/design/storm-glass-handoff/reference/

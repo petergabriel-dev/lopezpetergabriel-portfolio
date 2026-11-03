@@ -1,0 +1,112 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Contact.dc.html": {
+      "expand": "fill",
+      "h": 960,
+      "is_interactive": true,
+      "title": "Contact — Desktop",
+      "w": 1440,
+      "x": 4560,
+      "y": 0
+    },
+    "Experience.dc.html": {
+      "expand": "fill",
+      "h": 1200,
+      "is_interactive": true,
+      "title": "Experience — Desktop",
+      "w": 1440,
+      "x": 3040,
+      "y": 0
+    },
+    "Main.dc.html": {
+      "expand": "fill",
+      "h": 960,
+      "is_interactive": true,
+      "title": "Home — Desktop",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Mobile-Contact.dc.html": {
+      "h": 1700,
+      "is_interactive": true,
+      "title": "Contact — Mobile",
+      "w": 390,
+      "x": 1410,
+      "y": 2140
+    },
+    "Mobile-Experience.dc.html": {
+      "h": 2320,
+      "is_interactive": true,
+      "title": "Experience — Mobile",
+      "w": 390,
+      "x": 940,
+      "y": 2140
+    },
+    "Mobile-Home.dc.html": {
+      "h": 1640,
+      "is_interactive": true,
+      "title": "Home — Mobile",
+      "w": 390,
+      "x": 0,
+      "y": 2140
+    },
+    "Mobile-Projects.dc.html": {
+      "h": 2400,
+      "is_interactive": true,
+      "title": "Projects — Mobile",
+      "w": 390,
+      "x": 470,
+      "y": 2140
+    },
+    "Projects.dc.html": {
+      "expand": "fill",
+      "h": 1788,
+      "is_interactive": true,
+      "title": "Projects — Desktop",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-11-03T02:10:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "desktopTitle": {
+      "kind": "title1",
+      "maxW": 6000,
+      "text": "Desktop · 1440",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "mobileTitle": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "Mobile · 390",
+      "w": 240,
+      "x": 0,
+      "y": 1840
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Projects.dc.html",
+    "Experience.dc.html",
+    "Contact.dc.html",
+    "Mobile-Home.dc.html",
+    "Mobile-Projects.dc.html",
+    "Mobile-Experience.dc.html",
+    "Mobile-Contact.dc.html"
+  ],
+  "pages": [],
+  "title": "Portfolio Redesign — Storm Glass"
+}

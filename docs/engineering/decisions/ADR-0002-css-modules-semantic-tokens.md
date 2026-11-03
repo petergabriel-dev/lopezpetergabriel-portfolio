@@ -25,7 +25,7 @@ readWhen: Keep primitives and theme roles in `app/tokens.css`.
 
 Docs:
 
-- `docs/design/tokens.css`
+- `docs/design/manifest.json` (declares `app/tokens.css` as the only token file; the former `docs/design/tokens.css` copy was removed 2026-11-03)
 - `docs/design/README.md`
 - `docs/engineering/conventions.md`
 - `docs/engineering/invariants.md`

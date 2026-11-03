@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home (mobile) — Peter Gabriel Lopez</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#1b2a2c}
+a{color:#F3F6F5;text-decoration:none}
+a:hover{color:#ffffff}
+a:focus-visible,button:focus-visible{outline:2px solid #F5E3A8;outline-offset:3px}
+@keyframes pgFade{from{opacity:0}to{opacity:1}}
+@keyframes pgExpand{from{opacity:0;transform:translateY(18px) scale(0.94)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div ref="{{setRootRef}}" style="position: relative; width: 390px; min-height: 1640px; box-sizing: border-box; padding: 16px 16px 28px; display: flex; flex-direction: column; gap: 20px; background-color: #33494c; background-image: linear-gradient(180deg, rgba(10,20,22,0.45), rgba(10,20,22,0.15) 40%, rgba(10,20,22,0.35)), repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 14px), linear-gradient(180deg, #4a6266 0%, #34494c 30%, #2b3d36 55%, #22322a 100%); font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; color: #F3F6F5">
+
+<header style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 4px">
+<a href="Mobile-Home.dc.html" style="display: flex; align-items: center; gap: 12px">
+<span style="width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #F3F6F5; color: #1b2a2c; font-size: 14px; font-weight: 700; letter-spacing: -0.02em">PL</span>
+<span style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 12px; color: #DCE4E3">Portfolio of</span>
+<span style="font-size: 16px; font-weight: 600; letter-spacing: -0.01em">Peter Gabriel Lopez</span>
+</span>
+</a>
+<div style="width: 44px; height: 44px; box-sizing: border-box; border-radius: 50%; border: 2px solid rgba(255,255,255,0.75); display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(135deg, #5b7276 0 4px, #4d6467 4px 8px); font-family: 'Geist Mono', ui-monospace, monospace; font-size: 9px; color: #F3F6F5">Photo</div>
+</header>
+
+<nav aria-label="Sections" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; padding: 6px; border-radius: 22px; background: rgba(255,255,255,0.12); backdrop-filter: blur(20px) saturate(140%); -webkit-backdrop-filter: blur(20px) saturate(140%); border: 1px solid rgba(255,255,255,0.18)">
+<a href="Mobile-Home.dc.html" aria-current="page" style="min-height: 56px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; background: rgba(255,255,255,0.26); color: #ffffff; font-size: 11px; font-weight: 600"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"></path></svg>About</a>
+<a href="Mobile-Projects.dc.html" style="min-height: 56px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: #E4EBEA; font-size: 11px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 8l10 5 10-5Z"></path><path d="m2 12.5 10 5 10-5"></path><path d="m2 17 10 5 10-5"></path></svg>Projects</a>
+<a href="Mobile-Experience.dc.html" style="min-height: 56px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: #E4EBEA; font-size: 11px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5"></rect><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7"></path><path d="M3 12.5h18"></path></svg>Experience</a>
+<a href="Mobile-Contact.dc.html" style="min-height: 56px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: #E4EBEA; font-size: 11px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="m3.5 7 8.5 6 8.5-6"></path></svg>Contact</a>
+</nav>
+
+<section aria-labelledby="m-home-title" style="display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding: 8px 4px 0">
+<span style="padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 500; background: rgba(255,255,255,0.16); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.2)">Software Engineer &amp; Automation Specialist</span>
+<h1 id="m-home-title" style="margin: 0; font-size: 44px; line-height: 1.05; font-weight: 400; letter-spacing: -0.03em">Useful systems over noisy demos.</h1>
+<p style="margin: 0; font-size: 15px; line-height: 1.65; color: #E4EBEA; text-wrap: pretty">Backend and full-stack development, AI-agent infrastructure, API integrations and CRM automation across Go, PHP/Laravel, Python, TypeScript, React, MySQL, Docker, n8n, Make.com and GoHighLevel. I've delivered internal systems for a regional Philippine government office and technical solutions for clients in the United Kingdom and Sweden.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; padding-top: 4px">
+<a href="mailto:lopezpetergabriel@gmail.com" style="display: flex; align-items: center; gap: 8px; min-height: 48px; box-sizing: border-box; padding: 0 20px; border-radius: 999px; background: #F3F6F5; color: #14211f; font-size: 15px; font-weight: 600"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="m3.5 7 8.5 6 8.5-6"></path></svg>Email Peter</a>
+<a href="/resume.pdf" download="Peter-Gabriel-Lopez-Resume.pdf" style="display: flex; align-items: center; gap: 8px; min-height: 48px; box-sizing: border-box; padding: 0 20px; border-radius: 999px; font-size: 15px; font-weight: 500; background: rgba(255,255,255,0.14); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.3)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="m7 10.5 5 5 5-5"></path><path d="M5 20h14"></path></svg>Résumé</a>
+</div>
+</section>
+
+<div style="padding: 20px 22px; border-radius: 24px; display: flex; flex-direction: column; gap: 8px; background: rgba(255,255,255,0.16); backdrop-filter: blur(24px) saturate(150%); -webkit-backdrop-filter: blur(24px) saturate(150%); border: 1px solid rgba(255,255,255,0.26); box-shadow: 0 12px 40px rgba(6,14,15,0.22)">
+<div style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>Iloilo City, Philippines</div>
+<div style="display: flex; align-items: flex-start; gap: 8px">
+<span style="font-size: 64px; line-height: 1; font-weight: 400; letter-spacing: -0.045em">{{time}}</span>
+<span style="margin-top: 6px; font-size: 13px; font-weight: 600">UTC+8</span>
+</div>
+<span style="font-size: 13px; color: #E4EBEA">{{weekday}} · Peter's local time</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 16px; padding-top: 4px; font-size: 13px">
+<span style="display: flex; align-items: center; gap: 7px"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: #F5E3A8; box-shadow: 0 0 10px 2px rgba(245,227,168,0.6)"></span>Available</span>
+<span>Contract</span>
+<span>Across timezones</span>
+</div>
+</div>
+
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; padding: 0 2px">
+<figcaption style="display: flex; flex-direction: column; gap: 4px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #DCE4E3">
+<span>{{gridTitle}}</span>
+<span>{{gridSummary}}</span>
+</figcaption>
+<div aria-hidden="true" style="display: grid; grid-template-columns: repeat({{gridWeeks}}, minmax(0, 1fr)); column-gap: 2px; padding-top: 4px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 10px; line-height: 1; color: #DCE4E3">
+<sc-for list="{{monthLabels}}" as="ml" hint-placeholder-count="6">
+<span style="grid-column: {{ml.col}}; white-space: nowrap">{{ml.label}}</span>
+</sc-for>
+</div>
+<div aria-hidden="true" style="display: grid; grid-template-rows: repeat(7, auto); grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 2px">
+<sc-for list="{{cells}}" as="c" hint-placeholder-count="26">
+<span title="{{c.title}}" style="aspect-ratio: 1 / 1; border-radius: 2px; background: {{c.bg}}; box-shadow: {{c.glow}}"></span>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 10px; color: #DCE4E3">
+<span>{{busiest}}</span>
+<span style="display: flex; align-items: center; gap: 3px">Less<span aria-hidden="true" style="width: 10px; height: 10px; margin-left: 3px; border-radius: 2px; background: rgba(255,255,255,0.07)"></span><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 2px; background: rgba(214,226,224,0.3)"></span><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 2px; background: rgba(228,236,234,0.56)"></span><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 2px; background: rgba(243,246,245,0.88)"></span><span aria-hidden="true" style="width: 10px; height: 10px; margin-right: 3px; border-radius: 2px; background: #F5E3A8; box-shadow: 0 0 8px 1px rgba(245,227,168,0.65)"></span>More</span>
+</div>
+</figure>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding: 4px 4px 0">
+<span style="font-size: 13px; font-weight: 600">Selected work</span>
+<a href="Mobile-Projects.dc.html" style="font-size: 13px; text-decoration: underline; text-underline-offset: 3px">All 11 projects</a>
+</div>
+<sc-for list="{{featured}}" as="p" hint-placeholder-count="3">
+<button type="button" onClick="{{p.open}}" aria-haspopup="dialog" style="width: 100%; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 18px; border-radius: 22px; cursor: pointer; text-align: left; font-family: inherit; color: #F3F6F5; background: rgba(255,255,255,0.14); backdrop-filter: blur(20px) saturate(140%); -webkit-backdrop-filter: blur(20px) saturate(140%); border: 1px solid rgba(255,255,255,0.2)">
+<span style="display: flex; flex-direction: column; gap: 3px; min-width: 0">
+<span style="font-size: 12px; color: #DCE4E3">{{p.orgShort}}</span>
+<span style="font-size: 16px; font-weight: 600; line-height: 1.3">{{p.title}}</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #DCE4E3">{{p.tagLine}}</span>
+</span>
+<span style="font-size: 30px; font-weight: 300; letter-spacing: -0.04em">{{p.num}}</span>
+</button>
+</sc-for>
+</div>
+
+<div style="align-self: center; display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 10px; border: 1px dashed rgba(255,255,255,0.5); background: rgba(10,20,22,0.4); font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #E9EFEE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"></rect><circle cx="9" cy="10" r="2"></circle><path d="m21 16-5-5-9 9"></path></svg>Backdrop photo · portrait crop 1200 × 2400</div>
+
+<sc-if value="{{isOpen}}" hint-placeholder-val="{{false}}">
+<div onKeyDown="{{onModalKey}}" style="position: absolute; inset: 0; z-index: 50; background: rgba(8,16,18,0.6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); animation: pgFade 200ms ease-out">
+<button type="button" onClick="{{close}}" aria-label="Close project details" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; background: transparent; cursor: default"></button>
+<div role="dialog" aria-modal="true" aria-labelledby="m-home-modal-title" style="position: absolute; left: 10px; right: 10px; top: {{modalTop}}; box-sizing: border-box; padding: 22px 22px 20px; border-radius: 28px; display: flex; flex-direction: column; gap: 16px; background: rgba(34,52,55,0.86); backdrop-filter: blur(30px) saturate(150%); -webkit-backdrop-filter: blur(30px) saturate(150%); border: 1px solid rgba(255,255,255,0.24); box-shadow: 0 30px 90px rgba(4,10,11,0.6); animation: pgExpand 320ms cubic-bezier(0.2, 0.8, 0.2, 1)">
+<div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #DCE4E3; padding-top: 4px">
+<span>{{m.num}} / 11</span>
+<span style="padding: 3px 9px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.32); color: #F3F6F5">{{m.cat}}</span>
+<span>{{m.period}}</span>
+</div>
+<button type="button" ref="{{setCloseRef}}" onClick="{{close}}" aria-label="Close" style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #F3F6F5; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.28)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6 6 18"></path></svg></button>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h2 id="m-home-modal-title" style="margin: 0; font-size: 28px; line-height: 1.12; font-weight: 500; letter-spacing: -0.025em">{{m.title}}</h2>
+<span style="font-size: 13px; line-height: 1.45; color: #DCE4E3">{{m.org}}</span>
+</div>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #F3F6F5; text-wrap: pretty">{{m.summary}}</p>
+<div style="height: 1px; background: rgba(255,255,255,0.16)"></div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #DCE4E3">What I built</span>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{m.points}}" as="pt" hint-placeholder-count="3">
+<li style="display: grid; grid-template-columns: 12px minmax(0, 1fr); gap: 8px; font-size: 14px; line-height: 1.55; color: #EEF2F1"><span aria-hidden="true" style="width: 6px; height: 6px; margin-top: 8px; border-radius: 50%; background: #F5E3A8; box-shadow: 0 0 8px 1px rgba(245,227,168,0.5)"></span><span>{{pt.text}}</span></li>
+</sc-for>
+</ul>
+</div>
+<ul aria-label="Technologies" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{m.tags}}" as="t" hint-placeholder-count="4">
+<li style="padding: 5px 10px; border-radius: 999px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.24)">{{t.name}}</li>
+</sc-for>
+</ul>
+<sc-if value="{{m.hasLink}}" hint-placeholder-val="{{false}}">
+<a href="{{m.linkHref}}" style="min-height: 48px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0 20px; border-radius: 999px; background: #F3F6F5; color: #14211f; font-size: 14px; font-weight: 600">{{m.linkLabel}}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></a>
+</sc-if>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding-top: 4px">
+<button type="button" onClick="{{m.prev}}" aria-label="Previous project" style="min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 6px; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: 14px; color: #F3F6F5; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.24)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>Previous</button>
+<button type="button" onClick="{{m.next}}" aria-label="Next project" style="min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 6px; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: 14px; color: #F3F6F5; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.24)">Next<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button>
+</div>
+</div>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1640}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    this.timer = setInterval(() => this.forceUpdate(), 15000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+  componentDidUpdate(prevProps, prevState) {
+    const open = this.state ? this.state.open : null;
+    const before = prevState ? prevState.open : null;
+    if (open != null && open !== before && this.closeEl) {
+      try { this.closeEl.focus({ preventScroll: true }); } catch (e) {}
+    }
+  }
+  featuredProjects() {
+    return [
+      { num: '01', cat: 'Work', title: 'Digital Records & Data Warehouse Platform', org: 'DILG Region VI · Data Analyst', orgShort: 'DILG Region VI', period: 'Jun 2026 – Present', summary: 'A regional-office platform that consolidates information and moves paper-based records and workflows into one digital system. Currently in development.', points: ['Leading the design and development of the platform for DILG Region VI.', 'Built with PHP (Laravel), MySQL and React, versioned in Git.', 'Aims to replace fragmented paper-based workflows with a unified digital information system.'], tags: ['Laravel', 'PHP', 'MySQL', 'React', 'Git'] },
+      { num: '02', cat: 'Independent', title: 'pi-extensions', org: 'AI coding-agent infrastructure', orgShort: 'Independent · AI coding-agent infrastructure', period: 'Independent project', summary: 'A Model Context Protocol bridge that lets Claude Code, Cursor and OpenCode share Pi coding-agent session plans, task progress and messages.', points: ['File-based inter-process communication with atomic writes, permission checks and idempotent response replay.', 'Event-sourced plan tracker with stable task IDs, branch-aware state and task-status coordination.', 'Single-writer build lease plus per-tool read-only workflow hooks.', 'Supervised Pi subagents run as JSON-RPC child processes with concurrency limits, timeouts, bounded input/output and tool allowlists.'], tags: ['TypeScript', 'MCP', 'JSON-RPC', 'IPC', 'Event sourcing'], link: { href: 'https://github.com/petergabriel-dev/pi-extensions', label: 'View on GitHub' } },
+      { num: '03', cat: 'Work', title: 'Client Intake & CRM Migration', org: 'Theory of Khaos · UK brand strategy studio', orgShort: 'Theory of Khaos', period: 'Jan – Jun 2026', summary: 'Make.com automations that turn Stripe payments and Tally applications into CRM records, email actions and team alerts.', points: ['Built client-intake automations in Make.com that process Stripe payments and Tally applications and route lead data to Folk CRM, with Mailchimp actions and Slack notifications.', 'Moved the routing from Folk CRM to GoHighLevel by updating the Make.com workflows, then configured GHL-native automations for contacts and opportunities.', 'Separately built an n8n AI research workflow that analyzes historical closed-deal leads and generates brand-positioning insights for prospecting.'], tags: ['Make.com', 'Stripe', 'Tally', 'Folk CRM', 'GoHighLevel', 'Mailchimp', 'Slack', 'n8n'] }
+    ];
+  }
+  grid(weeksShown) {
+    const levels = '00000000000000000000000000000000000000000000000000001000011100010010110000010010001000000000000110000110000111110100110000010110111000011101111111111111111111111111011011111010101100011010000000010001000100000000101000000000000000000010000010011101211000000002033000002340013102100000002012000000111000112110101300000012010101210011110000000000012402112120004411000101020';
+    const counts = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,7,6,1,0,0,0,10,0,0,1,0,2,5,0,0,0,0,0,3,0,0,1,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,5,1,0,0,0,0,5,5,0,0,0,0,6,2,2,2,3,0,1,0,0,4,6,0,0,0,0,0,1,0,2,1,0,2,1,1,0,0,0,0,5,1,1,0,4,2,1,1,2,3,3,2,2,1,2,7,3,3,3,3,4,7,3,1,2,2,1,7,2,0,2,3,0,1,1,3,3,3,0,1,0,1,0,3,2,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,6,0,0,0,2,0,0,0,0,0,0,0,0,2,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,8,0,0,10,6,1,0,6,17,5,1,0,0,0,0,0,0,0,0,12,0,24,24,0,0,0,0,0,17,31,42,0,0,4,25,1,0,16,6,0,0,0,0,0,0,0,21,0,5,12,0,0,0,0,0,0,5,7,1,0,0,0,1,5,15,7,5,0,6,0,1,24,0,0,0,0,0,0,1,19,0,3,0,1,0,1,12,1,0,0,9,9,6,6,0,0,0,0,0,0,0,0,0,0,0,6,21,39,0,15,2,7,13,5,17,0,0,0,47,41,1,10,0,0,0,3,0,1,0,19,0];
+    const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const DAY = 86400000;
+    const start = Date.UTC(2025, 8, 14);
+    const fmt = (t) => { const d = new Date(t); return MONTHS[d.getUTCMonth()] + ' ' + d.getUTCDate() + ', ' + d.getUTCFullYear(); };
+    const fills = ['rgba(255,255,255,0.07)', 'rgba(214,226,224,0.3)', 'rgba(228,236,234,0.56)', 'rgba(243,246,245,0.88)', '#F5E3A8'];
+    const totalWeeks = Math.ceil(counts.length / 7);
+    const firstWeek = Math.max(0, totalWeeks - weeksShown);
+    const from = firstWeek * 7;
+    const cells = [];
+    let total = 0, active = 0, maxI = from;
+    for (let i = from; i < counts.length; i++) {
+      const lv = Number(levels.charAt(i)) || 0;
+      const n = counts[i];
+      total += n;
+      if (n > 0) active++;
+      if (n > counts[maxI]) maxI = i;
+      cells.push({
+        bg: fills[lv],
+        glow: lv === 4 ? '0 0 8px 1px rgba(245,227,168,0.65)' : 'none',
+        title: (n === 0 ? 'No contributions' : n === 1 ? '1 contribution' : n + ' contributions') + ' on ' + fmt(start + i * DAY)
+      });
+    }
+    const shown = totalWeeks - firstWeek;
+    const monthLabels = [];
+    let prev = -1;
+    for (let w = firstWeek; w < totalWeeks; w++) {
+      const d = new Date(start + w * 7 * DAY);
+      const mth = d.getUTCMonth();
+      if (mth !== prev) {
+        prev = mth;
+        const n = w - firstWeek + 1;
+        const last = monthLabels[monthLabels.length - 1];
+        const item = { n: n, label: mth === 0 ? 'Jan ’' + String(d.getUTCFullYear()).slice(2) : MONTHS[mth] };
+        if (!last || n - last.n >= 3) monthLabels.push(item);
+        else if (monthLabels.length === 1) monthLabels[0] = item;
+      }
+    }
+    monthLabels.forEach((m) => { m.col = m.n + ' / span ' + Math.max(1, Math.min(3, shown + 1 - m.n)); });
+    return { cells: cells, monthLabels: monthLabels, weeks: shown, total: total, active: active, from: fmt(start + from * DAY), to: fmt(start + (counts.length - 1) * DAY), busiest: 'Busiest day: ' + counts[maxI] + ' on ' + fmt(start + maxI * DAY) };
+  }
+  clock(opts, fallback) {
+    try { return new Intl.DateTimeFormat('en-GB', Object.assign({ timeZone: 'Asia/Manila' }, opts)).format(new Date()); }
+    catch (e) { return fallback; }
+  }
+  renderVals() {
+    const s = this.state || {};
+    const G = this.grid(26);
+    const Y = this.grid(53);
+    const F = this.featuredProjects();
+    const N = F.length;
+    const open = s.open != null ? s.open : null;
+    const close = () => {
+      this.setState({ open: null });
+      const t = this.trigger;
+      if (t && t.focus) setTimeout(() => { try { t.focus({ preventScroll: true }); } catch (e) {} }, 0);
+    };
+    const placeAt = (el) => {
+      const rootH = this.rootEl ? this.rootEl.scrollHeight : 1640;
+      const y = el && el.offsetTop != null ? el.offsetTop - 60 : 600;
+      return Math.max(12, Math.min(y, rootH - 980));
+    };
+    const featured = F.map((p, i) => ({
+      num: p.num,
+      title: p.title,
+      orgShort: p.orgShort,
+      tagLine: p.tags.slice(0, 3).join(' · '),
+      open: (e) => {
+        const el = e && e.currentTarget;
+        if (el) this.trigger = el;
+        this.setState({ open: i, top: placeAt(el) });
+      }
+    }));
+    const at = open != null ? open : 0;
+    const cur = F[at];
+    const m = {
+      num: cur.num,
+      cat: cur.cat,
+      period: cur.period,
+      title: cur.title,
+      org: cur.org,
+      summary: cur.summary,
+      points: cur.points.map((t) => ({ text: t })),
+      tags: cur.tags.map((t) => ({ name: t })),
+      hasLink: !!cur.link,
+      linkHref: cur.link ? cur.link.href : '',
+      linkLabel: cur.link ? cur.link.label : '',
+      prev: () => this.setState({ open: (at - 1 + N) % N }),
+      next: () => this.setState({ open: (at + 1) % N })
+    };
+    return {
+      cells: G.cells,
+      monthLabels: G.monthLabels,
+      gridWeeks: G.weeks,
+      gridTitle: 'GitHub contributions · last 26 weeks',
+      gridSummary: G.total + ' since ' + G.from + ' · ' + Y.total + ' in the past year',
+      busiest: G.busiest,
+      time: this.clock({ hour: '2-digit', minute: '2-digit', hour12: false }, '--:--'),
+      weekday: this.clock({ weekday: 'long' }, 'Today'),
+      featured: featured,
+      isOpen: open != null,
+      modalTop: (s.top != null ? s.top : 600) + 'px',
+      m: m,
+      close: close,
+      onModalKey: (e) => { if (e.key === 'Escape') { e.stopPropagation(); close(); } },
+      setCloseRef: (el) => { this.closeEl = el; },
+      setRootRef: (el) => { this.rootEl = el; }
+    };
+  }
+}
+</script>
+</body>
+</html>

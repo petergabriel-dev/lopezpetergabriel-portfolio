@@ -1,179 +1,217 @@
-# Foundation component specs
+# Storm Glass component contracts
 
-All component examples consume semantic tokens from `tokens.css`. Values below are role contracts, not implementation-specific markup.
+All components consume semantic tokens from `app/tokens.css`. These are role contracts, not markup. Breakpoint means the single `760px` shell breakpoint; layouts are mobile-first. Any state not listed is not applicable to that component.
 
-## 1. EditorShell
+## AppShell (server)
 
-**Purpose:** Frame the portfolio as one calm editor window.
+**Anatomy:** skip link → `SectionNav` → column with `header` and `main#content`. The frame paints the backdrop plus scrim.
 
-**Anatomy:** shell frame, `EditorTabBar`, active `ContentPanel`, persistent `StatusBar`.
+**Desktop:**
+- Frame is a grid of a 64 px rail and the main column, gap `--space-section`; max width `--size-frame-max`; radius `--radius-frame`; `overflow: clip`; `--shadow-frame`.
+- Header shows "Portfolio of" (mono caption) over the name (semibold `p`).
+- Header actions are 46 px glass icon links (`--glass-icon-*`, `--blur-icon`): Résumé (`/resume.pdf`, `download`), GitHub (`rel="noopener noreferrer"`), Email (`mailto:`). The 52 px avatar has a 2 px light ring.
 
-**States:** default, keyboard focus within, reduced motion, light theme, dark theme.
+**Mobile:** grid areas place the header (decorative PL mark, name, 44 px avatar; no focusables) above the nav bar. Content stacks at 20 px gaps.
 
-**Token contract:** `--color-surface-page`, `--color-surface-panel`, `--color-border-default`, `--radius-shell`, `--space-*`, `--font-family-ui`.
+**Accessibility:**
+- One `header`, one `nav`, one `main`.
+- "Skip to content" is visible on focus.
+- Icon links are named "Download résumé (PDF)", "GitHub profile" and "Email Peter".
+- Avatar alt is "Peter Gabriel Lopez".
 
-**Behavior:** Use a viewport-locked `100dvh` frame with a `40rem` minimum. Keep header, tab row, active panel, and status bar in one visual frame; the active panel owns scrolling at normal heights, while shorter viewports may scroll the document to keep the footer reachable. Navigation must not duplicate tabs elsewhere.
+**Motion:** none.
 
-**Responsive:** Use fluid inline padding from the spacing scale. Preserve shell hierarchy at narrow widths. Let the tab row wrap instead of scrolling horizontally; never introduce a sidebar or fixed-width shell.
+## SectionNav (client)
 
-**Accessibility:** Use a `main` landmark for active content. Keep contrast between shell, panel, and borders in both themes. Do not rely on editor chrome to communicate current location.
+**Anatomy:** `nav aria-label="Sections"` with links About `/`, Projects `/projects`, Experience `/experience`, Contact `/contact`.
 
-## 2. EditorTabBar and EditorTab
+**Variants:**
+- Desktop rail: PL logo link, four 48 × 48 icon items (`--radius-nav-item`), and a bordered résumé download at the bottom. Labels are visually hidden and show as a tooltip on hover and focus-visible; no `title` attribute.
+- Mobile bar: four columns of 56 px items, icon over an 11 px label. Logo and résumé items are hidden.
 
-**Purpose:** File-like navigation for four content panels.
+**States:**
+- default;
+- hover: `--glass-hover-fill`, pointer-gated;
+- focus-visible: ring;
+- current: `aria-current="page"`, `--glass-nav-active-fill`, `--color-content-strong`.
 
-**Anatomy:** tab list, four tab buttons, active indicator connected to panel.
+**Tokens:** `--glass-nav-fill`, `--glass-nav-border`, `--blur-nav`, `--radius-nav`, `--size-nav-item`, `--size-logo`, `--font-size-micro`.
 
-**States:** active, inactive, hover, focus-visible, disabled only if a panel is unavailable.
+**Motion:** hover fill only (`--motion-duration-hover`).
 
-**Token contract:** `--font-family-ui`, `--font-size-body-small`, `--color-content-secondary`, `--color-content-primary`, `--color-surface-raised`, `--color-border-default`, `--color-border-focus`, `--space-3`, `--space-4`.
+## Icons
 
-**Behavior:** Fixed order: `about.md`, `projects.tsx`, `experience.json`, `contact.md`. Clicking or keyboard activation swaps panel in place. Use `role="tablist"`, `role="tab"`, `aria-selected`, and `aria-controls`.
+Named exports live in `components/icons.tsx`. Each is a 24 × 24 viewBox, `stroke="currentColor"`, width 1.6–1.8, round caps and joins, `aria-hidden="true"`, `focusable="false"`. Paths come from the design files. GitHub uses a branch icon; there are no brand logos.
 
-**Responsive:** Tab list wraps onto additional rows on narrow screens. Keep labels intact; do not abbreviate extensions, introduce horizontal scrolling, or convert to a select.
+## LocalTimeCard (client)
 
-**Accessibility:** Active state must have text/shape distinction, not color alone. Ensure focused tabs remain visible when scrolled into view. Support arrow-key navigation if using roving tabindex.
+**Anatomy:**
+- pin + "Iloilo City, Philippines";
+- large `HH:mm` (24-hour, `Asia/Manila`) beside "UTC+8";
+- "{Weekday} · Peter's local time";
+- a detail line.
 
-## 3. ContentPanel and TypingHeadline
+**Variants:**
+- `availability`: accent dot + "Available · Contract · Across timezones";
+- `languages`: "English · Filipino · Hiligaynon".
 
-**Purpose:** Provide a readable active-file canvas and one deliberate arrival moment.
+**States:** loading shows `--:--` on the server and first paint, with the weekday omitted. Default shows the live time, refreshed every 15 s.
 
-**Anatomy:** panel heading, body content, optional code-flavored metadata, headline cursor.
+**Tokens:** `--glass-feature-*`, `--blur-feature`, `--shadow-feature`, `--radius-feature`, `--font-size-clock` (64 → 76), `--tracking-clock`.
 
-**States:** loading headline, settled headline, reduced motion, empty/error only when implementation needs them.
+**Accessibility:** `time` gets `dateTime` after mount; no live region. The dot is decorative.
 
-**Token contract:** `--color-surface-panel`, `--color-content-primary`, `--color-content-secondary`, `--font-family-body`, `--font-family-mono`, `--font-size-display`, `--line-height-body`, `--measure-body`, `--space-*`, motion tokens.
+**Motion:** none.
 
-**Behavior:** `about.md` headline types once on first page load, then settles. Other panels appear without element-by-element reveal. Panel changes swap instantly with no transition.
+## ContributionGrid (server)
 
-**Responsive:** Keep text measure below `--measure-body`; let headings wrap naturally. Use fluid panel padding. Cursor must not force horizontal overflow.
+**Anatomy:** `figure` > visible `figcaption` (range and totals) → `aria-hidden` grid → visible busiest-day footer and an `aria-hidden` Less → More legend.
 
-**Accessibility:** Render final headline in the DOM immediately or expose it to assistive tech without waiting for animation. Disable typing under reduced motion. Keep body copy as normal text, not a canvas.
+**Variants:**
+- `year` (desktop):
+  - 26 px Mon/Wed/Fri label column and a 53-column month row;
+  - caption "GitHub contributions · {start} – {end}" and "{total} in the past year · {active} active days";
+  - footer "Busiest day: {n} on {date}".
+- `recent` (mobile):
+  - last 26 weeks, 2 px gap, no day labels;
+  - caption "GitHub contributions · last 26 weeks" and "{n} since {date} · {total} in the past year".
 
-## 4. StatusBar
+**Layout:** Home renders both variants, one hidden per breakpoint. Cells use `grid-auto-flow: column`, 7 rows, `minmax(0, 1fr)` columns and `aspect-ratio: 1`, so the grid fits its width with no scroll.
 
-**Purpose:** Persistent editor footer with branch flavor, availability, and resume action.
+**States:**
+- default;
+- empty: "No GitHub activity recorded", no cells.
 
-**Anatomy:** decorative `⎇ main`, `AvailabilityBadge`, resume download link.
+**Tokens:** `--color-contribution-0` … `-4`, `--shadow-contribution-top`, `--radius-cell` (2 → 3).
 
-**States:** normal, focus-visible link, narrow-width wrapping, dark theme.
+**Rules:** every figure is derived from the data, in UTC. Cell `title` reads "No contributions on …", "1 contribution on …" or "N contributions on …".
 
-**Token contract:** `--color-status-surface`, `--color-status-content`, `--color-positive`, `--font-family-ui`, `--font-size-label`, `--space-3`, `--space-4`.
+**Motion:** none.
 
-**Behavior:** Keep status bar visually attached to shell bottom. Branch label is decorative context, not a control. Resume opens/downloads embedded PDF when implementation is ready.
+## ProjectCard
 
-**Responsive:** Use a fluid flex layout that may wrap. Keep availability text readable; do not truncate it to an icon.
+**Base:** `button type="button"` with `aria-haspopup="dialog"`. It contains phrasing content only: tags are spans, not a list.
 
-**Accessibility:** Mark decorative branch symbol as hidden from assistive tech if redundant. Give resume link a clear accessible name including file type/action.
+**Variants:**
+- `grid` (≥ 760 px): number and category pill, title, "orgShort · period", summary clamped to 3 lines, first three tags, expand icon, min height `--size-card-min`.
+- `compact` (< 760 px): one line with number, "category · period", title and orgShort.
+- `featured` (Home sidebar): number, title, orgShort, expand icon.
 
-## 5. AvailabilityBadge
+**States:**
+- default;
+- hover: `--glass-hover-fill`, pointer-gated;
+- focus-visible: ring;
+- active: fill step, no transform.
 
-**Purpose:** Make contract availability explicit and consistent.
+**Tokens:** `--glass-card-fill` / `--glass-card-grid-fill`, `--glass-card-border`, `--blur-card`, `--radius-card`, `--font-size-numeral`, `--font-size-card-title`.
 
-**Anatomy:** status dot, text label `available for contract work`.
+## TagChip
 
-**States:** available, unavailable/future state, reduced motion, focus only if interactive.
+A non-interactive `li` inside a `ul`, used for dialog tech tags and education honors. Glass chip pill, mono label. Not focusable.
 
-**Token contract:** `--color-positive`, `--color-status-content`, `--font-family-ui`, `--font-size-label`, `--space-2`, `--radius-pill`, motion tokens.
+## ProjectDialog (client)
 
-**Behavior:** Green always means availability/success. Optional pulse is subtle and never the sole signal. Repeat in contact panel for emphasis.
+**Base:** native `<dialog>`, `showModal()`, `aria-labelledby` pointing at the title `h2`.
 
-**Responsive:** Text can wrap or move below the dot without losing the label. Badge remains content-sized; no fixed width.
+**Anatomy:**
+- "NN / 11" position, category pill, period, 44 px close button (`aria-label="Close"`);
+- title and org line;
+- 17 px summary;
+- divider;
+- "What I built" with accent-dot bullets;
+- tech tags `ul`;
+- footer: "Previous project" / "Next project", "View on GitHub" only when a link exists, and "All projects" on Home only.
 
-**Accessibility:** Include text in DOM. Stop pulse under `prefers-reduced-motion`. If availability changes dynamically, announce only meaningful changes.
+**Behavior:**
+- Open focuses close.
+- Escape (`cancel`), ✕ and a backdrop click (`event.target === dialog`) close it, and focus returns to the trigger.
+- Previous/Next wrap: all 11 on Projects, the 3 featured on Home.
 
-## 6. ProjectCard
+**Layout:**
+- desktop: centered panel;
+- mobile: fixed and centered, `width: calc(100% - 20px)`, `max-height: calc(100dvh - 32px)`, its own scroll with `overscroll-behavior: contain`, full-width Previous/Next.
+- `html:has(dialog[open])` stops page scroll.
 
-**Purpose:** Show curated case studies as proof, not as a tool list.
+**Tokens:** `--glass-overlay-fill`, `--blur-overlay`, `--glass-modal-fill`, `--glass-modal-border`, `--blur-modal`, `--radius-modal` (28 → 32), `--shadow-modal`, `--font-size-modal-title`, `--color-content-bullet`, `--color-accent`.
 
-**Anatomy:** client/context, project title, one-sentence copy, `TagChip` technologies list, keyboard-focusable card.
+**Motion:** per the motion contract. Entry uses `@starting-style`; close is instant.
 
-**States:** default, hover, focus-visible, reduced motion.
+## ProjectGrid (client)
 
-**Token contract:** `--color-surface-raised`, `--color-border-default`, `--color-border-focus`, `--color-content-primary`, `--color-content-secondary`, `--color-surface-inset`, `--color-link`, `--radius-card`, `--radius-control`, `--space-*`, motion tokens.
+**Anatomy:** `div role="group" aria-label="Filter projects"` of filter buttons, then cards.
 
-**Behavior:** Shipped cards are Regional Data Warehouse System, Production Automation Systems, Client Intake & CRM Migration, AI Content & Multimedia Pipelines, and Internsheet & CRM Automation. Descriptions stay honest and trace the current CV; no fabricated screenshots, metrics, or URLs.
+**Filters:** `aria-pressed`, names with counts from data ("All 11", "Work 7", "Independent 2", "Academic 2"), min height 44.
 
-**Responsive:** The ProjectsPanel left-column stack owns a bounded vertical viewport. Cards stack inside it, tags wrap, and card content remains readable without hover or a second horizontal scrollbar.
+**States:**
+- off: `--glass-pill-fill` / `--glass-pill-border`;
+- on: `--glass-pill-on-fill` with `--color-content-on-light`;
+- hover and focus-visible;
+- empty: "No projects in this category".
 
-**Accessibility:** Use a heading hierarchy, a `Technologies` list, and keyboard focus on each card. The focus-visible outline uses `--color-border-focus`; hover lift is disabled under reduced motion.
+**Rules:** filtering keeps original numbers. The dialog cycles all projects, and the trigger is stored for focus return.
 
-## 7. RepoList
+**Motion:** none on filtering.
 
-**Purpose:** Show current public GitHub repositories beside curated project work.
+## FeaturedProjects (client)
 
-**Anatomy:** linked repository name, optional description, language text, star count, absolute UTC updated date, profile link.
+The three featured `ProjectCard`s (`featured` variant) in a `ul`, plus a `ProjectDialog` with the "All projects" link. Position labels use the original number over the total. Renders nothing when no projects are featured.
 
-**States:** default, hover, focus-visible, short snapshot.
+## RepoList (server)
 
-**Token contract:** `--color-link`, `--color-link-hover`, `--color-border-focus`, `--color-border-subtle`, `--color-content-secondary`, `--font-family-ui`, `--font-size-body-small`, `--font-size-label`, `--space-*`.
+**Anatomy:** `section` with `h2` "Recently pushed on GitHub" and a "Profile" link, then a `ul` of up to six repo links.
 
-**Behavior:** Render committed `content/github.ts` data only. Repository and profile links use `rel="noopener noreferrer"`; an empty repository array renders no shell. Dates are absolute and the visible snapshot sync date identifies staleness. The list viewport shows five rows at a time, with remaining snapshot rows reachable by vertical scroll.
+**Repo link:** name plus "{language} · {Mon D}" in UTC; the language is omitted when null. `rel="noopener noreferrer"`.
 
-**Responsive:** The five-row list viewport scrolls independently inside the GitHub column. Metadata wraps as text; no icon-only language or star indicators.
+**Variants:**
+- desktop: glass cards (`--radius-card-compact`);
+- mobile: one dark-glass list with dividers.
 
-**Accessibility:** Repository names are `h3` links. Language, stars, dates, and profile action remain real text with visible focus.
+**States:** hover, focus-visible, and empty ("No public repositories yet"). No scrolling.
 
-## 8. ContributionGrid
+## Highlights (server)
 
-**Purpose:** Show one year of public contribution activity without a runtime GitHub request.
+A `ul` of three dark-glass rows (`--glass-dark-*`, `--blur-dark`), each an `aria-hidden` icon plus text. Renders nothing when empty.
 
-**Anatomy:** accessible total, month labels, seven-row day cells, Less/More legend, bounded horizontal viewport.
+## ToolkitGrid (server)
 
-**States:** light theme, dark theme, narrow viewport, empty only when snapshot validation permits it.
+**Anatomy:** `section` with `h2` "Toolkit" (no subtitle) and a `ul` of four dark-glass cards. Each card has an icon and `h3` area title, four tool lines, and a "Used at …" footer.
 
-**Token contract:** `--color-contribution-0` through `--color-contribution-4`, `--color-content-primary`, `--color-content-secondary`, `--font-family-ui`, `--font-size-body-small`, `--font-size-label`, `--radius-control`, `--space-*`.
+**Layout:** `auto-fit` with `minmax(min(var(--size-toolkit-min), 100%), 1fr)`; `--size-toolkit-min` is 150 mobile (2 × 2) and 190 desktop.
 
-**Behavior:** Render snapshot weeks as static markup in a `role="img"` region named by the real yearly total. The grid owns horizontal overflow; the page and panel do not. The visible sync date belongs to `ProjectsPanel`.
+## ResumeCard (server)
 
-**Responsive:** Keep cells and gaps on spacing tokens. Scroll the grid inside its own viewport when the GitHub column is narrower than one year.
+**Base:** a single `a href="/resume.pdf" download`.
 
-**Accessibility:** The accessible name states the real total. Cells and legend swatches are presentational; Less/More remains visible as a visual supplement.
+**Anatomy:** "Full résumé", a large "Download" (`--font-size-display`, 44 → 48), and "PDF · {n} KB" computed at build from `public/resume.pdf`.
 
-## 9. TagChip
+**Tokens:** feature glass tokens.
 
-**Purpose:** Compact, scannable technology/context labels.
+**States:** hover and focus-visible.
 
-**Anatomy:** plain text chip; optional link only when chip represents a real destination.
+**Accessibility:** name "Download full résumé (PDF, {n} KB)".
 
-**States:** default, hover/focus only when interactive.
+## RoleList (server)
 
-**Token contract:** `--color-surface-inset`, `--color-content-secondary`, `--color-border-subtle`, `--font-family-ui`, `--font-size-label`, `--space-2`, `--space-3`, `--radius-pill`.
+**Variants:**
+- desktop cards (`ol`): "{kind} · {location}", title, org, and a right-aligned light start year over a mono range;
+- mobile timeline (`ol`): Now → DILG (glowing accent dot) → Theory of Khaos → Adsome → Sieitz → Zenlabs → Education with honor chips.
 
-**Behavior:** Use tags from each case study without turning them into a taxonomy or decorative rainbow. Accent meaning stays semantic; neutral chips are preferred.
+One variant is hidden per breakpoint. Dots are decorative; "Present" is in text.
 
-**Responsive:** Wrap naturally with consistent gaps. Do not horizontally scroll tags separately from their card.
+## EducationCard (server)
 
-**Accessibility:** Text must remain legible in both themes. If noninteractive, do not add button semantics or misleading click affordance.
+Desktop aside card: degree, school, years, and an honors `ul` of `TagChip` ("TOPCIT Passer 2025", "Dean's Lister AY 2021–22"). On mobile, education lives in the RoleList timeline.
 
-## 10. ExperienceRecord
+## ContactLine (server)
 
-**Purpose:** Present chronology with JSON/editor flavor while staying human-readable.
+**Base:** a single link card.
 
-**Anatomy:** key/value rows, role heading, organization, date range, readable description, education record.
+**Anatomy:** label and value, with a 38 px icon ring (`--size-ring`): phone icon for phone, arrow for email, LinkedIn and GitHub.
 
-**States:** default, current role emphasis, focus only for links.
+**Accessibility:** names are "Email lopezpetergabriel@gmail.com", "Call +63 976 126 0783", "LinkedIn profile" and "GitHub profile". External links use `rel="noopener noreferrer"`.
 
-**Token contract:** `--color-code-key`, `--color-code-string`, `--color-code-number`, `--color-code-punctuation`, `--color-content-primary`, `--color-content-secondary`, `--font-family-mono`, `--font-family-body`, `--space-*`.
+**States:** hover (pointer-gated) and focus-visible.
 
-**Behavior:** Show chronological roles: DILG Region VI; Adsome / Stromberg Media AB; Theory of Khaos; Sieitz Innovations OPC; Zenlabs Venture Management; BS Computer Science at Iloilo Science and Technology University. Syntax colors support scanability; prose remains normal text.
+## Views (server)
 
-**Responsive:** Rows may stack key above value on narrow screens. Dates must not collide with role text. Avoid literal JSON that requires horizontal scrolling.
-
-**Accessibility:** Use headings and lists, not color-coded spans alone. Expose dates as text. Mark punctuation decorative where appropriate.
-
-## 11. ContactAction
-
-**Purpose:** Offer honest, direct contact paths without a fake form.
-
-**Anatomy:** email link, GitHub link, LinkedIn label/placeholder, repeated `AvailabilityBadge`.
-
-**States:** default, visited, hover, focus-visible, unavailable LinkedIn URL.
-
-**Token contract:** `--color-link`, `--color-link-hover`, `--color-border-focus`, `--font-family-body`, `--font-family-ui`, `--space-*`, `--radius-control`.
-
-**Behavior:** Email `lopezpetergabriel@gmail.com`; GitHub `github.com/petergabriel-dev`; LinkedIn remains labeled until actual profile URL is supplied. Never submit contact data to an external service.
-
-**Responsive:** Stack contact actions when inline space is limited. Links must remain comfortably targetable without fixed-width buttons.
-
-**Accessibility:** Use real anchors with descriptive names. Do not render a dead LinkedIn URL as if it were active. Preserve visible focus and sufficient contrast in both themes.
+`HomeView`, `ProjectsView`, `ExperienceView` and `ContactView` compose each route as section + aside, with exactly one `h1` and no `form`. Column wrappers are plain `div`s so the mobile `display: contents` reorder keeps semantics. Hero chips use `--glass-chip-*` / `--blur-chip`; titles use `--font-size-title` (44 mobile → `clamp(44px, 5.4vw, 76px)`) with `--tracking-title`. CTA pills are 52 px (`--size-cta`): "Email Peter" uses light `--glass-pill-on-fill` and the résumé uses glass `--glass-pill-fill`.
