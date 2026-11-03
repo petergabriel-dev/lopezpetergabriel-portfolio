@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
-import { LocalTimeCard } from "@/components/LocalTimeCard";
-import { contactPage } from "@/content/contact";
+import { ContactView } from "@/components/views/ContactView";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -9,13 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  // Placeholder until the Contact screen task composes the full view.
-  return (
-    <>
-      <h1>{contactPage.titleLines.join(" ")}</h1>
-      <div style={{ maxWidth: 360 }}>
-        <LocalTimeCard detail="languages" />
-      </div>
-    </>
-  );
+  return <ContactView />;
 }

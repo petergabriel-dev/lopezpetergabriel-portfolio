@@ -157,6 +157,7 @@
   --font-size-card-title: 16px;
   --line-height-card-title: 1.3;
   --font-size-name: 16px;
+  --font-size-topic: 16px;
   --font-size-summary: 16px;
   --line-height-summary: 1.6;
   --font-size-body: 15px;
@@ -240,6 +241,7 @@
     --font-size-numeral: 30px;
     --font-size-card-title: 17px;
     --font-size-name: 17px;
+    --font-size-topic: 22px;
     --font-size-summary: 17px;
 
     --radius-frame: 36px;
