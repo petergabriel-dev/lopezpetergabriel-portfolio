@@ -55,6 +55,40 @@
   text-wrap: pretty;
 }
 
+/* Primary (light) and secondary (glass) call-to-action pills. */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--size-cta);
+  padding: 0 20px;
+  border-radius: var(--radius-pill);
+  color: var(--color-content-primary);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  transition: background-color var(--motion-duration-hover) var(--motion-ease-hover);
+}
+
+.ctaPrimary {
+  background: var(--glass-pill-on-fill);
+  color: var(--color-content-on-light);
+  font-weight: var(--font-weight-semibold);
+}
+
+.ctaSecondary {
+  border: 1px solid var(--glass-cta-border);
+  background: var(--glass-cta-fill);
+  -webkit-backdrop-filter: var(--blur-icon);
+  backdrop-filter: var(--blur-icon);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ctaSecondary:hover {
+    background: var(--glass-hover-fill);
+  }
+}
+
 @media (min-width: 760px) {
   .section {
     gap: 22px;
