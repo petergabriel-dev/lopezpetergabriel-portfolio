@@ -46,7 +46,7 @@ Several rules in `docs/engineering/invariants.md` and ADRs 0004/0005 describe th
 | Four tabs in a fixed order with `tablist`/`tab`/`tabpanel` ARIA and roving tabindex | Four **sections**: About (Home), Projects, Experience, Contact. Navigation is real links with `aria-current="page"`. **Recommended:** static App Router routes `/`, `/projects`, `/experience`, `/contact`, all prerendered, sharing one layout. This keeps the "static App Router site" rule. |
 | ADR-0004: frame locked to `100dvh`, panels own scrolling, three nested scroll owners | The page scrolls normally. The frame has `min-height: 100dvh` and grows with content. **No nested scroll areas**; the contribution grid fits the width instead of scrolling sideways. |
 | `StatusBar`, `TypingHeadline` and the editor chrome | Removed. Availability now appears in the local-time card and on the Contact chip. |
-| Light/dark themes with a persisted toggle and a pre-paint resolver | The design is **dark only**; there is no light variant and no toggle. See open decision #1. If Peter confirms dark-only, remove `ThemeToggle`, the theme script in `app/layout.tsx` and the light/dark token blocks, and record it in the ADR. |
+| Light/dark themes with a persisted toggle and a pre-paint resolver | The design is **dark only**; there is no light variant and no toggle. Resolved: dark only. Remove `ThemeToggle`, the theme script in `app/layout.tsx` and the light/dark token blocks, and record it in the ADR. |
 | Fonts: Inter and JetBrains Mono | **Plus Jakarta Sans** (300–700) and **Geist Mono** (400–500), self-hosted via `next/font/google`. This keeps the "no third-party runtime request" rule. |
 | Exactly 5 projects and 3 experience records | **11 projects**, **5 roles**, **1 education record** (with honors), plus a toolkit and three DILG highlights. Keep the source-backed rule: everything comes from the CV. |
 | LinkedIn has no URL and renders as a plain span | LinkedIn **has a URL**; render it as a link. |
@@ -325,7 +325,7 @@ interface ContactLink { label: string; value: string; href?: string } // add pho
   - The Theory of Khaos intake is **Make.com**; its AI research workflow is **n8n**.
   - Sieitz's **Dockerized Go AI content platform is separate** from the static site deployed on Vercel.
   - Describe the DILG platform as in development, not deployed.
-- **Left out on purpose:** the 70% editing-time figure (needs Peter's confirmation), the Dog Breed accuracy figure, and high-school honors. Don't add metrics.
+- Don't add metrics.
 - **Contact:**
   - lopezpetergabriel@gmail.com
   - `+63 976 126 0783`
@@ -351,7 +351,7 @@ interface ContactLink { label: string; value: string; href?: string } // add pho
 | `TagChip` (keep as a non-interactive `li`) | existing | no |
 | Icons (`components/icons/*.tsx`, inline SVG) | none | no |
 
-Remove `TypingHeadline` and `StatusBar`. Remove `ThemeToggle` and the theme resolver only if decision #1 is dark-only.
+Remove `TypingHeadline` and `StatusBar`. Remove `ThemeToggle` and the theme resolver (dark only, resolved).
 
 ---
 
@@ -363,13 +363,9 @@ Remove `TypingHeadline` and `StatusBar`. Remove `ThemeToggle` and the theme reso
 
 ---
 
-## 9. Open decisions for Peter (ask before building these parts)
+## 9. Decisions
 
-1. **Theme:** dark-only as designed (recommended), or keep a light variant? This decides whether `ThemeToggle` and the pre-paint resolver stay.
-2. **Routing:** separate static routes (recommended; matches the design's links and gives shareable URLs) or one page with client-side section switching?
-3. **Availability:** is "Available for contract work" still true alongside the full-time DILG role? It appears on Home, Experience (mobile "Now" row) and Contact.
-4. **Toolkit, Media card:** Premiere Pro, DaVinci Resolve, Lightroom, Photoshop and Capture One come from the CV's tool inventory, not a specific project. Keep or trim?
-5. **Toolkit subtitle:** removed on desktop. Remove "By area, with where I've used it" on mobile too?
+The open decisions from this handoff were resolved with the owner; see `docs/engineering/decisions/ADR-0006-storm-glass-dashboard.md` and `docs/design/README.md`.
 
 ---
 
