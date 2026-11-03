@@ -6,6 +6,7 @@ import { githubSnapshot } from "@/content/github";
 import { ContributionGrid } from "@/components/ContributionGrid";
 import { RepoList } from "@/components/RepoList";
 import { TagChip } from "@/components/TagChip";
+import { formatDate, lastWeeks, summarize } from "@/lib/contributions";
 
 describe("GitHub components", () => {
   it("protects repository and profile links", () => {
@@ -21,18 +22,37 @@ describe("GitHub components", () => {
     expect(document.body.textContent).not.toMatch(/\bago\b/i);
   });
 
-  it("exposes the contribution total from the snapshot", () => {
-    render(<ContributionGrid contributions={githubSnapshot.contributions} />);
+  it("captions the year grid with totals derived from the snapshot", () => {
+    const { weeks, total } = githubSnapshot.contributions;
+    const summary = summarize(weeks)!;
+    const { container } = render(<ContributionGrid weeks={weeks} total={total} variant="year" />);
 
-    expect(
-      screen.getByRole("img", { name: `${githubSnapshot.contributions.total} contributions in the last year` }),
-    ).toBeInTheDocument();
+    const figure = screen.getByRole("figure");
+    expect(figure.querySelector("figcaption")?.textContent).toBe(
+      `GitHub contributions · ${formatDate(summary.start)} – ${formatDate(summary.end)} ${total} in the past year · ${summary.activeDays} active days`,
+    );
+    expect(figure).toHaveTextContent(
+      `Busiest day: ${summary.busiest.count} on ${formatDate(summary.busiest.date)}`,
+    );
+    expect(container.querySelectorAll("[title]")).toHaveLength(weeks.flatMap((week) => week.days).length);
+  });
+
+  it("captions the recent grid with the last 26 weeks", () => {
+    const { weeks, total } = githubSnapshot.contributions;
+    const recent = summarize(lastWeeks(weeks, 26))!;
+    render(<ContributionGrid weeks={weeks} total={total} variant="recent" />);
+
+    expect(screen.getByRole("figure").querySelector("figcaption")?.textContent).toBe(
+      `GitHub contributions · last 26 weeks ${recent.total} since ${formatDate(recent.start)} · ${total} in the past year`,
+    );
   });
 
   it("has no axe violations", async () => {
+    const { weeks, total } = githubSnapshot.contributions;
     const { container } = render(
       <>
-        <ContributionGrid contributions={githubSnapshot.contributions} />
+        <ContributionGrid weeks={weeks} total={total} variant="year" />
+        <ContributionGrid weeks={weeks} total={total} variant="recent" />
         <RepoList profileUrl={githubSnapshot.profileUrl} repos={githubSnapshot.repos} />
       </>,
     );

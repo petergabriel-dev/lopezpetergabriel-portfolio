@@ -1,53 +1,81 @@
-.viewport {
-  min-inline-size: 0;
-  max-inline-size: 100%;
-  overflow-x: auto;
-  overscroll-behavior: contain;
-  padding-block: 0;
-}
-
-.content {
-  inline-size: max-content;
-  min-inline-size: 100%;
-}
-
-.total {
+/* The grid fits its width (no horizontal scroll). "year" = desktop, "recent" = mobile. */
+.figure {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
   margin: 0;
-  color: var(--color-content-primary);
-  font-family: var(--font-family-ui);
-  font-size: var(--font-size-label);
+  color: var(--color-content-meta);
+  font-family: var(--font-family-mono);
 }
 
-.months,
-.calendar {
+.caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: var(--font-size-caption);
+}
+
+.body {
   display: grid;
-  column-gap: var(--space-1);
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 6px;
+}
+
+.year .body {
+  grid-template-columns: 26px minmax(0, 1fr);
+  column-gap: 8px;
 }
 
 .months {
-  min-block-size: var(--space-3);
-  align-items: end;
-  color: var(--color-content-secondary);
-  font-family: var(--font-family-ui);
-  font-size: var(--font-size-label);
-}
-
-.calendar {
-  margin-block-start: 0;
-}
-
-.week {
   display: grid;
-  grid-template-rows: repeat(7, var(--space-2));
-  row-gap: var(--space-1);
+  column-gap: 3px;
+  font-size: var(--font-size-label);
+  line-height: 1;
+}
+
+.months > span {
+  white-space: nowrap;
+}
+
+/* Four weeks are narrower than "Jan ’26" below ~680px of grid width; keep just "Jan". */
+@container (max-width: 680px) {
+  .yearSuffix {
+    display: none;
+  }
+}
+
+.days {
+  display: grid;
+  grid-template-rows: repeat(7, minmax(0, 1fr));
+  row-gap: 3px;
+  font-size: var(--font-size-micro);
+  line-height: 1;
+}
+
+.days > span {
+  align-self: center;
+}
+
+.cells {
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, auto);
+  gap: 3px;
 }
 
 .cell,
+.pad,
 .swatch {
-  display: block;
-  inline-size: var(--space-2);
-  block-size: var(--space-2);
-  border-radius: var(--radius-control);
+  border-radius: var(--radius-cell);
+}
+
+.cell,
+.pad {
+  aspect-ratio: 1;
 }
 
 .level0 {
@@ -68,14 +96,68 @@
 
 .level4 {
   background: var(--color-contribution-4);
+  box-shadow: var(--shadow-contribution-top);
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: var(--font-size-label);
 }
 
 .legend {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  margin-block-start: var(--space-2);
-  color: var(--color-content-secondary);
-  font-family: var(--font-family-ui);
+  gap: 4px;
+}
+
+.swatch {
+  width: 11px;
+  height: 11px;
+}
+
+.swatch:first-of-type {
+  margin-left: 4px;
+}
+
+.swatch:last-of-type {
+  margin-right: 4px;
+}
+
+/* Mobile variant: tighter cells and smaller type, stacked caption. */
+.recent {
+  gap: 10px;
+  padding: 0 2px;
+}
+
+.recent .caption {
+  flex-direction: column;
+  gap: 4px;
   font-size: var(--font-size-label);
+}
+
+.recent .months {
+  column-gap: 2px;
+  padding-top: 4px;
+  font-size: var(--font-size-micro);
+}
+
+.recent .cells {
+  gap: 2px;
+}
+
+.recent .footer {
+  font-size: var(--font-size-micro);
+}
+
+.recent .legend {
+  gap: 3px;
+}
+
+.recent .swatch {
+  width: 10px;
+  height: 10px;
 }

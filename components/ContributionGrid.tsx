@@ -1,81 +1,97 @@
-import type { GithubSnapshot } from "@/content/types";
+import type { ContributionWeek } from "@/content/types";
+import { cellTitle, formatDate, gridCells, lastWeeks, monthLabels, summarize } from "@/lib/contributions";
 
 import styles from "./ContributionGrid.module.css";
 
+const RECENT_WEEKS = 26;
+const LEVELS = [0, 1, 2, 3, 4] as const;
+
 type ContributionGridProps = {
-  contributions: GithubSnapshot["contributions"];
+  weeks: readonly ContributionWeek[];
+  /** GitHub's one-year total. */
+  total: number;
+  /** "year": full calendar (desktop). "recent": last 26 weeks (mobile). */
+  variant: "year" | "recent";
+  className?: string;
 };
 
-type MonthLabel = {
-  column: number;
-  label: string;
-};
+export function ContributionGrid({ weeks, total, variant, className }: ContributionGridProps) {
+  const shown = variant === "recent" ? lastWeeks(weeks, RECENT_WEEKS) : weeks;
+  const summary = summarize(shown);
+  const rootClass = [styles.figure, styles[variant], className].filter(Boolean).join(" ");
 
-const monthFormatter = new Intl.DateTimeFormat("en-US", {
-  month: "short",
-  timeZone: "UTC",
-});
+  if (!summary) {
+    return (
+      <figure className={rootClass}>
+        <figcaption className={styles.caption}>No GitHub activity recorded</figcaption>
+      </figure>
+    );
+  }
 
-function monthLabels(weeks: GithubSnapshot["contributions"]["weeks"]): readonly MonthLabel[] {
-  const labels: MonthLabel[] = [];
-  const seenMonths = new Set<string>();
-
-  weeks.forEach((week, column) => {
-    week.days.forEach((day) => {
-      const monthKey = day.date.slice(0, 7);
-
-      if (seenMonths.has(monthKey)) {
-        return;
-      }
-
-      seenMonths.add(monthKey);
-      labels.push({
-        column,
-        label: monthFormatter.format(new Date(`${day.date}T00:00:00Z`)),
-      });
-    });
-  });
-
-  return labels.slice(-12);
-}
-
-export function ContributionGrid({ contributions }: ContributionGridProps) {
-  const labels = monthLabels(contributions.weeks);
-  const gridColumns = `repeat(${contributions.weeks.length}, var(--space-2))`;
-  const accessibleName = `${contributions.total} contributions in the last year`;
+  const title =
+    variant === "recent"
+      ? "GitHub contributions · last 26 weeks"
+      : `GitHub contributions · ${formatDate(summary.start)} – ${formatDate(summary.end)}`;
+  const detail =
+    variant === "recent"
+      ? `${summary.total} since ${formatDate(summary.start)} · ${total} in the past year`
+      : `${total} in the past year · ${summary.activeDays} active days`;
+  const columns = { gridTemplateColumns: `repeat(${shown.length}, minmax(0, 1fr))` };
 
   return (
-    <div className={styles.viewport} role="img" aria-label={accessibleName}>
-      <div className={styles.content}>
-        <p className={styles.total}>{accessibleName}</p>
-        <div className={styles.months} style={{ gridTemplateColumns: gridColumns }}>
-          {labels.map((month) => (
-            <span key={`${month.column}-${month.label}`} style={{ gridColumnStart: month.column + 1 }}>
-              {month.label}
-            </span>
-          ))}
+    <figure className={rootClass}>
+      <figcaption className={styles.caption}>
+        <span>{title}</span> <span>{detail}</span>
+      </figcaption>
+
+      <div className={styles.body} aria-hidden="true">
+        {variant === "year" ? <span className={styles.corner} /> : null}
+        <div className={styles.months} style={columns}>
+          {monthLabels(shown).map((month) => {
+            // "Jan ’26": the year suffix hides when the grid is too narrow for it (container query).
+            const [name, year] = month.label.split(" ");
+            return (
+              <span key={month.column} style={{ gridColumn: `${month.column} / span ${month.span}` }}>
+                {name}
+                {year ? <span className={styles.yearSuffix}> {year}</span> : null}
+              </span>
+            );
+          })}
         </div>
-        <div className={styles.calendar} style={{ gridTemplateColumns: gridColumns }}>
-          {contributions.weeks.map((week, column) => (
-            <div className={styles.week} key={week.days[0]?.date ?? `week-${column}`}>
-              {week.days.map((day) => (
-                <span
-                  aria-hidden="true"
-                  className={`${styles.cell} ${styles[`level${day.level}`]}`}
-                  key={day.date}
-                />
-              ))}
-            </div>
-          ))}
-        </div>
-        <div className={styles.legend} aria-hidden="true">
-          <span>Less</span>
-          {[0, 1, 2, 3, 4].map((level) => (
-            <span className={`${styles.swatch} ${styles[`level${level}`]}`} key={level} />
-          ))}
-          <span>More</span>
+        {variant === "year" ? (
+          <div className={styles.days}>
+            <span />
+            <span>Mon</span>
+            <span />
+            <span>Wed</span>
+            <span />
+            <span>Fri</span>
+            <span />
+          </div>
+        ) : null}
+        <div className={styles.cells}>
+          {gridCells(shown).map((cell, index) =>
+            cell.kind === "pad" ? (
+              <span key={`pad-${index}`} className={styles.pad} />
+            ) : (
+              <span key={cell.day.date} className={`${styles.cell} ${styles[`level${cell.level}`]}`} title={cellTitle(cell.day)} />
+            ),
+          )}
         </div>
       </div>
-    </div>
+
+      <div className={styles.footer}>
+        <span>
+          Busiest day: {summary.busiest.count} on {formatDate(summary.busiest.date)}
+        </span>
+        <span className={styles.legend} aria-hidden="true">
+          Less
+          {LEVELS.map((level) => (
+            <span key={level} className={`${styles.swatch} ${styles[`level${level}`]}`} />
+          ))}
+          More
+        </span>
+      </div>
+    </figure>
   );
 }
