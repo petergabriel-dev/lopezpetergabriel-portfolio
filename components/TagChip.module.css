@@ -1,10 +1,10 @@
 .tag {
-  padding: var(--space-1) var(--space-3);
-  border: var(--border-width-hairline) solid var(--color-border-subtle);
+  padding: 6px 12px;
+  border: 1px solid var(--glass-pill-border);
   border-radius: var(--radius-pill);
-  background: var(--color-surface-inset);
-  color: var(--color-content-secondary);
-  font-family: var(--font-family-ui);
-  font-size: var(--font-size-label);
-  line-height: var(--line-height-ui);
+  background: var(--glass-pill-fill);
+  color: var(--color-content-primary);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-tight);
 }

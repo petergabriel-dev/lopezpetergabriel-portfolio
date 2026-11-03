@@ -149,6 +149,7 @@
   --line-height-modal-title: 1.1;
   --font-size-numeral: 26px;
   --line-height-numeral: 1;
+  --font-size-numeral-lg: 34px;
   --font-size-card-title: 16px;
   --line-height-card-title: 1.3;
   --font-size-name: 16px;
@@ -176,6 +177,7 @@
   --radius-nav: 22px;
   --radius-card: 22px;
   --radius-card-compact: 20px;
+  --radius-card-grid: 24px;
   --radius-dark: 18px;
   --radius-nav-item: 16px;
   --radius-pill: 999px;
@@ -190,6 +192,8 @@
   --space-card-sm: 16px 18px;
   --space-card-lg: 20px 22px;
   --space-feature: 20px 22px;
+  --space-modal: 22px 22px 20px;
+  --space-modal-gap: 16px;
 
   --size-nav-item: 56px;
   --size-icon-button: 46px;
@@ -245,6 +249,8 @@
     --space-frame: 22px;
     --space-section: 28px;
     --space-feature: 22px 24px;
+    --space-modal: 30px 34px 28px;
+    --space-modal-gap: 18px;
 
     --size-nav-item: 48px;
     --size-avatar: 52px;

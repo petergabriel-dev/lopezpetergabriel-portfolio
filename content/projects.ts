@@ -183,3 +183,13 @@ export const projects: readonly Project[] = [
     tags: ["Python", "PyTorch", "scikit-learn", "CNN"],
   },
 ];
+
+/** Original 1-based position of a project in the full list (cards and dialog keep it when filtered). */
+export function projectNumber(project: Project): number {
+  return projects.indexOf(project) + 1;
+}
+
+/** "01" */
+export function formatProjectNumber(project: Project): string {
+  return String(projectNumber(project)).padStart(2, "0");
+}

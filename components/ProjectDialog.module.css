@@ -1,0 +1,276 @@
+/* The <dialog> fills the viewport (backdrop-click target); the panel is the visible sheet.
+   Only style display on [open]: author rules beat the UA's dialog:not([open]) { display: none }. */
+.dialog {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 16px 10px;
+  border: 0;
+  background: transparent;
+  color: var(--color-content-primary);
+  overscroll-behavior: contain;
+}
+
+.dialog[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog::backdrop {
+  background: var(--glass-overlay-fill);
+  -webkit-backdrop-filter: var(--blur-overlay);
+  backdrop-filter: var(--blur-overlay);
+  transition: opacity var(--motion-duration-overlay) var(--motion-ease-overlay);
+}
+
+@starting-style {
+  .dialog[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-modal-gap);
+  width: 100%;
+  max-width: 780px;
+  max-height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-modal);
+  border: 1px solid var(--glass-modal-border);
+  border-radius: var(--radius-modal);
+  background: var(--glass-modal-fill);
+  -webkit-backdrop-filter: var(--blur-modal);
+  backdrop-filter: var(--blur-modal);
+  box-shadow: var(--shadow-modal);
+  transition:
+    opacity var(--motion-duration-modal) var(--motion-ease-expand),
+    transform var(--motion-duration-modal) var(--motion-ease-expand);
+}
+
+@starting-style {
+  .dialog[open] .panel {
+    opacity: 0;
+    transform: translateY(18px) scale(0.94);
+  }
+}
+
+.panel p,
+.panel h2,
+.panel h3,
+.panel ul {
+  margin: 0;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.position {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-content-meta);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-caption);
+}
+
+.category {
+  padding: 4px 10px;
+  border: 1px solid var(--glass-tag-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-content-primary);
+}
+
+.close {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-control);
+  height: var(--size-control);
+  border: 1px solid var(--glass-icon-border);
+  border-radius: 50%;
+  background: var(--glass-icon-fill);
+  cursor: pointer;
+  transition: background-color var(--motion-duration-hover) var(--motion-ease-hover);
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-size: var(--font-size-modal-title);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-modal);
+  line-height: var(--line-height-modal-title);
+  text-wrap: balance;
+}
+
+.org {
+  color: var(--color-content-meta);
+  font-size: var(--font-size-body);
+}
+
+.summary {
+  font-size: var(--font-size-summary);
+  line-height: var(--line-height-summary);
+  text-wrap: pretty;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  border: 0;
+  background: var(--color-divider);
+}
+
+.built {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  color: var(--color-content-meta);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-regular);
+}
+
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.point {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr);
+  gap: 10px;
+  color: var(--color-content-bullet);
+  font-size: var(--font-size-body-small);
+  line-height: 1.6;
+}
+
+.bullet {
+  width: 6px;
+  height: 6px;
+  margin-top: 9px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: var(--shadow-accent-dot);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 4px 0 0;
+  list-style: none;
+}
+
+/* Mobile: full-width Previous/Next, then links; DOM order matches visual and focus order. */
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-divider);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill,
+.primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--size-control);
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  font: inherit;
+  font-size: var(--font-size-body-small);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--motion-duration-hover) var(--motion-ease-hover);
+}
+
+.pill {
+  border: 1px solid var(--glass-pill-border);
+  background: var(--glass-pill-fill);
+  color: var(--color-content-primary);
+}
+
+.primary {
+  flex: 1;
+  padding: 0 20px;
+  border: 0;
+  background: var(--glass-pill-on-fill);
+  color: var(--color-content-on-light);
+  font-weight: var(--font-weight-semibold);
+}
+
+.links .pill {
+  flex: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pill:hover,
+  .close:hover {
+    background: var(--glass-hover-fill);
+  }
+}
+
+@media (min-width: 760px) {
+  .dialog {
+    padding: 32px 20px;
+  }
+
+  .point {
+    font-size: var(--font-size-body);
+  }
+
+  .footer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .steps {
+    display: flex;
+  }
+
+  .primary,
+  .links .pill {
+    flex: none;
+  }
+}
