@@ -8,6 +8,9 @@
 
 .skip {
   position: absolute;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-control);
   top: 12px;
   left: 12px;
   z-index: 10;

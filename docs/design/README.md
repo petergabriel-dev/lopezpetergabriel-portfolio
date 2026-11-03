@@ -99,6 +99,26 @@ The fixes:
 | Modal .82 on overlay .58 `#213235` | 12.30 | 13.38 | 11.07 | 11.86 |
 | Light pill `#F3F6F5`, on-light `#14211f` | — | — | — | 15.24 (on-light) |
 
+**Measured in the browser (2026-11-03, Chromium, final QA):** pixels were sampled behind each small-text role on the rendered pages. Every role passes:
+
+| Role | Measured |
+|---|---|
+| Mobile active nav label (white 11px) | 4.61:1 |
+| Desktop active rail item | 4.79:1 |
+| Repo meta | 5.45:1 |
+| Time-card caption | 5.54:1 |
+| Role kind | 5.87:1 |
+| Mobile nav label | 6.43:1 |
+| Featured meta | 6.46:1 |
+| Card meta | 6.50:1 |
+| Card tags | 6.71:1 |
+| Header eyebrow | 9.28:1 |
+| Contact line label | 10.93:1 |
+| Grid caption | 11.69:1 |
+| Toolkit footer | 12.94:1 |
+
+The active nav fill stacks on the .12 nav bar. At the design's .26 it measured 4.00:1, so `--glass-nav-active-fill` is `.20`.
+
 Rules that keep this table true:
 - The active nav item uses `--color-content-strong` only.
 - No text sits on glass lighter than .18, except that active item.

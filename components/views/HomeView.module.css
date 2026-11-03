@@ -68,6 +68,9 @@
 }
 
 .allLink {
+  /* 44px hit area without shifting the row (padding cancelled by margin). */
+  margin-block: -12px;
+  padding-block: 12px;
   color: var(--color-content-primary);
   font-size: var(--font-size-small);
   text-decoration: underline;

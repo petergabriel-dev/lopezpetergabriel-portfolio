@@ -22,6 +22,9 @@
 }
 
 .profile {
+  /* 44px hit area without shifting the row (padding cancelled by margin). */
+  margin-block: -14px;
+  padding-block: 14px;
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 3px;

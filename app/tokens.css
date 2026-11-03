@@ -94,7 +94,8 @@
 
   --glass-nav-fill: var(--primitive-white-a12);
   --glass-nav-border: var(--primitive-white-a18);
-  --glass-nav-active-fill: var(--primitive-white-a26);
+  /* .20, not the design's .26: it stacks on the .12 nav bar; .26 measured 4.0:1 for the white 11px label. */
+  --glass-nav-active-fill: var(--primitive-white-a20);
   --glass-nav-item-border: var(--primitive-white-a22);
   --glass-card-fill: var(--primitive-white-a14);
   --glass-card-grid-fill: var(--primitive-white-a13);
