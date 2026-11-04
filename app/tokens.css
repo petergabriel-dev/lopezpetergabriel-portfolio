@@ -83,6 +83,7 @@
   --color-accent-glow: var(--primitive-gold-a55);
   --color-focus-ring: var(--primitive-gold);
   --color-divider: var(--primitive-white-a14);
+  --color-scrollbar-thumb: var(--primitive-white-a24);
   --color-ring: var(--primitive-white-a35);
   --color-avatar-ring: var(--primitive-white-a75);
 
@@ -200,6 +201,8 @@
   --space-feature: 20px 22px;
   --space-modal: 22px 22px 20px;
   --space-modal-gap: 16px;
+  /* Scroller padding that keeps a full focus ring (width + offset) inside the clip edge (ADR-0007). */
+  --space-scroll-inset: calc(var(--focus-ring-width) + var(--focus-ring-offset) + 1px);
 
   --size-nav-item: 56px;
   --size-icon-button: 46px;
@@ -210,6 +213,8 @@
   --size-logo: 44px;
   --size-frame-max: 1360px;
   --size-card-min: 250px;
+  /* ~18px contribution cells at 53 weeks; stops the grid growing on very wide frames. */
+  --size-contribution-max: 1140px;
 
   --focus-ring-width: 2px;
   --focus-ring-offset: 3px;
@@ -251,7 +256,7 @@
     --radius-nav: 24px;
     --radius-cell: 3px;
 
-    --space-page: clamp(12px, 2.8vw, 40px);
+    --space-page: 12px;
     --space-frame: 22px;
     --space-section: 28px;
     --space-feature: 22px 24px;
