@@ -148,7 +148,7 @@ A non-interactive `li` inside a `ul`, used for the dialog's tech tags. Glass chi
 
 ## ProjectGrid (client)
 
-**Anatomy (page):** the featured projects as `grid` cards (the same three as Home "Selected work"), then a "More projects" pill button with the count of remaining projects ("More projects 8"). The button is hidden when no other projects exist. One `ProjectDialog` instance serves page cards and list rows.
+**Anatomy (page):** the featured projects as `grid` cards (the same three as Home "Selected work"), in one row of equal columns from 760 px (stacked compact rows below), then a "More projects" pill button with the count of remaining projects ("More projects 8"). The button is hidden when no other projects exist. One `ProjectDialog` instance serves page cards and list rows.
 
 **"More projects" button:** `aria-haspopup="dialog"`; accessible name "More projects {n}" (a literal space separates the spans). Pill tokens as the filters (off state), min height 44.
 
