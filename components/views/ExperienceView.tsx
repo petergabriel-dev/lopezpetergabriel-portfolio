@@ -18,7 +18,8 @@ export function ExperienceView({ resumeSize }: { resumeSize: string }) {
 
   return (
     <div className={`${view.row} ${styles.row}`}>
-      <div className={styles.main}>
+      {/* No focusables in this column: tabIndex + region let WebKit keyboard users scroll it (ADR-0007). */}
+      <div className={styles.main} tabIndex={0} role="region" aria-label="Experience overview and toolkit">
         <section className={styles.hero} aria-labelledby="experience-title">
           <span className={view.chip}>{experiencePage.chip}</span>
           <h1 id="experience-title" className={view.title}>

@@ -100,3 +100,35 @@
     font-size: var(--font-size-small);
   }
 }
+
+/* Side-by-side columns scroll on their own (ADR-0007). 848 = column bases 520 + 300 + the 28px
+   desktop --space-section gap: change it with them. Below it the columns stack and main#content
+   (the `content` container, AppShell) is the only scroller. */
+@container content (min-width: 848px) {
+  .row {
+    flex-wrap: nowrap;
+    height: 100%;
+  }
+
+  /* Inset padding, cancelled by an equal negative margin, keeps edge focus rings inside the clip. */
+  .row > * {
+    min-height: 0;
+    margin: calc(-1 * var(--space-scroll-inset));
+    padding: var(--space-scroll-inset);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scroll-padding-block: var(--space-scroll-inset);
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-scrollbar-thumb) transparent;
+  }
+
+  /* A focusable column (no focusables inside) gets an inset ring; main#content would clip an outset one. */
+  .row > :focus-visible {
+    outline-offset: calc(-1 * var(--focus-ring-width));
+  }
+
+  /* Keep the section's desktop 14px top offset (rule above) on top of the inset. */
+  .row > .section {
+    padding-top: calc(14px + var(--space-scroll-inset));
+  }
+}

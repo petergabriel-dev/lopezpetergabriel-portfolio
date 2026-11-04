@@ -28,7 +28,8 @@ export function HomeView({ snapshot, featured, projectCount }: HomeViewProps) {
 
   return (
     <div className={`${view.row} ${styles.row}`}>
-      <div className={styles.main}>
+      {/* No focusables here on desktop: tabIndex + region let WebKit keyboard users scroll the column (ADR-0007). */}
+      <div className={styles.main} tabIndex={0} role="region" aria-label="Introduction and GitHub activity">
         <section className={styles.hero} aria-labelledby="home-title">
           <span className={view.chip}>{aboutContent.role}</span>
           <h1 id="home-title" className={view.title}>
