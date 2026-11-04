@@ -54,7 +54,11 @@
 }
 
 @media (min-width: 760px) {
+  /* Glass content (backdrop-filter) forms stacking contexts that would paint over the tooltips;
+     positioning the rail above the column keeps them on top (ADR-0007). */
   .nav {
+    position: relative;
+    z-index: 1;
     flex: 1 1 64px;
     align-self: stretch;
     grid-template-columns: repeat(auto-fill, var(--size-nav-item));
