@@ -1,10 +1,12 @@
-/* The grid fits its width (no horizontal scroll). "year" = desktop, "recent" = mobile. */
+/* The grid fits its width (no horizontal scroll), up to a cap so cells stop growing on very wide
+   frames (ADR-0007). "year" = desktop, "recent" = mobile. */
 .figure {
   container-type: inline-size;
   display: flex;
   flex-direction: column;
   gap: 12px;
   min-width: 0;
+  max-inline-size: var(--size-contribution-max);
   margin: 0;
   color: var(--color-content-meta);
   font-family: var(--font-family-mono);
