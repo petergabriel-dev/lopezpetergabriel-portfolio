@@ -123,9 +123,9 @@
   height: 14px;
 }
 
+/* `grid` variant only: tall card for the auto-fit grid. The `row` variant keeps the compact row. */
 @media (min-width: 760px) {
-  /* Desktop: tall card for the auto-fit grid. */
-  .card {
+  .gridCard {
     grid-template-areas:
       "number category"
       "title title"
@@ -141,35 +141,35 @@
     border-radius: var(--radius-card-grid);
   }
 
-  .category {
+  .gridCard .category {
     display: block;
   }
 
-  .kicker,
-  .metaMobile {
+  .gridCard .kicker,
+  .gridCard .metaMobile {
     display: none;
   }
 
-  .metaDesktop,
-  .cardTags {
+  .gridCard .metaDesktop,
+  .gridCard .cardTags {
     display: block;
   }
 
-  .summary {
+  .gridCard .summary {
     display: -webkit-box;
   }
 
-  .cardTags,
-  .ring {
+  .gridCard .cardTags,
+  .gridCard .ring {
     align-self: end;
   }
 
-  .ring {
+  .gridCard .ring {
     width: 34px;
     height: 34px;
   }
 
-  .ring svg {
+  .gridCard .ring svg {
     width: 15px;
     height: 15px;
   }

@@ -2,6 +2,7 @@ import { axe } from "jest-axe";
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
+import { ProjectCard } from "@/components/ProjectCard";
 import { RepoList } from "@/components/RepoList";
 import { ProjectsView } from "@/components/views/ProjectsView";
 import { githubSnapshot } from "@/content/github";
@@ -92,5 +93,22 @@ describe("Projects route view", () => {
     const { container } = renderView();
 
     expect((await axe(container)).violations).toEqual([]);
+  });
+});
+
+describe("ProjectCard row variant", () => {
+  it("renders the compact row as a dialog trigger with its own title id", () => {
+    const project = projects[4];
+    let opened: HTMLButtonElement | null = null;
+    render(<ProjectCard project={project} variant="row" onOpen={(trigger) => (opened = trigger)} />);
+
+    const row = screen.getByRole("button", { name: project.title });
+    expect(row).toHaveAttribute("aria-haspopup", "dialog");
+    expect(row).toHaveAttribute("aria-labelledby", `row-${project.id}-title`);
+    expect(within(row).getByText(`${project.category} · ${project.period}`)).toBeInTheDocument();
+    expect(row.textContent?.slice(0, 2)).toBe("05");
+
+    fireEvent.click(row);
+    expect(opened).toBe(row);
   });
 });

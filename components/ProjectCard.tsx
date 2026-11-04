@@ -8,8 +8,11 @@ import styles from "./ProjectCard.module.css";
 
 type ProjectCardProps = {
   project: Project;
-  /** "grid": Projects page (compact row below 760px). "featured": Home "Selected work". */
-  variant: "grid" | "featured";
+  /**
+   * "grid": Projects page (tall card from 760px, compact row below). "row": "All projects" list, compact
+   * row at every width. "featured": Home "Selected work".
+   */
+  variant: "grid" | "row" | "featured";
   onOpen: (trigger: HTMLButtonElement) => void;
 };
 
@@ -38,8 +41,14 @@ export function ProjectCard({ project, variant, onOpen }: ProjectCardProps) {
   }
 
   return (
-    <button type="button" className={styles.card} aria-haspopup="dialog" aria-labelledby={titleId} onClick={handleClick}>
-      {/* One grid, two layouts: desktop card (>= 760px) and mobile compact row; see the CSS areas. */}
+    <button
+      type="button"
+      className={variant === "grid" ? `${styles.card} ${styles.gridCard}` : styles.card}
+      aria-haspopup="dialog"
+      aria-labelledby={titleId}
+      onClick={handleClick}
+    >
+      {/* One grid, two layouts: compact row by default; gridCard switches to the tall card at >= 760px. */}
       <span className={styles.number} aria-hidden="true">
         {number}
       </span>
