@@ -1,6 +1,6 @@
 # Storm Glass design system
 
-Status: design source of truth for Peter Gabriel Lopez's portfolio (ADR-0006).
+Status: design source of truth for Peter Gabriel Lopez's portfolio (ADR-0006, ADR-0007).
 
 ## Intent
 
@@ -15,6 +15,8 @@ Four sections, each its own route: About (`/`), Projects (`/projects`), Experien
 - **Local only (gitignored, not in the public repo):** `storm-glass-handoff/reference/Peter_Gabriel_Lopez_Master_CV.md`, the owner's master CV and the authoritative content source, and `storm-glass-handoff/reference/inspiration.jpg`, a third-party mood reference. Ask the owner for the CV when content changes.
 
 Open decisions in HANDOFF.md §9 are resolved: dark only, static routes, availability claim kept, Media toolkit card kept, toolkit subtitle removed everywhere.
+
+HANDOFF.md is a historical input. Its scrolling rules ("the page scrolls normally", no nested scroll areas), its 1360 px frame and its on-page project filters are superseded by ADR-0007; the composition rules below win.
 
 ## Files
 
@@ -38,14 +40,20 @@ The backdrop is currently the gradient-and-hatch stand-in from the handoff. A re
 
 ## Composition rules
 
-- **Desktop (≥ 760 px).** A page ground with fluid padding holds one centered frame: max width 1360, radius 36, `min-height: 100dvh` minus page padding, growing with content.
+- **Desktop (≥ 760 px).** The page ground shows a 12 px gutter (`--space-page`) around one frame that fills the rest of the viewport: no maximum width, radius 36, height exactly `100dvh` minus the gutter.
   - The frame contains a glass nav rail (PL logo, four icon links, résumé download) and a main column.
   - The main column has a header ("Portfolio of / Peter Gabriel Lopez", icon links for Résumé, GitHub and Email, and the avatar) above a content row.
   - The content row is a section (`flex: 999 1 520px`) and an aside (`flex: 1 1 300px`) that wrap intrinsically.
-- **Mobile (< 760 px).** A header row (PL mark, name, avatar) sits above a four-up labeled glass nav bar, with content stacked in one column at 20 px gaps. The mobile header has no action links.
+- **Mobile (< 760 px).** A full-bleed frame, exactly `100dvh` tall. A header row (PL mark, name, avatar) sits above a four-up labeled glass nav bar; both stay at the top. Content stacks in one column at 20 px gaps below them. The mobile header has no action links.
 - **Mobile reorder.** Where mobile order differs from desktop (Home: hero → CTAs → time card → grid → selected work; Experience: hero → highlights → timeline → toolkit → résumé), the column wrappers are plain `div`s set to `display: contents`, and `order` moves only non-focusable blocks, so focus order is unchanged.
 - **Inside sections.** Card grids use `repeat(auto-fit, minmax(min(<n>, 100%), 1fr))`; there are no other width media queries.
-- **Scrolling.** The page scrolls normally. There are no nested scroll areas and no horizontal overflow. The contribution grid fits its width. The project dialog on mobile is the only element with its own scroll.
+- **Scrolling (ADR-0007).** The document never scrolls, at any size. Header and nav stay pinned, and content scrolls inside the frame:
+  - While the section and aside are stacked (content width below 848 px: phones and roughly 760–1024 px viewports), `main#content` is the only scroller.
+  - Once they sit side by side (content width 848 px or more), each column scrolls on its own and `main#content` no longer overflows.
+  - Content is never scaled or hidden by viewport height; a column that doesn't fit scrolls.
+  - Dialog panels keep their own scroll. There are no other scrollers and no horizontal overflow. The contribution grid fits its width up to `--size-contribution-max`.
+  - Every scroller has `overscroll-behavior: contain`, a thin `--color-scrollbar-thumb` scrollbar, and `--space-scroll-inset` padding so focus rings are never clipped.
+- **Using the height.** On Home and Contact, columns stretch to the frame height: the hero stays at the top, and the contribution grid (Home) or topic cards (Contact) sit at the bottom.
 - **Not allowed.** No fake form, fabricated screenshot or metric, particle effect, or scroll-triggered choreography.
 
 ## Motion contract (frozen)
@@ -58,15 +66,17 @@ The backdrop is currently the gradient-and-hatch stand-in from the handoff. A re
 | Cards, nav items, pills, links | hover, only under `(hover: hover) and (pointer: fine)` | fill/border step, no lift or scale | `--motion-duration-hover` 150 ms, `--motion-ease-hover` ease |
 | Nav, filters, clock, grid | — | none | — |
 
-`prefers-reduced-motion: reduce` removes all transitions and animations. Browsers without `@starting-style` open the dialog without animation.
+The dialog rows apply to both dialogs: the project dialog and the "All projects" list. `prefers-reduced-motion: reduce` removes all transitions and animations. Browsers without `@starting-style` open the dialog without animation.
 
 ## Interaction and accessibility
 
-- Navigation uses real links with `aria-current="page"` on the current route. On desktop, rail labels are visually hidden text that also shows as a tooltip on hover and focus.
-- A "Skip to content" link targets `main#content`.
+- Navigation uses real links with `aria-current="page"` on the current route. On desktop, rail labels are visually hidden text that also shows as a tooltip on hover and focus. The rail stacks above column content, so tooltips are never covered.
+- A "Skip to content" link targets and focuses `main#content`.
 - Every `:focus-visible` shows `2px solid` accent with a `3px` offset. Targets are at least 44 × 44 px (nav items 48 desktop, 56 mobile).
-- The project dialog is a native `<dialog>` opened with `showModal()` and labelled by its title. The close button is focused on open. Escape, ✕ and a backdrop click close it, and focus returns to the opening card. Previous/Next wrap (all 11 on Projects, the 3 featured on Home).
-- Filters are a `role="group"` of buttons with `aria-pressed` and counts. Filtering keeps each card's original number.
+- The project dialog is a native `<dialog>` opened with `showModal()` and labelled by its title. The close button is focused on open. Escape, ✕ and a backdrop click close it, and focus returns to the opening card or list row. Previous/Next wrap (all 11 on Projects, the 3 featured on Home).
+- On Projects, a "More projects" button opens the "All projects" list, a native `<dialog>` with the same open, close and focus-return rules. Tapping a row opens the project dialog stacked above the list; Escape closes the topmost dialog first.
+- Filters live inside the "All projects" list: a `role="group"` of buttons with `aria-pressed` and counts. Filtering keeps each project's original number.
+- Every scroller can be scrolled from the keyboard in Chromium, Firefox and WebKit.
 - Contribution cells, month and day labels, and legend swatches are `aria-hidden`; totals live in a visible `figcaption`. Cells keep `title` tooltips.
 - The clock renders `--:--` on the server, sets the real time after mount, and has no live region.
 - Text contrast is at least 4.5:1, or 3:1 for large text, against the composite backdrop + scrim + glass. Final measured values go in the contrast table below.

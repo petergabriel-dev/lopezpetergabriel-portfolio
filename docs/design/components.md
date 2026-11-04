@@ -7,15 +7,21 @@ All components consume semantic tokens from `app/tokens.css`. These are role con
 **Anatomy:** skip link → `SectionNav` → column with `header` and `main#content`. The frame paints the backdrop plus scrim.
 
 **Desktop:**
-- Frame is a grid of a 64 px rail and the main column, gap `--space-section`; max width `--size-frame-max`; radius `--radius-frame`; `overflow: clip`; `--shadow-frame`.
+- Frame is a 64 px rail beside the main column, gap `--space-section`. It fills the viewport minus the `--space-page` gutter (no maximum width) and is exactly `100dvh` minus the gutter tall. Radius `--radius-frame`; `overflow: clip`; `--shadow-frame`.
 - Header shows "Portfolio of" (mono caption) over the name (semibold `p`).
 - Header actions are 46 px glass icon links (`--glass-icon-*`, `--blur-icon`): Résumé (`/resume.pdf`, `download`), GitHub (`rel="noopener noreferrer"`), Email (`mailto:`). The 52 px avatar has a 2 px light ring.
 
-**Mobile:** grid areas place the header (decorative PL mark, name, 44 px avatar; no focusables) above the nav bar. Content stacks at 20 px gaps.
+**Mobile:** grid areas place the header (decorative PL mark, name, 44 px avatar; no focusables) above the nav bar, and both stay pinned at the top. Content stacks at 20 px gaps below them.
+
+**Scrolling (ADR-0007):**
+- `html` has `overflow: hidden` and `overscroll-behavior: none`; the document never scrolls.
+- `main#content` is the base scroller (`overflow-y: auto`, `overscroll-behavior: contain`, thin `--color-scrollbar-thumb` scrollbar) and an inline-size container named `content`.
+- `--space-scroll-inset` padding, offset by an equal negative margin, keeps focus rings inside the scroller.
+- The view row decides whether `main#content` or the two columns scroll (see Views).
 
 **Accessibility:**
 - One `header`, one `nav`, one `main`.
-- "Skip to content" is visible on focus.
+- "Skip to content" is visible on focus and moves focus to `main#content` (`tabindex="-1"`), so the content can then be scrolled from the keyboard.
 - Icon links are named "Download résumé (PDF)", "GitHub profile" and "Email Peter".
 - Avatar alt is "Peter Gabriel Lopez".
 
@@ -26,7 +32,7 @@ All components consume semantic tokens from `app/tokens.css`. These are role con
 **Anatomy:** `nav aria-label="Sections"` with links About `/`, Projects `/projects`, Experience `/experience`, Contact `/contact`.
 
 **Variants:**
-- Desktop rail: PL logo link, four 48 × 48 icon items (`--radius-nav-item`), and a bordered résumé download at the bottom. Labels are visually hidden and show as a tooltip on hover and focus-visible; no `title` attribute.
+- Desktop rail: PL logo link, four 48 × 48 icon items (`--radius-nav-item`), and a bordered résumé download at the bottom. Labels are visually hidden and show as a tooltip on hover and focus-visible; no `title` attribute. The rail stacks above column content, so glass chips and cards never cover a tooltip.
 - Mobile bar: four columns of 56 px items, icon over an 11 px label. Logo and résumé items are hidden.
 
 **States:**
@@ -76,7 +82,7 @@ Named exports live in `components/icons.tsx`. Each is a 24 × 24 viewBox, `strok
   - last 26 weeks, 2 px gap, no day labels;
   - caption "GitHub contributions · last 26 weeks" and "{n} since {date} · {total} in the past year".
 
-**Layout:** Home renders both variants, one hidden per breakpoint. Cells use `grid-auto-flow: column`, 7 rows, `minmax(0, 1fr)` columns and `aspect-ratio: 1`, so the grid fits its width with no scroll.
+**Layout:** Home renders both variants, one hidden per breakpoint. Cells use `grid-auto-flow: column`, 7 rows, `minmax(0, 1fr)` columns and `aspect-ratio: 1`, so the grid fits its width with no scroll. The figure is capped at `--size-contribution-max`, so cells stop growing on very wide screens; the grid stays left-aligned.
 
 **States:**
 - default;
@@ -95,7 +101,10 @@ Named exports live in `components/icons.tsx`. Each is a 24 × 24 viewBox, `strok
 **Variants:**
 - `grid` (≥ 760 px): number and category pill, title, "orgShort · period", summary clamped to 3 lines, first three tags, expand icon, min height `--size-card-min`.
 - Below 760 px the `grid` variant renders as a compact row: number, "category · period", title and orgShort (same DOM, CSS grid areas).
+- `row` ("All projects" list): the same compact row at every width, full width of the list, at least 44 px tall.
 - `featured` (Home sidebar): number, title, orgShort, expand icon.
+
+Title ids are `{variant}-{id}-title`, so a page card and a list row for the same project never share an id.
 
 **States:**
 - default;
@@ -124,13 +133,14 @@ A non-interactive `li` inside a `ul`, used for the dialog's tech tags. Glass chi
 
 **Behavior:**
 - Open focuses close.
-- Escape (`cancel`), ✕ and a backdrop click (`event.target === dialog`) close it, and focus returns to the trigger.
-- Previous/Next wrap: all 11 on Projects, the 3 featured on Home.
+- Escape (`cancel`), ✕ and a backdrop click (`event.target === dialog`) close it, and focus returns to the trigger (a page card, a list row, or a Home featured card).
+- Previous/Next wrap: all 11 on Projects (including when opened from the list), the 3 featured on Home.
+- On Projects it can open stacked above the "All projects" list. As the topmost modal it holds focus; closing it leaves the list open.
 
 **Layout:**
 - desktop: centered panel;
 - mobile: fixed and centered, `width: calc(100% - 20px)`, `max-height: calc(100dvh - 32px)`, its own scroll with `overscroll-behavior: contain`, full-width Previous/Next.
-- `html:has(dialog[open])` stops page scroll.
+- The permanent `html` overflow lock (AppShell) means no separate page-scroll lock is needed while a dialog is open.
 
 **Tokens:** `--glass-overlay-fill`, `--blur-overlay`, `--glass-modal-fill`, `--glass-modal-border`, `--blur-modal`, `--radius-modal` (28 → 32), `--shadow-modal`, `--font-size-modal-title`, `--color-content-bullet`, `--color-accent`.
 
@@ -138,19 +148,29 @@ A non-interactive `li` inside a `ul`, used for the dialog's tech tags. Glass chi
 
 ## ProjectGrid (client)
 
-**Anatomy:** `div role="group" aria-label="Filter projects"` of filter buttons, then cards.
+**Anatomy (page):** the featured projects as `grid` cards (the same three as Home "Selected work"), then a "More projects" pill button with the count of remaining projects ("More projects 8"). The button is hidden when no other projects exist. One `ProjectDialog` instance serves page cards and list rows.
+
+**"More projects" button:** `aria-haspopup="dialog"`; accessible name "More projects {n}" (a literal space separates the spans). Pill tokens as the filters (off state), min height 44.
+
+**"All projects" list dialog:**
+- native `<dialog>` opened with `showModal()`, `aria-labelledby` its `h2` "All projects" (id `project-list-title`) with the total count;
+- top row: title, count, 44 px close button (`aria-label="Close"`), focused on open;
+- `div role="group" aria-label="Filter projects"` of filter buttons, then a `ul` of every matching project as `row` cards;
+- Escape, ✕ and a backdrop click close it, and focus returns to the "More projects" button;
+- a row opens `ProjectDialog` stacked above the list; closing it returns focus to that row, with the list and filter unchanged;
+- layout and entry motion match `ProjectDialog` (same dialog, panel, backdrop and close styles); the panel scrolls on its own with `overscroll-behavior: contain`.
 
 **Filters:** `aria-pressed`, names with counts from data ("All 11", "Work 7", "Independent 2", "Academic 2"), min height 44.
 
 **States:**
 - off: `--glass-pill-fill` / `--glass-pill-border`;
 - on: `--glass-pill-on-fill` with `--color-content-on-light`;
-- hover and focus-visible;
+- hover (pointer-gated) and focus-visible;
 - empty: "No projects in this category".
 
-**Rules:** filtering keeps original numbers. The dialog cycles all projects, and the trigger is stored for focus return.
+**Rules:** numbers are the original ones everywhere. The project dialog cycles all projects, and each trigger is stored for focus return.
 
-**Motion:** none on filtering.
+**Motion:** dialog entry per the motion contract; none on filtering.
 
 ## FeaturedProjects (client)
 
@@ -214,4 +234,6 @@ Desktop aside card: degree, school, years, and an `ul aria-label="Honors"` of ou
 
 ## Views (server)
 
-`HomeView`, `ProjectsView`, `ExperienceView` and `ContactView` compose each route as section + aside, with exactly one `h1` and no `form`. Column wrappers are plain `div`s so the mobile `display: contents` reorder keeps semantics. Hero chips use `--glass-chip-*` / `--blur-chip`; titles use `--font-size-title` (44 mobile → `clamp(44px, 5.4vw, 76px)`) with `--tracking-title`. CTA pills are 52 px (`--size-cta`): "Email Peter" uses light `--glass-pill-on-fill` and the résumé uses glass `--glass-pill-fill`.
+`HomeView`, `ProjectsView`, `ExperienceView` and `ContactView` compose each route as section + aside, with exactly one `h1` and no `form`. Column wrappers are plain `div`s so the mobile `display: contents` reorder keeps semantics.
+
+**Column scrolling (ADR-0007):** the shared view row uses `@container content (min-width: 848px)`, where 848 = section basis 520 + aside basis 300 + gap 28. At that width the row stops wrapping and fills `main#content`'s height. Each of its two columns then scrolls on its own (`overflow-y: auto`, `overscroll-behavior: contain`, thin scrollbar, `--space-scroll-inset`). Below it, the columns stack and `main#content` scrolls. If the column bases or gap change, change the threshold with them. Hero chips use `--glass-chip-*` / `--blur-chip`; titles use `--font-size-title` (44 mobile → `clamp(44px, 5.4vw, 76px)`) with `--tracking-title`. CTA pills are 52 px (`--size-cta`): "Email Peter" uses light `--glass-pill-on-fill` and the résumé uses glass `--glass-pill-fill`.
