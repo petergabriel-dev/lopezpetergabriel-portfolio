@@ -56,7 +56,8 @@ export function AppShell({ children }: { children: ReactNode }) {
               className={styles.avatar}
             />
           </header>
-          <main id="content" className={styles.main}>
+          {/* tabIndex -1: the skip link focuses the scroller, so keyboard scrolling works in every engine. */}
+          <main id="content" className={styles.main} tabIndex={-1}>
             {children}
           </main>
         </div>

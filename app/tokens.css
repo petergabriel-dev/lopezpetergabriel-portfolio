@@ -211,7 +211,6 @@
   --size-cta: 52px;
   --size-ring: 38px;
   --size-logo: 44px;
-  --size-frame-max: 1360px;
   --size-card-min: 250px;
   /* ~18px contribution cells at 53 weeks; stops the grid growing on very wide frames. */
   --size-contribution-max: 1140px;

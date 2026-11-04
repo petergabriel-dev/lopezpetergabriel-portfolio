@@ -11,13 +11,16 @@
   display: none !important;
 }
 
+/* The document never scrolls (ADR-0007): the shell is exactly 100dvh and content scrolls inside it.
+   Hidden overflow here would mask a layout bug as clipping, so QA checks scrollHeight === innerHeight. */
 html {
+  overflow: hidden;
   background-color: var(--color-ground);
 }
 
-/* The project dialog owns scrolling while it is open. */
-html:has(dialog[open]) {
-  overflow: hidden;
+html,
+body {
+  overscroll-behavior: none;
 }
 
 body {

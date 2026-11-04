@@ -1,8 +1,9 @@
 /* Mobile-first. Mobile: full-bleed frame, header above the nav bar (no focusables in the header,
-   so visual order matches focus order). Desktop (>= 760px): rounded frame, rail + main column. */
+   so visual order matches focus order). Desktop (>= 760px): rounded frame, rail + main column.
+   The shell is locked to the viewport (ADR-0007): header and nav stay put, main#content scrolls. */
 .page {
   display: flex;
-  min-height: 100dvh;
+  height: 100dvh;
   padding: var(--space-page);
 }
 
@@ -36,13 +37,11 @@
     "nav"
     "main";
   grid-template-columns: minmax(0, 1fr);
-  align-content: start;
+  grid-template-rows: auto auto minmax(0, 1fr);
   gap: var(--space-section);
   flex: 1;
   width: 100%;
-  max-width: var(--size-frame-max);
-  min-height: calc(100dvh - 2 * var(--space-page));
-  margin: 0 auto;
+  min-height: 0;
   padding: var(--space-frame);
   overflow: clip;
   border-radius: var(--radius-frame);
@@ -133,17 +132,34 @@
   object-fit: cover;
 }
 
+/* The base scroller and the `content` container the views query (ADR-0007). The inset padding,
+   cancelled by an equal negative margin, keeps focus rings of edge content inside the clip. */
 .main {
   grid-area: main;
   min-width: 0;
+  min-height: 0;
+  margin: calc(-1 * var(--space-scroll-inset));
+  padding: var(--space-scroll-inset);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  /* Focus scrolling brings the element, not its outline, into view; leave room for the ring. */
+  scroll-padding-block: var(--space-scroll-inset);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) transparent;
+  container: content / inline-size;
+}
+
+/* Reached through the skip link; an inset ring so the scroller's own edge doesn't clip it. */
+.main:focus-visible {
+  outline-offset: calc(-1 * var(--focus-ring-width));
 }
 
 @media (min-width: 760px) {
+  /* Single-line flex: a wrapping container sizes its line to the tallest item, which would let the
+     column grow past the locked frame instead of scrolling. Rail + column always fit at >= 760px. */
   .frame {
     display: flex;
-    flex-wrap: wrap;
     align-items: stretch;
-    align-content: stretch;
     box-shadow: var(--shadow-frame);
   }
 
@@ -153,6 +169,7 @@
     flex-direction: column;
     gap: var(--space-section);
     min-width: 0;
+    min-height: 0;
     padding: 6px 6px 4px 10px;
   }
 
