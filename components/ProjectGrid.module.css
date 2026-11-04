@@ -27,8 +27,14 @@
   color: var(--color-content-on-light);
 }
 
+/* "More projects": an off-state pill below the featured cards, sized to its label. */
+.more {
+  align-self: flex-start;
+}
+
 @media (hover: hover) and (pointer: fine) {
-  .filter[aria-pressed="false"]:hover {
+  .filter[aria-pressed="false"]:hover,
+  .more:hover {
     background: var(--glass-hover-fill);
   }
 }
@@ -38,13 +44,18 @@
   font-size: var(--font-size-label);
 }
 
-.grid {
+.grid,
+.list {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.list {
+  gap: var(--space-stack);
 }
 
 .item {
@@ -54,6 +65,27 @@
 .empty {
   margin: 0;
   color: var(--color-content-body);
+}
+
+/* "All projects" list dialog: same dialog, panel, backdrop, motion and close button as ProjectDialog. */
+.dialog {
+  composes: dialog from "./ProjectDialog.module.css";
+}
+
+.panel {
+  composes: panel from "./ProjectDialog.module.css";
+}
+
+.top {
+  composes: top from "./ProjectDialog.module.css";
+}
+
+.title {
+  composes: title from "./ProjectDialog.module.css";
+}
+
+.close {
+  composes: close from "./ProjectDialog.module.css";
 }
 
 @media (min-width: 760px) {
