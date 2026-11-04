@@ -8,6 +8,8 @@ readWhen: Change the Storm Glass shell, routes, navigation, theme, breakpoint, f
 
 # ADR-0006: Replace the editor UI with the Storm Glass dashboard
 
+> **Partly superseded by ADR-0007** (2026-11-04). The scrolling clause ("The page scrolls normally…") is replaced: the frame is locked to the viewport and content scrolls inside columns. ADR-0007 also removes the frame's maximum width and moves the Projects filters into an "All projects" dialog. Every other decision here remains active.
+
 ## Decision
 
 - Replace the four-tab code-editor UI with the Storm Glass frosted-glass dashboard specified in `docs/design/storm-glass-handoff/`: a rounded frame over a backdrop plus scrim, a glass nav rail, a header, and section-plus-aside content.
